@@ -298,6 +298,24 @@ cd /var/www/ebz-redesign && git pull
 
 ## Session History
 
+### December 7, 2025 (Session 5)
+- Created portrait video (720x1280) for mobile hero section:
+  - Source photos from `/Users/charles/Downloads/church-photos-to-video/`
+  - Custom focal points for each of 6 images to keep subjects centered in portrait crop
+  - Script: `create_portrait_slideshow.py` in that directory for future regeneration
+  - Final focal points: Pardue Center (0.70), Worship Band (0.22), Glenn & Candi (0.35), Guitar Session (0.75), Pavilion (0.32), Youth Group (0.72)
+- Implemented responsive video swap in hero section:
+  - Desktop/tablet (768px+): landscape video (`hero-slideshow.mp4`)
+  - Mobile (<768px): portrait video (`hero-slideshow-mobile.mp4`)
+  - CSS classes: `.hero-video-desktop`, `.hero-video-mobile`
+- Darkened mobile hero overlay for better text readability:
+  - Desktop: 0.7/0.5/0.8 opacity gradient (unchanged)
+  - Mobile: 0.8/0.6/0.85 opacity gradient (~10% darker)
+- Tightened section spacing site-wide:
+  - Section padding: 8rem → 5rem desktop (80px), 3rem mobile (48px)
+  - Section header margin: 5rem → 3rem (48px)
+  - Reduces "scroll fatigue" while maintaining visual separation
+
 ### December 6, 2025 (Session 4)
 - Fixed Google Maps embed in Plan Your Visit section:
   - Changed from text query to exact coordinates (34.0954361, -84.367749)
