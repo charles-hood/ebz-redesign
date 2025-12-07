@@ -928,6 +928,11 @@ h4 { font-size: 1.25rem; }
         display: none;
     }
 
+    /* Hide Lisa's title on mobile to save space */
+    .contact-title-mobile-hide {
+        display: none;
+    }
+
     .contact-card {
         padding: var(--space-sm);
     }
