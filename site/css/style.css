@@ -947,6 +947,11 @@ h4 { font-size: 1.25rem; }
         display: block;
     }
 
+    /* Hide "Now Open" tagline on mobile */
+    .venue-tagline {
+        display: none;
+    }
+
     .contact-card {
         padding: var(--space-sm);
     }
