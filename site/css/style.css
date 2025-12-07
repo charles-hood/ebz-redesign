@@ -1080,6 +1080,21 @@ h4 { font-size: 1.25rem; }
     max-width: 100%;
 }
 
+/* Fix Juicer modal positioning */
+.juicer-feed .j-modal,
+.juicer-feed .j-overlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+}
+
+.juicer-feed .j-modal .j-modal-content {
+    max-height: 90vh;
+    margin-top: 5vh;
+}
+
 /* Footer */
 .footer {
     background: var(--color-bg-dark);
