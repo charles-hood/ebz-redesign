@@ -313,6 +313,21 @@ h4 { font-size: 1.25rem; }
     object-fit: cover;
 }
 
+/* Desktop video by default, mobile video hidden */
+.hero-video-mobile {
+    display: none;
+}
+
+/* On mobile: show portrait video, hide landscape */
+@media (max-width: 767px) {
+    .hero-video-desktop {
+        display: none;
+    }
+    .hero-video-mobile {
+        display: block;
+    }
+}
+
 .hero-overlay {
     position: absolute;
     inset: 0;
