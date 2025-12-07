@@ -207,9 +207,6 @@ Clicking a staff card opens a modal with their photo, title, bio, and email butt
 
 ## Known Issues / TODO
 
-### Map Embed
-The Google Maps embed in the "Plan Your Visit" section may not be pinpointing the exact location. May need to grab the embed code directly from Google Maps for accurate coordinates.
-
 ### Sermon Thumbnail
 The One Church Software sermon embed uses their default thumbnail. Options to customize:
 1. Change in One Church Software admin (if supported)
@@ -219,7 +216,6 @@ The One Church Software sermon embed uses their default thumbnail. Options to cu
 1. **Ticketing integration** - Pardue Center events will need a ticketing platform (Eventbrite, TicketLeap, or Brown Paper Tickets)
 2. **Dedicated weddings page** - could rank for "wedding venue Milton GA" (currently handled via modal)
 3. **Dual-path landing page** - "What brings you to Ebenezer?" split (deferred for now)
-4. **Facebook content workflow** - getting FB content onto the website
 
 ### SEO Targets Not Yet Addressed
 - Google Business Profile optimization
@@ -239,6 +235,8 @@ The One Church Software sermon embed uses their default thumbnail. Options to cu
 - ✅ Hero video background (looping slideshow from legacy site)
 - ✅ Give section background image
 - ✅ Favicon on all pages
+- ✅ Map embed - fixed with exact coordinates and Google place ID
+- ✅ Facebook content workflow - Juicer.io integration on homepage
 
 ## Church Information
 
@@ -278,7 +276,47 @@ The One Church Software sermon embed uses their default thumbnail. Options to cu
 - `assets/content/site-content.md` - All text content scraped from production site
 - `assets/ASSET-MANIFEST.md` - Inventory of all downloaded assets
 
+## Deployment
+
+**Pilot Domain:** ebenezermilton.org (may not be final domain)
+**Hosting:** Digital Ocean VPS droplet with Caddy
+**Repo:** https://github.com/charles-hood/ebz-redesign
+
+**Caddy config:**
+```
+ebenezermilton.org {
+    root * /var/www/ebz-redesign/site
+    file_server
+    encode gzip
+}
+```
+
+**To deploy updates:**
+```bash
+cd /var/www/ebz-redesign && git pull
+```
+
 ## Session History
+
+### December 6, 2025 (Session 4)
+- Fixed Google Maps embed in Plan Your Visit section:
+  - Changed from text query to exact coordinates (34.0954361, -84.367749)
+  - Used proper Google Maps embed format with place ID
+  - Fixed incorrect zip code (was 30004, corrected to 30075)
+- Changed "Get Directions" button from Apple Maps to Google Maps universal link
+- Added Juicer.io Facebook feed integration:
+  - New "Follow Us on Facebook" section after Give, before footer
+  - Positioned as "bonus content" for engaged scrollers (doesn't interrupt main flow)
+  - JS embed (not iframe) for better responsiveness
+  - Fixed modal positioning via Juicer custom CSS
+  - Decision: No icon next to heading - clean design wins
+- Created GitHub repository:
+  - Repo: https://github.com/charles-hood/ebz-redesign
+  - Only essential files committed (site/, CLAUDE.md, .gitignore)
+  - Working files excluded via .gitignore
+- Updated canonical URLs from ebzchurch.org to ebenezermilton.org for pilot
+- Deployed to Digital Ocean VPS with Caddy
+- Site live at https://ebenezermilton.org
 
 ### December 6, 2025 (Session 3)
 - Added favicon (`logo-header.png`) to all 7 HTML pages
