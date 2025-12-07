@@ -11,3 +11,12 @@ Thumbs.db
 
 # Logs
 *.log
+
+# Working files (not part of site)
+assets/
+assets GOLD COPY/
+*.jpg
+*.png
+!site/**/*.jpg
+!site/**/*.png
+ebenezer_meeting_notes_session.md
