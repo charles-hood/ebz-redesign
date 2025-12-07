@@ -803,6 +803,11 @@ h4 { font-size: 1.25rem; }
     }
 }
 
+/* Modal heading show/hide for responsive */
+.modal-heading-mobile {
+    display: none;
+}
+
 /* Event Modal */
 .modal-event {
     max-width: 650px;
@@ -931,6 +936,15 @@ h4 { font-size: 1.25rem; }
     /* Hide Lisa's title on mobile to save space */
     .contact-title-mobile-hide {
         display: none;
+    }
+
+    /* Swap to shorter heading on mobile */
+    .modal-heading-desktop {
+        display: none;
+    }
+
+    .modal-heading-mobile {
+        display: block;
     }
 
     .contact-card {
