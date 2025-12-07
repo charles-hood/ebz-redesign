@@ -782,10 +782,24 @@ h4 { font-size: 1.25rem; }
     .staff-modal-body {
         flex-direction: column;
         text-align: center;
+        padding: var(--space-md);
     }
 
     .staff-modal-image {
         margin: 0 auto;
+    }
+
+    .staff-modal-image img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .staff-modal-info h2 {
+        font-size: 1.3rem;
+    }
+
+    .staff-modal-bio {
+        font-size: 0.95rem;
     }
 }
 
@@ -869,10 +883,53 @@ h4 { font-size: 1.25rem; }
     font-weight: 500;
 }
 
-@media (max-width: 500px) {
-    .event-modal-images,
+@media (max-width: 600px) {
+    .modal {
+        padding: var(--space-sm);
+        align-items: flex-start;
+    }
+
+    .modal-content {
+        max-height: 90vh;
+        overflow-y: auto;
+        margin: auto;
+    }
+
+    .event-modal-body {
+        padding: var(--space-md);
+    }
+
+    .event-modal-body h2 {
+        font-size: 1.4rem;
+        padding-right: var(--space-lg);
+    }
+
+    /* Show only first image on mobile */
+    .event-modal-images {
+        grid-template-columns: 1fr;
+    }
+
+    .event-modal-images img:last-child {
+        display: none;
+    }
+
+    /* Show only one contact on mobile */
     .contact-cards {
         grid-template-columns: 1fr;
+    }
+
+    /* Event modal: show Robbie (first), hide Lisa (second) */
+    .modal-event:not(.modal-wedding) .contact-card:last-child {
+        display: none;
+    }
+
+    /* Wedding modal: show Lisa (second), hide Robbie (first) */
+    .modal-wedding .contact-card:first-child {
+        display: none;
+    }
+
+    .contact-card {
+        padding: var(--space-sm);
     }
 }
 
