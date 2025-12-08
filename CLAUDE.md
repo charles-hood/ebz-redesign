@@ -298,6 +298,15 @@ cd /var/www/ebz-redesign && git pull
 
 ## Session History
 
+### December 7, 2025 (Session 6)
+- Added Open Graph image meta tag for link previews:
+  - Uses `glenn-contemporary.jpg` (2048x1367) - Glenn preaching with worship band
+  - Platforms will auto-crop to their preferred aspect ratio
+- De-emphasized "Methodist" in public-facing branding (church no longer affiliated with UMC):
+  - Changed `og:title` to "Ebenezer Church | Milton, GA"
+  - Changed `<title>` tag to "Ebenezer Church | Milton, GA | Church & Event Venue"
+  - Kept "Methodist" in `keywords` and `description` meta tags for SEO indexing
+
 ### December 7, 2025 (Session 5)
 - Created portrait video (720x1280) for mobile hero section:
   - Source photos from `/Users/charles/Downloads/church-photos-to-video/`
