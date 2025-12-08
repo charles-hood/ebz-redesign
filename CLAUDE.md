@@ -137,6 +137,24 @@ The calendar has its own view toggle (list/month) so the page design is kept min
 
 Social icons (SVG) are included in the footer of all pages.
 
+### Juicer (Facebook Feed)
+Aggregates Facebook posts into an embedded feed on the homepage. Using **Starter plan** (no branding).
+
+**Feed URL:** https://www.juicer.io/feeds/ebzmethodistchurch
+
+**Implementation (lazy-loaded for performance):**
+```html
+<div class="social-feed">
+    <div class="social-feed-placeholder"><!-- skeleton cards --></div>
+    <ul class="juicer-feed" data-feed-id="ebzmethodistchurch" data-per="6"></ul>
+</div>
+```
+
+- `data-per="6"` limits to 6 posts (default is 15)
+- Script loaded via IntersectionObserver when within 1000px of viewport
+- Skeleton placeholder (3 pulsing cards) shown until content loads
+- MutationObserver hides skeleton when Juicer renders content
+
 ## Key Design Decisions
 
 ### Hero Messaging
@@ -297,6 +315,14 @@ cd /var/www/ebz-redesign && git pull
 ```
 
 ## Session History
+
+### December 8, 2025 (Session 7)
+- Optimized Juicer Facebook feed loading:
+  - Implemented lazy loading with IntersectionObserver (loads when within 1000px of viewport)
+  - Added skeleton placeholder with 3 pulsing gray cards while feed loads
+  - MutationObserver hides skeleton when Juicer content actually renders
+  - Limited feed to 6 posts (`data-per="6"`) instead of default 15 for faster loading
+- Upgraded Juicer to Starter plan (removes "Powered by Juicer" branding, more monthly hits)
 
 ### December 7, 2025 (Session 6)
 - Added Open Graph image meta tag for link previews:
