@@ -298,11 +298,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         juicerObserver.observe(socialFeed);
 
-        // Hide skeleton placeholder when Juicer loads
-        window.addEventListener('juicer:loaded', () => {
-            const placeholder = document.querySelector('.social-feed-placeholder');
-            if (placeholder) placeholder.style.display = 'none';
-        });
+        // Hide skeleton placeholder when Juicer adds content
+        const juicerFeed = document.querySelector('.juicer-feed');
+        const placeholder = document.querySelector('.social-feed-placeholder');
+        if (juicerFeed && placeholder) {
+            const observer = new MutationObserver(() => {
+                if (juicerFeed.children.length > 0) {
+                    placeholder.style.display = 'none';
+                    observer.disconnect();
+                }
+            });
+            observer.observe(juicerFeed, { childList: true });
+        }
     }
 
 });
