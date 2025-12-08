@@ -294,9 +294,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 juicerObserver.disconnect();
             }
         }, {
-            rootMargin: '600px' // Load when within 600px of viewport
+            rootMargin: '1000px' // Load when within 1000px of viewport
         });
         juicerObserver.observe(socialFeed);
+
+        // Hide skeleton placeholder when Juicer loads
+        window.addEventListener('juicer:loaded', () => {
+            const placeholder = document.querySelector('.social-feed-placeholder');
+            if (placeholder) placeholder.style.display = 'none';
+        });
     }
 
 });
