@@ -142,18 +142,19 @@ Aggregates Facebook posts into an embedded feed on the homepage. Using **Starter
 
 **Feed URL:** https://www.juicer.io/feeds/ebzmethodistchurch
 
-**Implementation (lazy-loaded for performance):**
+**Implementation:**
 ```html
-<div class="social-feed">
-    <div class="social-feed-placeholder"><!-- skeleton cards --></div>
-    <ul class="juicer-feed" data-feed-id="ebzmethodistchurch" data-per="6"></ul>
-</div>
+<!-- In <head> -->
+<link href="https://assets.juicer.io/embed.css" media="all" rel="stylesheet">
+
+<!-- In page body -->
+<ul class="juicer-feed" data-feed-id="ebzmethodistchurch" data-per="6"></ul>
+<script src="https://assets.juicer.io/embed.js" type="text/javascript"></script>
 ```
 
 - `data-per="6"` limits to 6 posts (default is 15)
-- Script loaded via IntersectionObserver when within 1000px of viewport
-- Skeleton placeholder (3 pulsing cards) shown until content loads
-- MutationObserver hides skeleton when Juicer renders content
+- CSS loaded explicitly in `<head>` (required for mobile styling)
+- Modal positioning CSS configured in Juicer dashboard (not in local style.css)
 
 ## Key Design Decisions
 
@@ -182,7 +183,7 @@ Watch | About | Connect | Calendar | The Center | [Give] | [Plan a Visit]
 ```
 
 ### Staff Bios
-Staff cards are clickable and open a modal with full bio and email link. Staff data is stored in `main.js` as a JavaScript object for easy updates.
+Staff cards are clickable and open a modal with full bio and email link. Staff data is stored in `main.js` as a JavaScript object for easy updates. Email addresses are set via JavaScript (not in HTML) to reduce scraper harvesting. Note: This can cause issues with browser extensions that intercept `mailto:` links on page load.
 
 ## SEO Implementation
 
@@ -316,12 +317,20 @@ cd /var/www/ebz-redesign && git pull
 
 ## Session History
 
+### December 8, 2025 (Session 8)
+- Reverted Juicer lazy loading optimizations (broke mobile rendering):
+  - Removed IntersectionObserver/MutationObserver approach
+  - Removed skeleton placeholder
+  - Now uses simple direct embed with standard Juicer script
+- Added explicit Juicer CSS link in `<head>` (`assets.juicer.io/embed.css`):
+  - Required for proper card styling on mobile Safari
+  - embed.js dynamic CSS injection was unreliable on mobile
+- Removed duplicate Juicer modal CSS from style.css:
+  - Modal positioning now configured in Juicer dashboard custom CSS
+  - Keeps styling in one place, reduces local code
+
 ### December 8, 2025 (Session 7)
-- Optimized Juicer Facebook feed loading:
-  - Implemented lazy loading with IntersectionObserver (loads when within 1000px of viewport)
-  - Added skeleton placeholder with 3 pulsing gray cards while feed loads
-  - MutationObserver hides skeleton when Juicer content actually renders
-  - Limited feed to 6 posts (`data-per="6"`) instead of default 15 for faster loading
+- Attempted Juicer lazy loading optimizations (later reverted in Session 8)
 - Upgraded Juicer to Starter plan (removes "Powered by Juicer" branding, more monthly hits)
 
 ### December 7, 2025 (Session 6)
