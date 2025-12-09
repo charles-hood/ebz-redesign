@@ -281,35 +281,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Lazy load Juicer social feed with early trigger
-    // Uses rootMargin to start loading before section is visible
-    const socialFeed = document.querySelector('.social-feed');
-    if (socialFeed) {
-        const juicerObserver = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting) {
-                const script = document.createElement('script');
-                script.src = 'https://www.juicer.io/embed/ebzmethodistchurch/embed-code.js';
-                script.defer = true;
-                document.body.appendChild(script);
-                juicerObserver.disconnect();
-            }
-        }, {
-            rootMargin: '1000px' // Load when within 1000px of viewport
-        });
-        juicerObserver.observe(socialFeed);
-
-        // Hide skeleton placeholder when Juicer adds content
-        const juicerFeed = document.querySelector('.juicer-feed');
-        const placeholder = document.querySelector('.social-feed-placeholder');
-        if (juicerFeed && placeholder) {
-            const observer = new MutationObserver(() => {
-                if (juicerFeed.children.length > 0) {
-                    placeholder.style.display = 'none';
-                    observer.disconnect();
-                }
-            });
-            observer.observe(juicerFeed, { childList: true });
-        }
-    }
-
 });
