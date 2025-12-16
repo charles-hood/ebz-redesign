@@ -324,6 +324,16 @@ h4 { font-size: 1.25rem; }
     display: none;
 }
 
+/* Christmas hero - single video for all sizes, festive overlay */
+.hero-bg-christmas + .hero-overlay {
+    background: linear-gradient(
+        to bottom,
+        rgba(26, 54, 93, 0.75) 0%,
+        rgba(26, 54, 93, 0.6) 50%,
+        rgba(26, 54, 93, 0.8) 100%
+    );
+}
+
 /* On mobile: show portrait video, hide landscape, darken overlay */
 @media (max-width: 767px) {
     .hero-video-desktop {
@@ -954,6 +964,82 @@ h4 { font-size: 1.25rem; }
 
     .contact-card {
         padding: var(--space-sm);
+    }
+}
+
+/* Christmas Modal */
+.modal-christmas {
+    max-width: 700px;
+}
+
+.christmas-modal-body {
+    padding: var(--space-md);
+    text-align: center;
+}
+
+.christmas-graphic {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: var(--space-md);
+}
+
+.christmas-tagline {
+    font-size: 1.1rem;
+    color: var(--color-text);
+    margin-bottom: var(--space-md);
+}
+
+.christmas-modal-ctas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-lg);
+    flex-wrap: wrap;
+}
+
+.christmas-modal-ctas .btn {
+    min-width: 180px;
+}
+
+.christmas-rsvp {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.christmas-rsvp a {
+    color: var(--color-text-light);
+    text-decoration: underline;
+}
+
+.christmas-rsvp a:hover {
+    color: var(--color-primary);
+}
+
+/* Christmas Hero Holly */
+.hero-content-christmas {
+    position: relative;
+}
+
+.hero-holly {
+    position: absolute;
+    width: 80px;
+    height: auto;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.9;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+@media (max-width: 600px) {
+    .christmas-modal-body {
+        padding: var(--space-sm);
+    }
+
+    .hero-holly {
+        width: 60px;
+        top: -30px;
     }
 }
 

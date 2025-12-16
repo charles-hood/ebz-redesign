@@ -1,6 +1,48 @@
 // Ebenezer Church - Main JavaScript
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Christmas/Regular mode toggle via URL parameter
+    // Add ?regular to URL to show non-Christmas hero
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('regular')) {
+        // Swap to regular hero content
+        const heroContent = document.querySelector('.hero-content-christmas');
+        if (heroContent) {
+            heroContent.classList.remove('hero-content-christmas');
+            const holly = heroContent.querySelector('.hero-holly');
+            if (holly) holly.style.display = 'none';
+
+            const tagline = heroContent.querySelector('.hero-tagline');
+            const h1 = heroContent.querySelector('h1');
+            const subtitle = heroContent.querySelector('.hero-subtitle');
+            const christmasBtn = heroContent.querySelector('#christmasBtn');
+
+            if (tagline) tagline.textContent = 'Welcome to Ebenezer';
+            if (h1) h1.textContent = 'Grow your faith. Celebrate life.';
+            if (subtitle) subtitle.textContent = 'Sundays at 8:30, 10:00 & 11:15 AM';
+            if (christmasBtn) {
+                const regularBtn = document.createElement('a');
+                regularBtn.href = '#visit';
+                regularBtn.className = 'btn btn-primary btn-lg';
+                regularBtn.textContent = 'Plan Your Visit';
+                christmasBtn.replaceWith(regularBtn);
+            }
+        }
+        // Swap video back to regular
+        const heroBg = document.querySelector('.hero-bg-christmas');
+        if (heroBg) {
+            heroBg.classList.remove('hero-bg-christmas');
+            heroBg.innerHTML = `
+                <video class="hero-video-desktop" autoplay loop muted playsinline poster="images/church-hero.jpg">
+                    <source src="images/hero-slideshow.mp4" type="video/mp4">
+                </video>
+                <video class="hero-video-mobile" autoplay loop muted playsinline poster="images/church-hero.jpg">
+                    <source src="images/hero-slideshow-mobile.mp4" type="video/mp4">
+                </video>
+            `;
+        }
+    }
+
     // Mobile Navigation Toggle
     const navToggle = document.querySelector('.nav-toggle');
     const navLinks = document.querySelector('.nav-links');
@@ -277,6 +319,40 @@ document.addEventListener('DOMContentLoaded', () => {
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && weddingModal.classList.contains('active')) {
                 closeWeddingModal();
+            }
+        });
+    }
+
+    // Christmas Eve Modal
+    const christmasModal = document.getElementById('christmasModal');
+    const christmasBtn = document.getElementById('christmasBtn');
+
+    if (christmasModal && christmasBtn) {
+        const modalClose = christmasModal.querySelector('.modal-close');
+
+        const openChristmasModal = () => {
+            christmasModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        };
+
+        const closeChristmasModal = () => {
+            christmasModal.classList.remove('active');
+            document.body.style.overflow = '';
+        };
+
+        christmasBtn.addEventListener('click', openChristmasModal);
+
+        modalClose.addEventListener('click', closeChristmasModal);
+
+        christmasModal.addEventListener('click', (e) => {
+            if (e.target === christmasModal) {
+                closeChristmasModal();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && christmasModal.classList.contains('active')) {
+                closeChristmasModal();
             }
         });
     }

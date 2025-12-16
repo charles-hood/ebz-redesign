@@ -50,22 +50,20 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-bg">
-            <video class="hero-video-desktop" autoplay loop muted playsinline poster="images/church-hero.jpg">
-                <source src="images/hero-slideshow.mp4" type="video/mp4">
-            </video>
-            <video class="hero-video-mobile" autoplay loop muted playsinline poster="images/church-hero.jpg">
-                <source src="images/hero-slideshow-mobile.mp4" type="video/mp4">
+        <div class="hero-bg hero-bg-christmas">
+            <video class="hero-video" autoplay loop muted playsinline>
+                <source src="images/snow-background.mp4" type="video/mp4">
             </video>
         </div>
         <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <p class="hero-tagline">Welcome to Ebenezer</p>
-            <h1>Grow your faith. Celebrate life.</h1>
-            <p class="hero-subtitle">Sundays at 8:30, 10:00 & 11:15 AM</p>
+        <div class="hero-content hero-content-christmas">
+            <img src="images/holly.png" alt="" class="hero-holly" aria-hidden="true">
+            <p class="hero-tagline">Christmas Eve at Ebenezer</p>
+            <h1>Candlelight Services</h1>
+            <p class="hero-subtitle">December 24</p>
             <div class="hero-ctas">
-                <a href="#visit" class="btn btn-primary btn-lg">Plan Your Visit</a>
-                <a href="#watch" class="btn btn-outline-light btn-lg">Watch Online</a>
+                <button id="christmasBtn" class="btn btn-primary btn-lg">See Service Times</button>
+                <a href="#visit" class="btn btn-outline-light btn-lg">Plan Your Visit</a>
             </div>
         </div>
         <div class="hero-scroll">
@@ -313,6 +311,21 @@
                         </div>
                     </div>
                     <p class="contact-phone">Or call us: <a href="tel:770-640-7287">770-640-7287</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Christmas Eve Modal -->
+    <div id="christmasModal" class="modal">
+        <div class="modal-content modal-christmas">
+            <button class="modal-close" aria-label="Close">&times;</button>
+            <div class="christmas-modal-body">
+                <img src="images/christmas-eve-graphic.jpg" alt="Christmas Eve Candlelight Services - 5pm Little White Church, 6pm Reception in Pavilion, 7pm Pardue Center" class="christmas-graphic">
+                <p class="christmas-tagline">Join us for a beautiful evening of carols, candlelight, and celebration.</p>
+                <div class="christmas-modal-ctas">
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=34.0954361,-84.367749&destination_place_id=ChIJC2xzL4cE9YgRLmObbdehmAQ" target="_blank" rel="noopener" class="btn btn-primary">Get Directions</a>
+                    <p class="christmas-rsvp"><a href="https://www.facebook.com/events/872753225205874/" target="_blank" rel="noopener">RSVP on Facebook</a></p>
                 </div>
             </div>
         </div>
