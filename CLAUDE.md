@@ -317,6 +317,50 @@ cd /var/www/ebz-redesign && git pull
 
 ## Session History
 
+### December 15, 2025 (Session 10) - Christmas Hero Implementation
+Successfully implemented Christmas Eve hero takeover after learning from Session 9's failure.
+
+**Approach (learned from researching megachurch sites):**
+- Life.Church, Woodstock City, Austin Stone all do "Christmas as hero" - the seasonal content IS the hero, not a separate announcement bar
+- Avoids the fixed-position/mobile rendering issues that killed Session 9
+- Hero is already responsive, so Christmas content inherits that
+
+**What was built:**
+- Snow video background (`snow-background.mp4`) replaces regular hero slideshow
+- Hero text: "Christmas Eve at Ebenezer" / "Candlelight Services" / "December 24"
+- Single CTA button: "See Service Times" opens Christmas modal
+- Small holly accent above hero text (with aggressive mobile size constraints)
+- Christmas modal displays the church's existing graphic (`christmas-eve-graphic.jpg`) edge-to-edge
+- Modal includes "Get Directions" button + subtle "RSVP on Facebook" text link
+- Tagline in modal: "Join us for a beautiful evening of carols, candlelight, and celebration."
+
+**Christmas Eve Service Times (from graphic):**
+- 5:00 PM - Little White Church (Traditional)
+- 6:00 PM - The Pavilion (Reception & Fellowship)
+- 7:00 PM - The Pardue Center (Contemporary)
+
+**Quick toggle for demos:**
+- Add `?regular` to URL to show non-Christmas hero
+- JavaScript swaps video, text, and buttons back to normal
+- Useful for demoing the "regular" site during Christmas season
+
+**Mobile fixes applied:**
+- Holly image: aggressive `!important` constraints (50px max on mobile) to prevent explosion
+- Modal button: added `touchend` event listener alongside `click` for better mobile response
+- Modal graphic: edge-to-edge (no padding) for more prominent display
+
+**To revert after Christmas (December 26):**
+1. In `index.html`, restore hero section from git history: `git show a543722:site/index.html`
+2. Or manually change hero-bg back to regular videos, restore original text/buttons
+3. CSS and JS can stay - they won't affect anything without the Christmas classes
+
+**Assets added:**
+- `site/images/snow-background.mp4` - Pixabay snow video
+- `site/images/christmas-eve-graphic.jpg` - Church's existing Canva graphic
+- `site/images/holly.png` - Holly accent (was already in repo from Session 9)
+
+**Facebook Event:** https://www.facebook.com/events/872753225205874/
+
 ### December 15, 2025 (Session 9) - REVERTED
 Attempted announcement bar for Christmas Eve services - **reverted due to poor mobile rendering**.
 
