@@ -75,6 +75,9 @@ ebzrefesh/
 │       ├── beat-the-drum-video.jpg  # YouTube thumbnail (card image)
 │       ├── beliefs-hero.png  # Beliefs page image
 │       ├── give-qr.png       # QR code for giving
+│       ├── holly-leaves.png  # Holly clipart for festive announcement bar
+│       ├── christmas-eve.jpg # Christmas Eve services graphic (modal)
+│       ├── christmas-tree.png # Christmas tree asset (unused, kept for reference)
 │       └── staff/            # Staff headshots
 └── ebenezer_meeting_notes_session.md  # Context from design meeting
 ```
@@ -316,6 +319,20 @@ cd /var/www/ebz-redesign && git pull
 ```
 
 ## Session History
+
+### December 15, 2025 (Session 9)
+- Added **Announcement Bar** for time-sensitive events (Christmas Eve services):
+  - Fixed position above header, shifts header/hero down when present
+  - No dismiss button (persistent) - important announcements should stay visible
+  - Festive variant with green-to-navy gradient and holly leaf decorations
+  - Opens modal with event details on click
+- Created **Christmas Eve Modal**:
+  - Displays `christmas-eve.jpg` graphic with service times (5pm Little White Church, 7pm Pardue Center, 6pm reception)
+  - Two CTAs: "Get Directions" (Google Maps) and "RSVP on Facebook" (event page)
+  - Navy gradient footer with gold accent button
+- **To remove after Dec 25**: Delete the `<div class="announcement-bar festive">...</div>` block from index.html
+- Bug fix: `.nav-links` had `border-top` in mobile styles that wasn't reset on desktop, causing a mystery line below the announcement bar
+- Downloaded assets from legacy site: `holly-leaves.png`, `christmas-eve.jpg`, `christmas-tree.png`
 
 ### December 8, 2025 (Session 8)
 - Reverted Juicer lazy loading optimizations (broke mobile rendering):
