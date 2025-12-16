@@ -972,15 +972,19 @@ h4 { font-size: 1.25rem; }
     max-width: 700px;
 }
 
+.modal-christmas .modal-content {
+    overflow: hidden;
+}
+
 .christmas-modal-body {
-    padding: var(--space-md);
+    padding: 0;
     text-align: center;
 }
 
 .christmas-graphic {
     width: 100%;
     height: auto;
-    border-radius: 8px;
+    display: block;
     margin-bottom: var(--space-md);
 }
 
@@ -988,6 +992,7 @@ h4 { font-size: 1.25rem; }
     font-size: 1.1rem;
     color: var(--color-text);
     margin-bottom: var(--space-md);
+    padding: 0 var(--space-md);
 }
 
 .christmas-modal-ctas {
@@ -996,6 +1001,7 @@ h4 { font-size: 1.25rem; }
     justify-content: center;
     gap: var(--space-lg);
     flex-wrap: wrap;
+    padding: 0 var(--space-md) var(--space-lg);
 }
 
 .christmas-modal-ctas .btn {
@@ -1035,10 +1041,6 @@ h4 { font-size: 1.25rem; }
 }
 
 @media (max-width: 600px) {
-    .christmas-modal-body {
-        padding: var(--space-sm);
-    }
-
     .hero-holly {
         width: 50px !important;
         max-width: 50px !important;
