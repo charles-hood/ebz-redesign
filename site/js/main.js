@@ -21,11 +21,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (h1) h1.textContent = 'Grow your faith. Celebrate life.';
             if (subtitle) subtitle.textContent = 'Sundays at 8:30, 10:00 & 11:15 AM';
             if (christmasBtn) {
-                const regularBtn = document.createElement('a');
-                regularBtn.href = '#visit';
-                regularBtn.className = 'btn btn-primary btn-lg';
-                regularBtn.textContent = 'Plan Your Visit';
-                christmasBtn.replaceWith(regularBtn);
+                const heroCtas = christmasBtn.parentElement;
+                heroCtas.innerHTML = `
+                    <a href="#visit" class="btn btn-primary btn-lg">Plan Your Visit</a>
+                    <a href="#watch" class="btn btn-outline-light btn-lg">Watch Online</a>
+                `;
             }
         }
         // Swap video back to regular
