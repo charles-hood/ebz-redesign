@@ -317,6 +317,31 @@ cd /var/www/ebz-redesign && git pull
 
 ## Session History
 
+### December 15, 2025 (Session 9) - REVERTED
+Attempted announcement bar for Christmas Eve services - **reverted due to poor mobile rendering**.
+
+**What was built (for future reference if revisiting):**
+- Announcement bar fixed above header, shifts header/hero down via `body:has(.announcement-bar)`
+- Festive variant: green-to-navy gradient with holly leaf images on both sides
+- Christmas modal with service graphic, "Get Directions" + "RSVP on Facebook" CTAs
+- No dismiss button (persistent) - reasoning: important announcements shouldn't be dismissable
+
+**Why it failed on mobile:**
+- Holly images exploded to full size despite CSS constraints
+- Even with `max-height`/`max-width`, mobile rendering was poor
+- Stacked layout on mobile looked cramped and unprofessional
+
+**Bug discovered (also reverted, re-apply if needed):**
+- `.nav-links` has `border-top: 1px solid var(--color-border)` in mobile styles that isn't reset on desktop
+- Causes a mystery line below any element positioned above the header
+- Fix: add `border: none;` to the desktop `.nav-links` media query (min-width: 768px)
+
+**If revisiting:**
+- Consider text-only announcement bar on mobile (no images)
+- Or use SVG icons instead of PNG images for better scaling
+- Test mobile FIRST before building out desktop features
+- Assets saved locally: `christmas-eve.jpg`, `holly-leaves.png` from legacy site
+
 ### December 8, 2025 (Session 8)
 - Reverted Juicer lazy loading optimizations (broke mobile rendering):
   - Removed IntersectionObserver/MutationObserver approach
