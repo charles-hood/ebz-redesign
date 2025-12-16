@@ -281,41 +281,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Christmas Modal
-    const christmasModal = document.getElementById('christmasModal');
-    const christmasLinks = document.querySelectorAll('[data-modal="christmas"]');
-
-    if (christmasModal && christmasLinks.length > 0) {
-        const modalClose = christmasModal.querySelector('.modal-close');
-
-        const openChristmasModal = (e) => {
-            e.preventDefault();
-            christmasModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        };
-
-        const closeChristmasModal = () => {
-            christmasModal.classList.remove('active');
-            document.body.style.overflow = '';
-        };
-
-        christmasLinks.forEach(link => {
-            link.addEventListener('click', openChristmasModal);
-        });
-
-        modalClose.addEventListener('click', closeChristmasModal);
-
-        christmasModal.addEventListener('click', (e) => {
-            if (e.target === christmasModal) {
-                closeChristmasModal();
-            }
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && christmasModal.classList.contains('active')) {
-                closeChristmasModal();
-            }
-        });
-    }
-
 });
