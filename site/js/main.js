@@ -327,10 +327,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const christmasModal = document.getElementById('christmasModal');
     const christmasBtn = document.getElementById('christmasBtn');
 
-    if (christmasModal && christmasBtn) {
+    if (christmasModal) {
         const modalClose = christmasModal.querySelector('.modal-close');
 
-        const openChristmasModal = () => {
+        const openChristmasModal = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
             christmasModal.classList.add('active');
             document.body.style.overflow = 'hidden';
         };
@@ -340,9 +342,16 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.style.overflow = '';
         };
 
-        christmasBtn.addEventListener('click', openChristmasModal);
+        // Bind button click
+        if (christmasBtn) {
+            christmasBtn.addEventListener('click', openChristmasModal);
+            christmasBtn.addEventListener('touchend', openChristmasModal);
+        }
 
-        modalClose.addEventListener('click', closeChristmasModal);
+        // Close handlers
+        if (modalClose) {
+            modalClose.addEventListener('click', closeChristmasModal);
+        }
 
         christmasModal.addEventListener('click', (e) => {
             if (e.target === christmasModal) {
