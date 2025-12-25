@@ -317,6 +317,33 @@ cd /var/www/ebz-redesign && git pull
 
 ## Session History
 
+### December 25, 2025 (Session 11) - Christmas Day Hero Update
+Updated hero for Christmas Day with "Merry Christmas" video overlay on snow background.
+
+**What was built:**
+- Removed audio from `ebz-merry-xmas.mp4` using ffmpeg (`-an` flag)
+- Snow video (`snow-background.mp4`) remains as full-screen hero background
+- Replaced Christmas Eve text/button with looping "Merry Christmas from Ebenezer Church" video
+- Video displays at native size (688x464), centered, with rounded corners and shadow
+- CSS class: `.christmas-video-overlay`
+
+**To revert to Christmas Eve hero (Session 10):**
+```bash
+git checkout d909b3c -- site/index.html site/css/style.css
+```
+This restores the "Christmas Eve at Ebenezer / Candlelight Services" text with "See Service Times" button.
+
+**To revert to regular (non-Christmas) hero:**
+```bash
+git checkout a543722 -- site/index.html site/css/style.css
+```
+This restores the regular hero slideshow video with "Grow your faith. Celebrate life." text.
+
+**Note:** The `?regular` toggle from Session 10 no longer works since the hero content was replaced with the video overlay.
+
+**Assets:**
+- `site/images/ebz-merry-xmas.mp4` - 6-second animated Christmas greeting (audio removed)
+
 ### December 15, 2025 (Session 10) - Christmas Hero Implementation
 Successfully implemented Christmas Eve hero takeover after learning from Session 9's failure.
 
