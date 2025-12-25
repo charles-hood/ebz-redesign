@@ -336,10 +336,19 @@ h4 { font-size: 1.25rem; }
 
 /* Christmas Day - Merry Christmas video overlay at native size */
 .christmas-video-overlay {
-    max-width: 90%;
+    max-width: 688px;
+    width: 90%;
     height: auto;
     border-radius: 8px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 767px) {
+    .christmas-video-overlay {
+        width: 95%;
+        border-radius: 6px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    }
 }
 
 /* On mobile: show portrait video, hide landscape, darken overlay */

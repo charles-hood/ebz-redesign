@@ -325,6 +325,7 @@ Updated hero for Christmas Day with "Merry Christmas" video overlay on snow back
 - Snow video (`snow-background.mp4`) remains as full-screen hero background
 - Replaced Christmas Eve text/button with looping "Merry Christmas from Ebenezer Church" video
 - Video displays at native size (688x464), centered, with rounded corners and shadow
+- Mobile responsive: scales to 95% width on screens under 768px
 - CSS class: `.christmas-video-overlay`
 
 **To revert to Christmas Eve hero (Session 10):**
