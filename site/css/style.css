@@ -324,8 +324,8 @@ h4 { font-size: 1.25rem; }
     display: none;
 }
 
-/* Christmas hero - single video for all sizes, festive overlay */
-.hero-bg-christmas + .hero-overlay {
+/* Seasonal hero - single video for all sizes, festive overlay */
+.hero-bg-seasonal + .hero-overlay {
     background: linear-gradient(
         to bottom,
         rgba(26, 54, 93, 0.75) 0%,
@@ -334,18 +334,18 @@ h4 { font-size: 1.25rem; }
     );
 }
 
-/* Christmas Day - Merry Christmas video overlay at native size */
-.christmas-video-overlay {
-    max-width: 688px;
-    width: 90%;
+/* Seasonal overlay image/video centered in hero */
+.seasonal-overlay {
+    max-width: min(800px, 90vw);
+    width: 100%;
     height: auto;
     border-radius: 8px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
 }
 
 @media (max-width: 767px) {
-    .christmas-video-overlay {
-        width: 95%;
+    .seasonal-overlay {
+        max-width: 95vw;
         border-radius: 6px;
         box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
     }
@@ -1039,8 +1039,8 @@ h4 { font-size: 1.25rem; }
     color: var(--color-primary);
 }
 
-/* Christmas Hero Holly */
-.hero-content-christmas {
+/* Seasonal Hero Content */
+.hero-content-seasonal {
     position: relative;
 }
 

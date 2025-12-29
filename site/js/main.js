@@ -1,37 +1,28 @@
 // Ebenezer Church - Main JavaScript
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Christmas/Regular mode toggle via URL parameter
-    // Add ?regular to URL to show non-Christmas hero
+    // Seasonal/Regular mode toggle via URL parameter
+    // Add ?regular to URL to show non-seasonal hero (for demos)
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has('regular')) {
         // Swap to regular hero content
-        const heroContent = document.querySelector('.hero-content-christmas');
+        const heroContent = document.querySelector('.hero-content-seasonal');
         if (heroContent) {
-            heroContent.classList.remove('hero-content-christmas');
-            const holly = heroContent.querySelector('.hero-holly');
-            if (holly) holly.style.display = 'none';
-
-            const tagline = heroContent.querySelector('.hero-tagline');
-            const h1 = heroContent.querySelector('h1');
-            const subtitle = heroContent.querySelector('.hero-subtitle');
-            const christmasBtn = heroContent.querySelector('#christmasBtn');
-
-            if (tagline) tagline.textContent = 'Welcome to Ebenezer';
-            if (h1) h1.textContent = 'Grow your faith. Celebrate life.';
-            if (subtitle) subtitle.textContent = 'Sundays at 8:30, 10:00 & 11:15 AM';
-            if (christmasBtn) {
-                const heroCtas = christmasBtn.parentElement;
-                heroCtas.innerHTML = `
+            heroContent.classList.remove('hero-content-seasonal');
+            heroContent.innerHTML = `
+                <span class="hero-tagline">Welcome to Ebenezer</span>
+                <h1>Grow your faith. Celebrate life.</h1>
+                <p class="hero-subtitle">Sundays at 8:30, 10:00 & 11:15 AM</p>
+                <div class="hero-ctas">
                     <a href="#visit" class="btn btn-primary btn-lg">Plan Your Visit</a>
                     <a href="#watch" class="btn btn-outline-light btn-lg">Watch Online</a>
-                `;
-            }
+                </div>
+            `;
         }
         // Swap video back to regular
-        const heroBg = document.querySelector('.hero-bg-christmas');
+        const heroBg = document.querySelector('.hero-bg-seasonal');
         if (heroBg) {
-            heroBg.classList.remove('hero-bg-christmas');
+            heroBg.classList.remove('hero-bg-seasonal');
             heroBg.innerHTML = `
                 <video class="hero-video-desktop" autoplay loop muted playsinline poster="images/church-hero.jpg">
                     <source src="images/hero-slideshow.mp4" type="video/mp4">

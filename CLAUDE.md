@@ -317,6 +317,25 @@ cd /var/www/ebz-redesign && git pull
 
 ## Session History
 
+### December 28, 2025 (Session 12) - New Year's Hero Update
+Replaced Christmas video overlay with New Year 2026 graphic. Kept snow video background (still winter).
+
+**What was built:**
+- Replaced Christmas video overlay with static PNG image (`happy-new-year-2026.png`)
+- Image is clickable, links to #visit section
+- Renamed CSS classes from `*-christmas` to `*-seasonal` for reusability
+- Responsive sizing using `max-width: min(800px, 90vw)` with viewport units
+- Added explicit width/height attributes for layout stability (CLS)
+- Fixed `?regular` URL toggle to work with new class names and structure
+- Updated sermon embed to ID 26 (December 28, 2025 message)
+
+**To revert to regular (non-seasonal) hero:**
+- Add `?regular` to URL (e.g., `http://localhost:8080?regular`)
+- Or revert files: `git checkout a543722 -- site/index.html site/css/style.css`
+
+**Assets:**
+- `site/images/happy-new-year-2026.png` - New Year 2026 graphic (1536x1024)
+
 ### December 25, 2025 (Session 11) - Christmas Day Hero Update
 Updated hero for Christmas Day with "Merry Christmas" video overlay on snow background.
 
@@ -340,7 +359,7 @@ git checkout a543722 -- site/index.html site/css/style.css
 ```
 This restores the regular hero slideshow video with "Grow your faith. Celebrate life." text.
 
-**Note:** The `?regular` toggle from Session 10 no longer works since the hero content was replaced with the video overlay.
+**Note:** The `?regular` toggle was broken by this change but restored in Session 12.
 
 **Assets:**
 - `site/images/ebz-merry-xmas.mp4` - 6-second animated Christmas greeting (audio removed)
