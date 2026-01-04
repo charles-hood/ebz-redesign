@@ -317,6 +317,23 @@ cd /var/www/ebz-redesign && git pull
 
 ## Session History
 
+### January 4, 2026 (Session 13) - Regular Hero Restored, Sermon Update
+Reverted from New Year's seasonal hero back to regular content. Updated sermon to this week's message.
+
+**What was changed:**
+- Reverted hero to regular slideshow video (desktop + mobile versions)
+- Restored "Grow your faith. Celebrate life." tagline with service times and CTAs
+- Updated sermon embed to ID 27 (January 4, 2026 message)
+- Added sermon metadata to Watch section: title and scripture reference now display alongside embed
+
+**Sermon metadata pattern (for weekly updates):**
+Each week, update three items in `site/index.html`:
+1. `id="onechurch_form_sermon_XX"` - iframe ID
+2. `sermon=XX` in the src URL
+3. `.video-info` content: `<h3>` for title, `<p>` for scripture reference
+
+**Note:** Seasonal CSS classes remain in `style.css` but are inactive (no longer referenced in HTML). Can be reused for future seasonal content.
+
 ### December 28, 2025 (Session 12) - New Year's Hero Update
 Replaced Christmas video overlay with New Year 2026 graphic. Kept snow video background (still winter).
 
