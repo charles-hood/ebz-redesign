@@ -105,8 +105,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    // Observe all sections and cards
-    document.querySelectorAll('.section, .card, .staff-card').forEach(el => {
+    // Observe cards only (not sections - they're too large and cause render delays)
+    document.querySelectorAll('.card, .staff-card').forEach(el => {
         el.classList.add('fade-in');
         observer.observe(el);
     });
