@@ -317,14 +317,18 @@ cd /var/www/ebz-redesign && git pull
 
 ## Session History
 
-### January 4, 2026 (Session 13) - Regular Hero Restored, Sermon Update
-Reverted from New Year's seasonal hero back to regular content. Updated sermon to this week's message.
+### January 4, 2026 (Session 13) - Regular Hero Restored, Multiple Updates
+Reverted from New Year's seasonal hero back to regular content. Multiple content and bug fixes.
 
 **What was changed:**
 - Reverted hero to regular slideshow video (desktop + mobile versions)
-- Restored "Grow your faith. Celebrate life." tagline with service times and CTAs
+- Updated hero tagline to "Growing in Grace, Perfected in Love" (per Candi's request)
 - Updated sermon embed to ID 27 (January 4, 2026 message)
 - Added sermon metadata to Watch section: title and scripture reference now display alongside embed
+- Reversed history page timeline (newest first: 2024 → 1853) per Pastor Glenn's suggestion
+- History page hero image changed to Pardue Center; historic church photo moved to 1853 section
+- Updated About section: heading changed to "170 Years & Growing", Pardue Center paragraph moved first
+- Fixed fade-in animation bug: removed `.section` from IntersectionObserver (was causing pages to render invisible until scroll)
 
 **Sermon metadata pattern (for weekly updates):**
 Each week, update three items in `site/index.html`:
