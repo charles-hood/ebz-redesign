@@ -348,18 +348,6 @@ h4 { font-size: 1.25rem; }
     object-fit: contain;
 }
 
-@media (max-width: 767px) {
-    .hero-content-seasonal {
-        padding-top: 120px;
-    }
-
-    .seasonal-overlay {
-        max-width: 75vw;
-        max-height: 42vh;
-        border-radius: 6px;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-    }
-}
 
 /* On mobile: show portrait video, hide landscape, darken overlay */
 @media (max-width: 767px) {
@@ -1651,6 +1639,17 @@ h4 { font-size: 1.25rem; }
 /* Mobile: Page Header */
 .page-header {
     padding-top: calc(70px + var(--space-xl));
+}
+
+/* Mobile: Seasonal Hero - must come after .hero-content to override */
+.hero-content.hero-content-seasonal {
+    padding-top: 100px;
+    padding-bottom: var(--space-md);
+}
+
+.hero-content-seasonal .seasonal-overlay {
+    max-width: 75vw;
+    max-height: 45vh;
 }
 
 /* ============================================
