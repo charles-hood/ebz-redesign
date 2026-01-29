@@ -336,18 +336,21 @@ h4 { font-size: 1.25rem; }
 
 /* Seasonal overlay image/video centered in hero */
 .seasonal-overlay {
-    max-width: min(800px, 90vw);
-    width: 100%;
+    max-width: min(400px, 85vw);
+    max-height: 55vh;
+    width: auto;
     height: auto;
     border-radius: 8px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    object-fit: contain;
 }
 
 @media (max-width: 767px) {
     .seasonal-overlay {
-        max-width: 95vw;
+        max-width: 75vw;
+        max-height: 50vh;
         border-radius: 6px;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
     }
 }
 
