@@ -5,13 +5,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add ?regular to URL to show non-seasonal hero (for demos)
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has('regular')) {
+        // Remove Valentine class from hero
+        const hero = document.querySelector('.hero-valentine');
+        if (hero) {
+            hero.classList.remove('hero-valentine');
+        }
         // Swap to regular hero content
         const heroContent = document.querySelector('.hero-content-seasonal');
         if (heroContent) {
             heroContent.classList.remove('hero-content-seasonal');
             heroContent.innerHTML = `
-                <span class="hero-tagline">Welcome to Ebenezer</span>
-                <h1>Grow your faith. Celebrate life.</h1>
+                <p class="hero-tagline">Welcome to Ebenezer</p>
+                <h1>Growing in Grace, Perfected in Love</h1>
                 <p class="hero-subtitle">Sundays at 8:30, 10:00 & 11:15 AM</p>
                 <div class="hero-ctas">
                     <a href="#visit" class="btn btn-primary btn-lg">Plan Your Visit</a>
@@ -161,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         robbie: {
             name: 'Robbie Underwood',
-            title: 'Executive Minister',
+            title: 'Facilities Manager',
             image: 'images/staff/robbie-underwood.jpg',
             imagePosition: 'center 20%',
             bio: 'Robbie joined the team in 2023 after serving as Catering & Events Director at Holbrook Life, bringing 23 years of experience in the events industry. He was ordained in the ministry at his long-time home church, Grace Baptist Church in Etowah, TN in 2024. Robbie has two children.',
