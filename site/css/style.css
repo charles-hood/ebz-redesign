@@ -350,12 +350,12 @@ h4 { font-size: 1.25rem; }
 
 @media (max-width: 767px) {
     .hero-content-seasonal {
-        padding-top: 80px;
+        padding-top: 120px;
     }
 
     .seasonal-overlay {
-        max-width: 80vw;
-        max-height: 50vh;
+        max-width: 75vw;
+        max-height: 42vh;
         border-radius: 6px;
         box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
     }
