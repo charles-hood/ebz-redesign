@@ -336,6 +336,9 @@ h4 { font-size: 1.25rem; }
 
 /* Seasonal overlay image/video centered in hero */
 .seasonal-overlay {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     max-width: min(400px, 85vw);
     max-height: 55vh;
     width: auto;
@@ -346,12 +349,15 @@ h4 { font-size: 1.25rem; }
 }
 
 @media (max-width: 767px) {
+    .hero-content-seasonal {
+        padding-top: 80px;
+    }
+
     .seasonal-overlay {
-        max-width: 70vw;
-        max-height: 45vh;
+        max-width: 80vw;
+        max-height: 50vh;
         border-radius: 6px;
         box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-        margin-top: 60px;
     }
 }
 
