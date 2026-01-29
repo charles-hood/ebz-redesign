@@ -347,10 +347,11 @@ h4 { font-size: 1.25rem; }
 
 @media (max-width: 767px) {
     .seasonal-overlay {
-        max-width: 75vw;
-        max-height: 50vh;
+        max-width: 70vw;
+        max-height: 45vh;
         border-radius: 6px;
         box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        margin-top: 60px;
     }
 }
 
