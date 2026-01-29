@@ -1047,24 +1047,6 @@ h4 { font-size: 1.25rem; }
     position: relative;
 }
 
-/* Valentine Hero */
-.hero-valentine {
-    background: #fce4e8;
-}
-
-.hero-valentine .hero-bg-seasonal {
-    background: linear-gradient(135deg, #fce4e8 0%, #f8d7da 50%, #fce4e8 100%);
-}
-
-.hero-valentine .hero-overlay {
-    display: none;
-}
-
-.hero-valentine .hero-scroll span,
-.hero-valentine .scroll-line {
-    color: #1a365d;
-    background: #1a365d;
-}
 
 .hero-holly {
     position: absolute;

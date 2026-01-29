@@ -5,11 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add ?regular to URL to show non-seasonal hero (for demos)
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has('regular')) {
-        // Remove Valentine class from hero
-        const hero = document.querySelector('.hero-valentine');
-        if (hero) {
-            hero.classList.remove('hero-valentine');
-        }
         // Swap to regular hero content
         const heroContent = document.querySelector('.hero-content-seasonal');
         if (heroContent) {
