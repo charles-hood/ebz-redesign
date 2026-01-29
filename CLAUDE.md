@@ -315,6 +315,91 @@ ebenezermilton.org {
 cd /var/www/ebz-redesign && git pull
 ```
 
+## Seasonal Hero Takeover Pattern
+
+For special events (Valentine's, Easter, Christmas, etc.), use this pattern to display a flyer/graphic on the homepage hero. This is a quick operation - should take under 5 minutes.
+
+### To Add a Seasonal Takeover
+
+1. **Copy the flyer image** to `site/images/` (e.g., `valentine-breakfast.png`)
+
+2. **Edit `site/index.html`** - Replace the hero section with:
+```html
+<!-- Hero Section - [EVENT NAME] Takeover -->
+<section class="hero">
+    <div class="hero-bg hero-bg-seasonal">
+        <img src="images/church-hero.jpg" alt="">
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content hero-content-seasonal">
+        <img src="images/YOUR-FLYER.png" alt="[Event description]" class="seasonal-overlay">
+        <!-- Hidden during takeover - restore when reverting:
+        <p class="hero-subtitle" style="margin-top: 1.5rem;">Sundays at 8:30, 10:00 & 11:15 AM</p>
+        -->
+        <div class="hero-ctas">
+            <a href="#visit" class="btn btn-primary btn-lg">Plan Your Visit</a>
+            <a href="#watch" class="btn btn-outline-light btn-lg">Watch Online</a>
+        </div>
+    </div>
+    <div class="hero-scroll">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+    </div>
+</section>
+```
+
+3. **Commit and deploy:**
+```bash
+git add site/images/YOUR-FLYER.png site/index.html
+git commit -m "Add [event name] hero takeover"
+git push
+# Then on server: cd /var/www/ebz-redesign && git pull
+```
+
+### To Revert to Regular Hero
+
+Replace the hero section with:
+```html
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-bg">
+        <video class="hero-video-desktop" autoplay loop muted playsinline poster="images/church-hero.jpg">
+            <source src="images/hero-slideshow.mp4" type="video/mp4">
+        </video>
+        <video class="hero-video-mobile" autoplay loop muted playsinline poster="images/church-hero.jpg">
+            <source src="images/hero-slideshow-mobile.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <p class="hero-tagline">Welcome to Ebenezer</p>
+        <h1>Growing in Grace, Perfected in Love</h1>
+        <p class="hero-subtitle">Sundays at 8:30, 10:00 & 11:15 AM</p>
+        <div class="hero-ctas">
+            <a href="#visit" class="btn btn-primary btn-lg">Plan Your Visit</a>
+            <a href="#watch" class="btn btn-outline-light btn-lg">Watch Online</a>
+        </div>
+    </div>
+    <div class="hero-scroll">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+    </div>
+</section>
+```
+
+### Key CSS Classes (already in style.css)
+
+- `.hero-bg-seasonal` - Uses static image instead of video
+- `.hero-content-seasonal` - Adds proper padding on mobile (100px top)
+- `.seasonal-overlay` - Constrains flyer size, centers it, adds shadow and margin
+
+### Notes
+
+- The flyer displays over `church-hero.jpg` with the standard navy overlay
+- Service times are commented out during takeover (uncomment when reverting)
+- Use `?regular` URL parameter to preview the normal hero during a takeover
+- `overflow-x: hidden` on html/body prevents horizontal scroll issues on mobile
+
 ## Session History
 
 ### January 4, 2026 (Session 13) - Regular Hero Restored, Multiple Updates
