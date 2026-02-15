@@ -352,8 +352,7 @@ h4 { font-size: 1.25rem; }
 .seasonal-overlay {
     display: block;
     margin: 0 auto 1.5rem;
-    max-width: min(600px, 80vw);
-    max-height: calc(100svh - 280px);
+    max-width: min(600px, calc(100vw - 4rem));
     height: auto;
     border-radius: 8px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
