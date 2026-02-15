@@ -336,6 +336,11 @@ h4 { font-size: 1.25rem; }
 
 .hero-content-seasonal {
     position: relative;
+    padding-top: 100px;
+}
+
+.hero-content-seasonal ~ .hero-scroll {
+    display: none;
 }
 
 .seasonal-overlay {
