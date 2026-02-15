@@ -114,6 +114,7 @@ h4 { font-size: 1.25rem; }
     max-width: var(--container-max);
     margin: 0 auto;
     padding: 0 var(--space-md);
+    overflow-x: hidden;
 }
 
 .section {
