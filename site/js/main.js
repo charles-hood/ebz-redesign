@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: 'Facilities Manager',
             image: 'images/staff/robbie-underwood.jpg',
             imagePosition: 'center 20%',
-            bio: 'Robbie joined the team in 2023, most recently as Catering & Events Director at Holbrook Life, bringing 23 years in the events industry. He was ordained at Grace Baptist Church in 2024.',
+            bio: 'Robbie joined the team in 2023 after 23 years in the events industry, most recently as Catering & Events Director at Holbrook Life. He was ordained at Grace Baptist Church in 2024.',
             email: 'executive@ebzchurch.org'
         },
         greg: {
