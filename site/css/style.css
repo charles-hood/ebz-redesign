@@ -324,7 +324,7 @@ h4 { font-size: 1.25rem; }
     display: none;
 }
 
-/* Seasonal hero - single video for all sizes, festive overlay */
+/* Seasonal hero takeover (static image bg + flyer overlay) */
 .hero-bg-seasonal + .hero-overlay {
     background: linear-gradient(
         to bottom,
@@ -334,17 +334,18 @@ h4 { font-size: 1.25rem; }
     );
 }
 
-/* Seasonal overlay image/video centered in hero */
+.hero-content-seasonal {
+    position: relative;
+}
+
 .seasonal-overlay {
     display: block;
     margin: 0 auto 1.5rem;
-    max-width: min(800px, 85vw);
-    max-height: 65vh;
-    width: auto;
+    max-width: 100%;
+    max-height: 70vh;
     height: auto;
     border-radius: 8px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-    object-fit: contain;
 }
 
 /* On mobile: show portrait video, hide landscape, darken overlay */
@@ -384,7 +385,6 @@ h4 { font-size: 1.25rem; }
     color: white;
     padding: var(--space-2xl);
     max-width: 800px;
-    min-width: 0;
 }
 
 .hero-tagline {
@@ -978,88 +978,6 @@ h4 { font-size: 1.25rem; }
 
     .contact-card {
         padding: var(--space-sm);
-    }
-}
-
-/* Christmas Modal */
-.modal-christmas {
-    max-width: 700px;
-}
-
-.modal-christmas .modal-content {
-    overflow: hidden;
-}
-
-.christmas-modal-body {
-    padding: 0;
-    text-align: center;
-}
-
-.christmas-graphic {
-    width: 100%;
-    height: auto;
-    display: block;
-    margin-bottom: var(--space-md);
-}
-
-.christmas-tagline {
-    font-size: 1.1rem;
-    color: var(--color-text);
-    margin-bottom: var(--space-md);
-    padding: 0 var(--space-md);
-}
-
-.christmas-modal-ctas {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-lg);
-    flex-wrap: wrap;
-    padding: 0 var(--space-md) var(--space-lg);
-}
-
-.christmas-modal-ctas .btn {
-    min-width: 180px;
-}
-
-.christmas-rsvp {
-    margin: 0;
-    font-size: 0.95rem;
-}
-
-.christmas-rsvp a {
-    color: var(--color-text-light);
-    text-decoration: underline;
-}
-
-.christmas-rsvp a:hover {
-    color: var(--color-primary);
-}
-
-/* Seasonal Hero Content */
-.hero-content-seasonal {
-    position: relative;
-}
-
-.hero-holly {
-    position: absolute;
-    width: 80px;
-    max-width: 80px;
-    max-height: 80px;
-    height: auto;
-    top: -40px;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0.9;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
-}
-
-@media (max-width: 600px) {
-    .hero-holly {
-        width: 50px !important;
-        max-width: 50px !important;
-        max-height: 50px !important;
-        top: -25px;
     }
 }
 
