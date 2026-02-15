@@ -1490,8 +1490,8 @@ h4 { font-size: 1.25rem; }
 .staff-modal-body {
     flex-direction: column;
     text-align: center;
-    padding: var(--space-lg);
-    padding-top: var(--space-2xl);
+    padding: var(--space-md);
+    padding-top: var(--space-lg);
 }
 
 .staff-modal-image {
@@ -1499,8 +1499,8 @@ h4 { font-size: 1.25rem; }
 }
 
 .staff-modal-image img {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
 }
 
 .staff-modal-info h2 {

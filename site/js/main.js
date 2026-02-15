@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: 'Senior Pastor',
             image: 'images/staff/glenn-hannigan.jpg',
             imagePosition: 'center 15%',
-            bio: 'Glenn has served as Senior Pastor since June 2010. Before answering the call to ministry, he spent 27 years at The Atlanta Journal-Constitution in editing and management roles, including Sports Editor and Olympics coordinator. Glenn has been married to Candi since 1987, and they have three adult children.',
+            bio: 'Glenn has served as Senior Pastor since 2010. Before answering the call to ministry, he spent 27 years at The Atlanta Journal-Constitution, including Sports Editor and Olympics coordinator. He and Candi have been married since 1987.',
             email: 'ghannigan1@yahoo.com'
         },
         robbie: {
@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: 'Facilities Manager',
             image: 'images/staff/robbie-underwood.jpg',
             imagePosition: 'center 20%',
-            bio: 'Robbie joined the team in 2023 after serving as Catering & Events Director at Holbrook Life, bringing 23 years of experience in the events industry. He was ordained in the ministry at his long-time home church, Grace Baptist Church in Etowah, TN in 2024. Robbie has two children.',
+            bio: 'Robbie joined the team in 2023, most recently as Catering & Events Director at Holbrook Life, bringing 23 years in the events industry. He was ordained at Grace Baptist Church in 2024.',
             email: 'executive@ebzchurch.org'
         },
         greg: {
@@ -172,21 +172,21 @@ document.addEventListener('DOMContentLoaded', () => {
             title: 'Music Minister & Pianist',
             image: 'images/staff/greg-millette.jpg',
             imagePosition: 'center 25%',
-            bio: 'Greg joined Ebenezer in late 2017, bringing over 30 years of experience in Methodist churches. He has directed more than 30 musicals throughout his career. Greg has been married for 26 years and has one son in high school.',
+            bio: 'Greg joined Ebenezer in 2017 with over 30 years of music ministry experience and more than 30 musicals under his belt. Married 26 years with one son.',
             email: 'music@ebzchurch.org'
         },
         asa: {
             name: 'Asa Sellers',
             title: 'Worship Leader',
             image: 'images/staff/asa-sellers.jpg',
-            bio: 'Asa brings five years of music ministry experience to Ebenezer. He holds a BA in Worship Leadership from Baptist University of Florida and has a background in teaching at private schools.',
+            bio: 'Asa brings five years of music ministry experience and a BA in Worship Leadership from Baptist University of Florida.',
             email: 'worship@ebzchurch.org'
         },
         lisa: {
             name: 'Lisa Coxworth',
             title: 'Administrative Assistant',
             image: 'images/staff/lisa-coxworth.jpg',
-            bio: 'Lisa joined the Ebenezer team in November 2022. She brings nine years of experience in finance along with administrative experience from Jacksonville and Mississippi. Lisa has twin daughters who are 15 years old.',
+            bio: 'Lisa joined the Ebenezer team in 2022 with nine years of finance and administrative experience. Proud mom of twin 15-year-old daughters.',
             email: 'office@ebzchurch.org'
         }
     };
