@@ -1648,10 +1648,12 @@ h4 { font-size: 1.25rem; }
 .hero-content.hero-content-seasonal {
     padding-top: 100px;
     padding-bottom: var(--space-md);
+    padding-left: var(--space-sm);
+    padding-right: var(--space-sm);
 }
 
 .hero-content-seasonal .seasonal-overlay {
-    max-width: 92vw;
+    max-width: 100%;
     max-height: 55vh;
 }
 
