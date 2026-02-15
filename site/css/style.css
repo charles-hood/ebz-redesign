@@ -340,7 +340,7 @@ h4 { font-size: 1.25rem; }
     align-items: flex-start;
 }
 
-.hero-content-seasonal {
+.hero-content.hero-content-seasonal {
     position: relative;
     padding-top: 100px;
 }
