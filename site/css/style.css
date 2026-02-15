@@ -60,7 +60,6 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px;
-    overflow-x: hidden;
 }
 
 body {
@@ -71,7 +70,6 @@ body {
     background: var(--color-bg);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
 }
 
 img {
@@ -338,19 +336,20 @@ h4 { font-size: 1.25rem; }
 
 /* Seasonal overlay image/video centered in hero */
 .seasonal-overlay {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 1.5rem;
-    max-width: min(400px, 85vw);
-    max-height: 55vh;
-    width: auto;
+    max-width: min(800px, 90vw);
+    width: 100%;
     height: auto;
     border-radius: 8px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-    object-fit: contain;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
 }
 
+@media (max-width: 767px) {
+    .seasonal-overlay {
+        max-width: 95vw;
+        border-radius: 6px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    }
+}
 
 /* On mobile: show portrait video, hide landscape, darken overlay */
 @media (max-width: 767px) {
@@ -388,9 +387,8 @@ h4 { font-size: 1.25rem; }
     text-align: center;
     color: white;
     padding: var(--space-2xl);
-    max-width: 100%;
-    min-width: 0;
     max-width: 800px;
+    min-width: 0;
 }
 
 .hero-tagline {
@@ -1047,7 +1045,6 @@ h4 { font-size: 1.25rem; }
     position: relative;
 }
 
-
 .hero-holly {
     position: absolute;
     width: 80px;
@@ -1644,19 +1641,6 @@ h4 { font-size: 1.25rem; }
 /* Mobile: Page Header */
 .page-header {
     padding-top: calc(70px + var(--space-xl));
-}
-
-/* Mobile: Seasonal Hero - must come after .hero-content to override */
-.hero-content.hero-content-seasonal {
-    padding-top: 100px;
-    padding-bottom: var(--space-md);
-    padding-left: var(--space-sm);
-    padding-right: var(--space-sm);
-}
-
-.hero-content-seasonal .seasonal-overlay {
-    max-width: 100%;
-    max-height: 55vh;
 }
 
 /* ============================================
