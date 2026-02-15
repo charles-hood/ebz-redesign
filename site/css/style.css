@@ -1468,6 +1468,7 @@ h4 { font-size: 1.25rem; }
 .staff-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: var(--space-md);
+    align-items: start;
 }
 
 .staff-image {
