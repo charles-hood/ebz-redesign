@@ -165,15 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
             image: 'images/staff/robbie-underwood.jpg',
             imagePosition: 'center 20%',
             bio: 'Robbie joined the team in 2023 after 23 years in the events industry, most recently as Catering & Events Director at Holbrook Life. He was ordained at Grace Baptist Church in 2024.',
-            email: 'executive@ebzchurch.org'
-        },
-        greg: {
-            name: 'Greg Millette',
-            title: 'Music Minister & Pianist',
-            image: 'images/staff/greg-millette.jpg',
-            imagePosition: 'center 25%',
-            bio: 'Greg joined Ebenezer in 2017 with over 30 years of music ministry experience and more than 30 musicals under his belt. Married 26 years with one son.',
-            email: 'music@ebzchurch.org'
+            email: 'robbie@ebzchurch.org'
         },
         asa: {
             name: 'Asa Sellers',

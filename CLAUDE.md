@@ -274,8 +274,7 @@ The One Church Software sermon embed uses their default thumbnail. Options to cu
 | Name | Title | Email |
 |------|-------|-------|
 | Glenn Hannigan | Senior Pastor | ghannigan1@yahoo.com |
-| Robbie Underwood | Executive Minister | executive@ebzchurch.org |
-| Greg Millette | Music Minister & Pianist | music@ebzchurch.org |
+| Robbie Underwood | Executive Minister | robbie@ebzchurch.org |
 | Asa Sellers | Worship Leader | worship@ebzchurch.org |
 | Lisa Coxworth | Administrative Assistant | office@ebzchurch.org |
 
