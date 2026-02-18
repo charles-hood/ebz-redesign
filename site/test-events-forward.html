@@ -128,13 +128,38 @@
         </div>
     </section>
 
-    <!-- Watch Section (sermon embed removed to test OCS script conflict) -->
+    <!-- Watch Section (no bridge.js - testing OCS script compatibility) -->
     <section id="watch" class="section section-watch">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Watch</h2>
-                <p class="section-subtitle">[Sermon embed removed for this test]</p>
+                <p class="section-subtitle">Catch up on our latest messages</p>
             </div>
+            <div class="video-container">
+                <div class="video-wrapper">
+                    <iframe
+                        id="onechurch_form_sermon_33"
+                        src="https://ebz.onechurchsoftware.com/embed/media?sermon=33&bg=ffffff&text=6a6a6a&title=020a0d"
+                        seamless="seamless"
+                        width="100%"
+                        height="100%"
+                        scrolling="auto"
+                        allowfullscreen="true"
+                        frameborder="0">
+                    </iframe>
+                </div>
+                <div class="video-info">
+                    <h3>Serving or Being Served?</h3>
+                    <p>Mark 10:42-45</p>
+                    <a href="sermons.html" class="btn btn-secondary">
+                        View All Sermons
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <!-- bridge.js intentionally omitted - conflicts with v3.1.js embed -->
         </div>
     </section>
 
