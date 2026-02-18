@@ -20,20 +20,6 @@
             max-width: 1200px;
             margin: 0 auto;
         }
-        .calendar-frame {
-            width: 100%;
-            min-height: 800px;
-            border: none;
-            border-radius: 12px;
-            box-shadow: var(--shadow-lg);
-            background: white;
-        }
-        @media (max-width: 600px) {
-            .calendar-frame {
-                min-height: 500px;
-                border-radius: 8px;
-            }
-        }
     </style>
 </head>
 <body>
@@ -72,13 +58,8 @@
     <section class="section">
         <div class="container">
             <div class="calendar-container">
-                <iframe
-                    id="calendarFrame"
-                    class="calendar-frame"
-                    src="https://littlewhite.church/?view=list"
-                    title="Church Events Calendar"
-                    loading="lazy">
-                </iframe>
+                <div class="ocs-embed" data-ocs-bg="#ffffff" data-ocs-tenant="ebz" data-ocs-embed="events/calendar"></div>
+                <script async src="https://cdn.onechurchsoftware.com/embed/v3.1.js"></script>
             </div>
         </div>
     </section>
