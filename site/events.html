@@ -20,6 +20,12 @@
             max-width: 1200px;
             margin: 0 auto;
         }
+        .calendar-desktop { display: block; }
+        .calendar-mobile { display: none; }
+        @media (max-width: 768px) {
+            .calendar-desktop { display: none; }
+            .calendar-mobile { display: block; }
+        }
     </style>
 </head>
 <body>
@@ -50,7 +56,14 @@
     <section class="section" style="padding-top: 7rem;">
         <div class="container">
             <div class="calendar-container">
-                <div class="ocs-embed" data-ocs-bg="#ffffff" data-ocs-tenant="ebz" data-ocs-embed="events/calendar"></div>
+                <!-- Grid view for desktop/tablet -->
+                <div class="calendar-desktop">
+                    <div class="ocs-embed" data-ocs-bg="#ffffff" data-ocs-tenant="ebz" data-ocs-embed="events/calendar"></div>
+                </div>
+                <!-- List view for mobile -->
+                <div class="calendar-mobile">
+                    <div class="ocs-embed" data-ocs-bg="#ffffff" data-ocs-title="#333333" data-ocs-text="#333333" data-ocs-box="#ffffff" data-ocs-accent="#020a0d" data-ocs-button="#020a0d" data-ocs-tenant="ebz" data-ocs-embed="events/listing"></div>
+                </div>
                 <script async src="https://cdn.onechurchsoftware.com/embed/v3.1.js"></script>
             </div>
         </div>
