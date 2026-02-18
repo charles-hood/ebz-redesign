@@ -20,13 +20,10 @@
             max-width: 1200px;
             margin: 0 auto;
         }
-        .calendar-desktop { display: block; }
-        .calendar-mobile { display: none; }
-        @media (max-width: 768px) {
-            .calendar-desktop { display: none; }
-            .calendar-mobile { display: block; }
-        }
     </style>
+    <!-- Preconnect to OCS CDN for faster embed load -->
+    <link rel="preconnect" href="https://cdn.onechurchsoftware.com">
+    <link rel="dns-prefetch" href="https://cdn.onechurchsoftware.com">
 </head>
 <body>
     <!-- Navigation -->
@@ -55,17 +52,31 @@
     <!-- Main Content -->
     <section class="section" style="padding-top: 7rem;">
         <div class="container">
-            <div class="calendar-container">
-                <!-- Grid view for desktop/tablet -->
-                <div class="calendar-desktop">
-                    <div class="ocs-embed" data-ocs-bg="#ffffff" data-ocs-tenant="ebz" data-ocs-embed="events/calendar"></div>
-                </div>
-                <!-- List view for mobile -->
-                <div class="calendar-mobile">
-                    <div class="ocs-embed" data-ocs-bg="#ffffff" data-ocs-title="#333333" data-ocs-text="#333333" data-ocs-box="#ffffff" data-ocs-accent="#020a0d" data-ocs-button="#020a0d" data-ocs-tenant="ebz" data-ocs-embed="events/listing"></div>
-                </div>
-                <script async src="https://cdn.onechurchsoftware.com/embed/v3.1.js"></script>
-            </div>
+            <div class="calendar-container" id="calendarContainer"></div>
+            <script>
+                (function() {
+                    var c = document.getElementById('calendarContainer');
+                    var d = document.createElement('div');
+                    d.className = 'ocs-embed';
+                    d.dataset.ocsBg = '#ffffff';
+                    d.dataset.ocsTenant = 'ebz';
+                    if (window.innerWidth <= 768) {
+                        d.dataset.ocsEmbed = 'events/listing';
+                        d.dataset.ocsTitle = '#333333';
+                        d.dataset.ocsText = '#333333';
+                        d.dataset.ocsBox = '#ffffff';
+                        d.dataset.ocsAccent = '#020a0d';
+                        d.dataset.ocsButton = '#020a0d';
+                    } else {
+                        d.dataset.ocsEmbed = 'events/calendar';
+                    }
+                    c.appendChild(d);
+                    var s = document.createElement('script');
+                    s.src = 'https://cdn.onechurchsoftware.com/embed/v3.1.js';
+                    s.async = true;
+                    c.appendChild(s);
+                })();
+            </script>
         </div>
     </section>
 
