@@ -49,17 +49,21 @@
         </nav>
     </header>
 
-    <!-- Hero Section - Ash Wednesday Takeover (revert to Wedding Expo after Feb 18) -->
+    <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-bg hero-bg-seasonal">
-            <img src="images/church-hero.jpg" alt="">
+        <div class="hero-bg">
+            <video class="hero-video-desktop" autoplay loop muted playsinline poster="images/church-hero.jpg">
+                <source src="images/hero-slideshow.mp4" type="video/mp4">
+            </video>
+            <video class="hero-video-mobile" autoplay loop muted playsinline poster="images/church-hero.jpg">
+                <source src="images/hero-slideshow-mobile.mp4" type="video/mp4">
+            </video>
         </div>
         <div class="hero-overlay"></div>
-        <div class="hero-content hero-content-seasonal">
-            <img src="images/ash-wednesday.png" alt="Ash Wednesday Service" class="seasonal-overlay">
-            <!-- Hidden during takeover - restore when reverting to regular hero:
-            <p class="hero-subtitle" style="margin-top: 1.5rem;">Sundays at 8:30, 10:00 & 11:15 AM</p>
-            -->
+        <div class="hero-content">
+            <p class="hero-tagline">Welcome to Ebenezer</p>
+            <h1>Growing in Grace, Perfected in Love</h1>
+            <p class="hero-subtitle">Sundays at 8:30, 10:00 & 11:15 AM</p>
             <div class="hero-ctas">
                 <a href="#visit" class="btn btn-primary btn-lg">Plan Your Visit</a>
                 <a href="#watch" class="btn btn-outline-light btn-lg">Watch Online</a>
@@ -68,6 +72,20 @@
         <div class="hero-scroll">
             <span>Scroll</span>
             <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Featured Event Section -->
+    <section class="section" style="background: var(--color-bg-alt, #f7f8fa);">
+        <div class="container">
+            <div class="section-header" style="text-align: center;">
+                <h2 class="section-title">Coming Up</h2>
+            </div>
+            <!-- Change data-ocs-id to feature a different event -->
+            <div class="ocs-embed" data-ocs-id="10490" data-ocs-primary="#020a0d" data-ocs-description="false" data-ocs-tenant="ebz" data-ocs-embed="event"></div>
+            <div style="text-align: center; margin-top: 1.5rem;">
+                <a href="events.html" class="btn btn-secondary">View Full Calendar</a>
+            </div>
         </div>
     </section>
 
@@ -88,31 +106,15 @@
                 <h2 class="section-title">Watch</h2>
                 <p class="section-subtitle">Catch up on our latest messages</p>
             </div>
-            <div class="video-container">
-                <div class="video-wrapper">
-                    <iframe
-                        id="onechurch_form_sermon_33"
-                        src="https://ebz.onechurchsoftware.com/embed/media?sermon=33&bg=ffffff&text=6a6a6a&title=020a0d"
-                        seamless="seamless"
-                        width="100%"
-                        height="100%"
-                        scrolling="auto"
-                        allowfullscreen="true"
-                        frameborder="0">
-                    </iframe>
-                </div>
-                <div class="video-info">
-                    <h3>Serving or Being Served?</h3>
-                    <p>Mark 10:42-45</p>
-                    <a href="sermons.html" class="btn btn-secondary">
-                        View All Sermons
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M7 17L17 7M17 7H7M17 7V17"/>
-                        </svg>
-                    </a>
-                </div>
+            <div class="ocs-embed" data-ocs-bg="#ffffff" data-ocs-title="#333333" data-ocs-text="#333333" data-ocs-box="#ffffff" data-ocs-show-description="false" data-ocs-show-speaker="false" data-ocs-tenant="ebz" data-ocs-embed="sermons/latest"></div>
+            <div style="text-align: center; margin-top: 1.5rem;">
+                <a href="sermons.html" class="btn btn-secondary">
+                    View All Sermons
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                    </svg>
+                </a>
             </div>
-            <script src="https://s3.amazonaws.com/onechurch/bridge.js"></script>
         </div>
     </section>
 
@@ -474,6 +476,7 @@
     </footer>
 </div><!-- #page-wrap -->
 
+    <script async src="https://cdn.onechurchsoftware.com/embed/v3.1.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
