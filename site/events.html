@@ -52,29 +52,67 @@
     <!-- Main Content -->
     <section class="section" style="padding-top: 7rem;">
         <div class="container">
-            <div class="calendar-container" id="calendarContainer"></div>
+            <div class="calendar-container">
+                <div id="calendarDesktop" style="display:none;"></div>
+                <div id="calendarMobile" style="display:none;"></div>
+            </div>
             <script>
                 (function() {
-                    var c = document.getElementById('calendarContainer');
-                    var d = document.createElement('div');
-                    d.className = 'ocs-embed';
-                    d.dataset.ocsBg = '#ffffff';
-                    d.dataset.ocsTenant = 'ebz';
-                    if (window.innerWidth <= 768) {
-                        d.dataset.ocsEmbed = 'events/listing';
-                        d.dataset.ocsTitle = '#333333';
-                        d.dataset.ocsText = '#333333';
-                        d.dataset.ocsBox = '#ffffff';
-                        d.dataset.ocsAccent = '#020a0d';
-                        d.dataset.ocsButton = '#020a0d';
-                    } else {
-                        d.dataset.ocsEmbed = 'events/calendar';
+                    var mq = window.matchMedia('(max-width: 768px)');
+                    var loaded = { desktop: false, mobile: false };
+                    var scriptLoaded = false;
+
+                    function loadScript() {
+                        if (scriptLoaded) return;
+                        scriptLoaded = true;
+                        var s = document.createElement('script');
+                        s.src = 'https://cdn.onechurchsoftware.com/embed/v3.1.js';
+                        s.async = true;
+                        document.querySelector('.calendar-container').appendChild(s);
                     }
-                    c.appendChild(d);
-                    var s = document.createElement('script');
-                    s.src = 'https://cdn.onechurchsoftware.com/embed/v3.1.js';
-                    s.async = true;
-                    c.appendChild(s);
+
+                    function createEmbed(type) {
+                        var d = document.createElement('div');
+                        d.className = 'ocs-embed';
+                        d.dataset.ocsBg = '#ffffff';
+                        d.dataset.ocsTenant = 'ebz';
+                        if (type === 'mobile') {
+                            d.dataset.ocsEmbed = 'events/listing';
+                            d.dataset.ocsTitle = '#333333';
+                            d.dataset.ocsText = '#333333';
+                            d.dataset.ocsBox = '#ffffff';
+                            d.dataset.ocsAccent = '#020a0d';
+                            d.dataset.ocsButton = '#020a0d';
+                        } else {
+                            d.dataset.ocsEmbed = 'events/calendar';
+                        }
+                        return d;
+                    }
+
+                    function update(e) {
+                        var desktop = document.getElementById('calendarDesktop');
+                        var mobile = document.getElementById('calendarMobile');
+                        if (e.matches) {
+                            desktop.style.display = 'none';
+                            mobile.style.display = 'block';
+                            if (!loaded.mobile) {
+                                mobile.appendChild(createEmbed('mobile'));
+                                loaded.mobile = true;
+                                loadScript();
+                            }
+                        } else {
+                            mobile.style.display = 'none';
+                            desktop.style.display = 'block';
+                            if (!loaded.desktop) {
+                                desktop.appendChild(createEmbed('desktop'));
+                                loaded.desktop = true;
+                                loadScript();
+                            }
+                        }
+                    }
+
+                    mq.addEventListener('change', update);
+                    update(mq);
                 })();
             </script>
         </div>
