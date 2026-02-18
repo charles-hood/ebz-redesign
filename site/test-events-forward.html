@@ -90,14 +90,9 @@
                 <h2 class="section-title">Coming Up</h2>
                 <a href="events.html" class="btn btn-secondary btn-sm">View Full Calendar</a>
             </div>
-            <iframe
-                src="embed-events.html"
-                width="100%"
-                height="800"
-                style="border: none;"
-                loading="lazy"
-                title="Upcoming Events">
-            </iframe>
+            <div class="coming-up-embed">
+                <div class="ocs-embed" data-ocs-bg="#ffffff" data-ocs-title="#333333" data-ocs-text="#333333" data-ocs-box="#ffffff" data-ocs-accent="#020a0d" data-ocs-button="#020a0d" data-ocs-tenant="ebz" data-ocs-embed="events/listing"></div>
+            </div>
             <div class="coming-up-footer">
                 <a href="events.html" class="btn btn-outline">See All Events</a>
             </div>
@@ -114,7 +109,7 @@
         </div>
     </section>
 
-    <!-- Watch Section (bridge.js restored) -->
+    <!-- Watch Section (v3.1 embed - no bridge.js needed) -->
     <section id="watch" class="section section-watch">
         <div class="container">
             <div class="section-header">
@@ -123,16 +118,7 @@
             </div>
             <div class="video-container">
                 <div class="video-wrapper">
-                    <iframe
-                        id="onechurch_form_sermon_33"
-                        src="https://ebz.onechurchsoftware.com/embed/media?sermon=33&bg=ffffff&text=6a6a6a&title=020a0d"
-                        seamless="seamless"
-                        width="100%"
-                        height="100%"
-                        scrolling="auto"
-                        allowfullscreen="true"
-                        frameborder="0">
-                    </iframe>
+                    <div class="ocs-embed" data-ocs-bg="#ffffff" data-ocs-title="#333333" data-ocs-text="#333333" data-ocs-box="#ffffff" data-ocs-show-description="false" data-ocs-show-filters="false" data-ocs-show-images="false" data-ocs-show-speaker="false" data-ocs-show-verses="false" data-ocs-tenant="ebz" data-ocs-embed="sermon" data-ocs-id="33"></div>
                 </div>
                 <div class="video-info">
                     <h3>Serving or Being Served?</h3>
@@ -145,7 +131,6 @@
                     </a>
                 </div>
             </div>
-            <script src="https://s3.amazonaws.com/onechurch/bridge.js"></script>
         </div>
     </section>
 
@@ -231,6 +216,7 @@
     </footer>
 </div>
 
+    <script async src="https://cdn.onechurchsoftware.com/embed/v3.1.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
