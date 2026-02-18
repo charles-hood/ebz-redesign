@@ -23,16 +23,6 @@
         .coming-up .section-header .section-title {
             margin-bottom: 0;
         }
-        .coming-up-embed {
-            background: white;
-            max-height: 500px;
-            overflow-y: auto;
-            border-radius: 8px;
-        }
-        .coming-up-footer {
-            text-align: center;
-            margin-top: 1.5rem;
-        }
     </style>
 </head>
 <body>
@@ -86,16 +76,15 @@
         </div>
     </section>
 
-    <!-- NEW: Coming Up Section -->
+    <!-- Featured Event Section -->
     <section class="section coming-up">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Coming Up</h2>
                 <a href="events.html" class="btn btn-secondary btn-sm">View Full Calendar</a>
             </div>
-            <div class="coming-up-embed">
-                <div class="ocs-embed" data-ocs-bg="#ffffff" data-ocs-title="#333333" data-ocs-text="#333333" data-ocs-box="#ffffff" data-ocs-accent="#020a0d" data-ocs-button="#020a0d" data-ocs-filters="false" data-ocs-calendar="false" data-ocs-category="false" data-ocs-tenant="ebz" data-ocs-embed="events/listing"></div>
-            </div>
+            <!-- Change data-ocs-id to feature a different event -->
+            <div class="ocs-embed" data-ocs-id="10490" data-ocs-primary="#020a0d" data-ocs-description="false" data-ocs-tenant="ebz" data-ocs-embed="event"></div>
         </div>
     </section>
 
