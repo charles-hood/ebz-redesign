@@ -20,6 +20,34 @@
             max-width: 1200px;
             margin: 0 auto;
         }
+        .calendar-toggle {
+            display: flex;
+            justify-content: flex-end;
+            gap: 0;
+            margin-bottom: 1rem;
+        }
+        .calendar-toggle button {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--color-border, #ddd);
+            background: white;
+            color: var(--color-text, #333);
+            font-family: inherit;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .calendar-toggle button:first-child {
+            border-radius: 6px 0 0 6px;
+        }
+        .calendar-toggle button:last-child {
+            border-radius: 0 6px 6px 0;
+            border-left: none;
+        }
+        .calendar-toggle button.active {
+            background: var(--color-primary, #1a365d);
+            color: white;
+            border-color: var(--color-primary, #1a365d);
+        }
     </style>
     <!-- Preconnect to OCS CDN for faster embed load -->
     <link rel="preconnect" href="https://cdn.onechurchsoftware.com">
@@ -53,14 +81,21 @@
     <section class="section" style="padding-top: 7rem;">
         <div class="container">
             <div class="calendar-container">
-                <div id="calendarDesktop" style="display:none;"></div>
-                <div id="calendarMobile" style="display:none;"></div>
+                <div class="calendar-toggle">
+                    <button id="btnGrid" aria-label="Calendar view">Calendar</button>
+                    <button id="btnList" aria-label="List view">List</button>
+                </div>
+                <div id="calendarGrid" style="display:none;"></div>
+                <div id="calendarList" style="display:none;"></div>
             </div>
             <script>
                 (function() {
-                    var mq = window.matchMedia('(max-width: 768px)');
-                    var loaded = { desktop: false, mobile: false };
+                    var loaded = { grid: false, list: false };
                     var scriptLoaded = false;
+                    var btnGrid = document.getElementById('btnGrid');
+                    var btnList = document.getElementById('btnList');
+                    var elGrid = document.getElementById('calendarGrid');
+                    var elList = document.getElementById('calendarList');
 
                     function loadScript() {
                         if (scriptLoaded) return;
@@ -76,7 +111,7 @@
                         d.className = 'ocs-embed';
                         d.dataset.ocsBg = '#ffffff';
                         d.dataset.ocsTenant = 'ebz';
-                        if (type === 'mobile') {
+                        if (type === 'list') {
                             d.dataset.ocsEmbed = 'events/listing';
                             d.dataset.ocsTitle = '#333333';
                             d.dataset.ocsText = '#333333';
@@ -89,30 +124,35 @@
                         return d;
                     }
 
-                    function update(e) {
-                        var desktop = document.getElementById('calendarDesktop');
-                        var mobile = document.getElementById('calendarMobile');
-                        if (e.matches) {
-                            desktop.style.display = 'none';
-                            mobile.style.display = 'block';
-                            if (!loaded.mobile) {
-                                mobile.appendChild(createEmbed('mobile'));
-                                loaded.mobile = true;
+                    function show(view) {
+                        if (view === 'grid') {
+                            elList.style.display = 'none';
+                            elGrid.style.display = 'block';
+                            btnGrid.classList.add('active');
+                            btnList.classList.remove('active');
+                            if (!loaded.grid) {
+                                elGrid.appendChild(createEmbed('grid'));
+                                loaded.grid = true;
                                 loadScript();
                             }
                         } else {
-                            mobile.style.display = 'none';
-                            desktop.style.display = 'block';
-                            if (!loaded.desktop) {
-                                desktop.appendChild(createEmbed('desktop'));
-                                loaded.desktop = true;
+                            elGrid.style.display = 'none';
+                            elList.style.display = 'block';
+                            btnList.classList.add('active');
+                            btnGrid.classList.remove('active');
+                            if (!loaded.list) {
+                                elList.appendChild(createEmbed('list'));
+                                loaded.list = true;
                                 loadScript();
                             }
                         }
                     }
 
-                    mq.addEventListener('change', update);
-                    update(mq);
+                    btnGrid.addEventListener('click', function() { show('grid'); });
+                    btnList.addEventListener('click', function() { show('list'); });
+
+                    // Default: list on mobile, grid on desktop
+                    show(window.innerWidth <= 768 ? 'list' : 'grid');
                 })();
             </script>
         </div>
