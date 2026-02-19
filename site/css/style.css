@@ -1021,11 +1021,11 @@ h4 { font-size: 1.25rem; }
         display: inline;
     }
 
-    /* Wedding modal: hide "Get in Touch" heading, phone line; show phone in card */
-    .modal-wedding .event-modal-contact h3 {
+    /* Event modals: hide "Get in Touch" heading and standalone phone line */
+    .modal-event .event-modal-contact h3 {
         display: none;
     }
-    .modal-wedding .contact-phone {
+    .modal-event .contact-phone {
         display: none;
     }
     .contact-phone-inline {
