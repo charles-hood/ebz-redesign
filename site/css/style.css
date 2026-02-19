@@ -901,6 +901,14 @@ h4 { font-size: 1.25rem; }
     flex-shrink: 0;
 }
 
+/* Desktop: show full text, hide short text, hide inline phone */
+.ig-text-mobile {
+    display: none;
+}
+.contact-phone-inline {
+    display: none;
+}
+
 .event-modal-contact h3 {
     font-size: 1.1rem;
     margin-bottom: var(--space-md);
@@ -995,6 +1003,36 @@ h4 { font-size: 1.25rem; }
     /* Hide Lisa's title on mobile to save space */
     .contact-title-mobile-hide {
         display: none;
+    }
+
+    /* Wedding modal: show second photo (pavilion wedding), hide first */
+    .modal-wedding .event-modal-images img:first-child {
+        display: none;
+    }
+    .modal-wedding .event-modal-images img:last-child {
+        display: block;
+    }
+
+    /* Hide sanctuary sentence on mobile */
+    .wedding-sanctuary-text {
+        display: none;
+    }
+
+    /* Instagram link: short text on mobile */
+    .ig-text-desktop {
+        display: none;
+    }
+    .ig-text-mobile {
+        display: inline;
+    }
+
+    /* Wedding modal: show phone inside Lisa's card, hide standalone */
+    .modal-wedding .contact-phone {
+        display: none;
+    }
+    .contact-phone-inline {
+        display: block;
+        font-weight: 600;
     }
 
     /* Swap to shorter heading on mobile */
