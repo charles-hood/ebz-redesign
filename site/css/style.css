@@ -1013,11 +1013,6 @@ h4 { font-size: 1.25rem; }
         display: block;
     }
 
-    /* Hide sanctuary sentence on mobile */
-    .wedding-sanctuary-text {
-        display: none;
-    }
-
     /* Instagram link: short text on mobile */
     .ig-text-desktop {
         display: none;
@@ -1026,7 +1021,10 @@ h4 { font-size: 1.25rem; }
         display: inline;
     }
 
-    /* Wedding modal: show phone inside Lisa's card, hide standalone */
+    /* Wedding modal: hide "Get in Touch" heading, phone line; show phone in card */
+    .modal-wedding .event-modal-contact h3 {
+        display: none;
+    }
     .modal-wedding .contact-phone {
         display: none;
     }
