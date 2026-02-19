@@ -20,11 +20,20 @@
             max-width: 1200px;
             margin: 0 auto;
         }
+        .calendar-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .calendar-header span {
+            font-size: 0.875rem;
+            font-weight: 700;
+        }
         .calendar-toggle {
             display: flex;
-            justify-content: flex-end;
             gap: 0;
-            margin-bottom: 1rem;
         }
         .calendar-toggle button {
             padding: 0.5rem 1rem;
@@ -81,9 +90,12 @@
     <section class="section" style="padding-top: 7rem;">
         <div class="container">
             <div class="calendar-container">
-                <div class="calendar-toggle">
-                    <button id="btnGrid" aria-label="Calendar view">Calendar</button>
-                    <button id="btnList" aria-label="List view">List</button>
+                <div class="calendar-header">
+                    <span>Events</span>
+                    <div class="calendar-toggle">
+                        <button id="btnGrid" aria-label="Grid view">Grid</button>
+                        <button id="btnList" aria-label="List view">List</button>
+                    </div>
                 </div>
                 <div id="calendarGrid" style="display:none;"></div>
                 <div id="calendarList" style="display:none;"></div>
