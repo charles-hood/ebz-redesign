@@ -53,7 +53,9 @@ ebzrefesh/
 │   ├── outreach.html         # Outreach ministries (Drake House, NFCC, etc.)
 │   ├── beat-the-drum.html    # Beat The Drum Village - Kenya orphanage
 │   ├── beliefs.html          # Statement of faith
-│   ├── events.html           # Calendar page (embeds littlewhite.church)
+│   ├── events.html           # Calendar page (OCS v3.1 grid/list toggle)
+│   ├── test-events-forward.html  # Test page for events-forward layout
+│   ├── embed-events.html     # Helper page (may be unused)
 │   ├── css/
 │   │   └── style.css
 │   ├── js/
@@ -87,27 +89,41 @@ ebzrefesh/
 
 ## Third-Party Integrations
 
-### One Church Software
-Used for church management, giving, and sermons.
+### One Church Software (OCS v3.1 Embeds)
+Used for church management, giving, sermons, events, and calendar. All embeds use the **v3.1 embed system** (`cdn.onechurchsoftware.com/embed/v3.1.js`).
 
-**Sermon Embed (single sermon):**
+**IMPORTANT:** Do NOT use legacy `bridge.js` or `inplace.bridge.js` — they conflict with v3.1.js on Chrome (causes `ServingScheduleResponse` TypeError). All pages now use v3.1 only.
+
+**Latest Sermon (auto-updating, on index.html):**
 ```html
-<iframe id="onechurch_form_sermon_21"
-    src="https://ebz.onechurchsoftware.com/embed/media?sermon=21&bg=ffffff&text=6a6a6a&title=020a0d"
-    seamless="seamless" width="100%" height="100%" scrolling="auto"
-    allowfullscreen="true" frameborder="0">
-</iframe>
-<script src="https://s3.amazonaws.com/onechurch/bridge.js"></script>
+<div class="ocs-embed" data-ocs-bg="#ffffff" data-ocs-title="#333333" data-ocs-text="#333333" data-ocs-box="#ffffff" data-ocs-show-description="false" data-ocs-show-speaker="false" data-ocs-tenant="ebz" data-ocs-embed="sermons/latest"></div>
+```
+This automatically shows the most recent sermon — **zero weekly maintenance**.
+
+**Sermon Archive (on sermons.html):**
+```html
+<div class="ocs-embed" data-ocs-bg="#ffffff" data-ocs-title="#333333" data-ocs-text="#333333" data-ocs-box="#ffffff" data-ocs-button="#020a0d" data-ocs-show-filters="false" data-ocs-show-speaker="false" data-ocs-show-series="false" data-ocs-tenant="ebz" data-ocs-embed="sermons/listing"></div>
 ```
 
-**Sermon List Embed (for sermons.html):**
+**Single Featured Event (on index.html "Coming Up" section):**
 ```html
-<iframe id="onechurch_form_sermons"
-    src="https://ebz.onechurchsoftware.com/embed/sermons?bg=ffffff&inplace=true&text=6a6a6a&box=eeeeee&button=020a0d&accent=575757&title=020a0d"
-    seamless="seamless" width="100%" height="800" scrolling="auto"
-    allowfullscreen="true" frameborder="0">
-</iframe>
-<script src="https://s3.amazonaws.com/onechurch/inplace.bridge.js"></script>
+<div class="ocs-embed" data-ocs-id="10490" data-ocs-primary="#020a0d" data-ocs-description="false" data-ocs-tenant="ebz" data-ocs-embed="event"></div>
+```
+Change `data-ocs-id` to promote a different event. Find event IDs in OCS admin.
+
+**Events Calendar Grid (on events.html):**
+```html
+<div class="ocs-embed" data-ocs-bg="#ffffff" data-ocs-tenant="ebz" data-ocs-embed="events/calendar"></div>
+```
+
+**Events Listing (on events.html):**
+```html
+<div class="ocs-embed" data-ocs-bg="#ffffff" data-ocs-title="#333333" data-ocs-text="#333333" data-ocs-box="#ffffff" data-ocs-accent="#020a0d" data-ocs-button="#020a0d" data-ocs-tenant="ebz" data-ocs-embed="events/listing"></div>
+```
+
+**Script (one per page, at bottom of body):**
+```html
+<script async src="https://cdn.onechurchsoftware.com/embed/v3.1.js"></script>
 ```
 
 **Giving URL:** https://app.onechurchsoftware.com/ebz/egiving
@@ -115,21 +131,6 @@ Used for church management, giving, and sermons.
 ### YouTube
 - Channel: https://www.youtube.com/@ebenezermethodistchurchofm6983/streams
 - Livestream every Sunday at 11:15 AM
-
-### Calendar (littlewhite.church)
-Church calendar is embedded via iframe from littlewhite.church (a FullCalendar-based service).
-
-```html
-<iframe
-    id="calendarFrame"
-    class="calendar-frame"
-    src="https://littlewhite.church/?view=list"
-    title="Church Events Calendar"
-    loading="lazy">
-</iframe>
-```
-
-The calendar has its own view toggle (list/month) so the page design is kept minimal.
 
 ### Social Media
 - **Facebook:** https://www.facebook.com/EbzMethodistChurch
@@ -159,9 +160,9 @@ Aggregates Facebook posts into an embedded feed on the homepage. Using **Starter
 ## Key Design Decisions
 
 ### Hero Messaging
-**Current:** "Grow your faith. Celebrate life."
+**Current:** "Growing in Grace, Perfected in Love" (updated Jan 2026 per Candi's request)
 
-Shortened from the original longer version for punchier impact. The dual identity (church + venue) is reinforced in the Plan Your Visit section with "Two venues, one church — find the service that fits you."
+The dual identity (church + venue) is reinforced in the Plan Your Visit section with "Two venues, one church — find the service that fits you."
 
 ### Logo
 Using the steeple icon only (`logo-header.png`) rather than the full horizontal logo. The square steeple icon with "Est. 1853" fits better in the header and balances with the nav buttons. Background was made transparent using ImageMagick to blend with the off-white header.
@@ -226,11 +227,6 @@ Clicking a staff card opens a modal with their photo, title, bio, and email butt
 
 ## Known Issues / TODO
 
-### Sermon Thumbnail
-The One Church Software sermon embed uses their default thumbnail. Options to customize:
-1. Change in One Church Software admin (if supported)
-2. Create custom thumbnail overlay that reveals embed on click
-
 ### Future Enhancements (from meeting notes)
 1. **Ticketing integration** - Pardue Center events will need a ticketing platform (Eventbrite, TicketLeap, or Brown Paper Tickets)
 2. **Dedicated weddings page** - could rank for "wedding venue Milton GA" (currently handled via modal)
@@ -246,7 +242,7 @@ The One Church Software sermon embed uses their default thumbnail. Options to cu
 - ✅ Outreach page - created `outreach.html`
 - ✅ Beat The Drum page - created `beat-the-drum.html` with video embed
 - ✅ Beliefs page - created `beliefs.html` with statement of faith
-- ✅ Events/Calendar page - created `events.html` with littlewhite.church embed
+- ✅ Events/Calendar page - `events.html` with OCS v3.1 grid/list toggle (replaced littlewhite.church)
 - ✅ Calendar in main navigation
 - ✅ Social media icons in footer (Facebook, YouTube)
 - ✅ Wedding inquiry modal with contact info and images
@@ -256,6 +252,9 @@ The One Church Software sermon embed uses their default thumbnail. Options to cu
 - ✅ Favicon on all pages
 - ✅ Map embed - fixed with exact coordinates and Google place ID
 - ✅ Facebook content workflow - Juicer.io integration on homepage
+- ✅ OCS v3.1 embed migration - all pages now use v3.1 (no more bridge.js)
+- ✅ Auto-updating sermon - `sermons/latest` embed, zero weekly maintenance
+- ✅ Featured event section - "Coming Up" on homepage with single event card by ID
 
 ## Church Information
 
@@ -313,6 +312,21 @@ ebenezermilton.org {
 ```bash
 cd /var/www/ebz-redesign && git pull
 ```
+
+## Featured Event Update Pattern
+
+To promote a different event on the homepage "Coming Up" section:
+
+1. Find the event ID in One Church Software admin
+2. Edit `site/index.html` — change the `data-ocs-id` attribute:
+```html
+<div class="ocs-embed" data-ocs-id="NEW_ID_HERE" data-ocs-primary="#020a0d" data-ocs-description="false" data-ocs-tenant="ebz" data-ocs-embed="event"></div>
+```
+3. Commit and deploy
+
+This replaces the old hero takeover pattern for routine event promotion. Hero takeovers are still available for major holidays.
+
+**Note:** The sermon embed (`sermons/latest`) auto-updates — no maintenance needed for weekly sermons.
 
 ## Seasonal Hero Takeover Pattern
 
@@ -401,6 +415,42 @@ Replace the hero section with:
 
 ## Session History
 
+### February 18, 2026 (Session 14) - OCS v3.1 Migration, Events-Forward Homepage
+Major infrastructure overhaul: migrated all One Church Software embeds from legacy iframe+bridge.js to v3.1 embed system. Redesigned homepage to be more event-centric.
+
+**What was changed:**
+
+*Calendar/Events:*
+- Replaced littlewhite.church iframe on events.html with OCS v3.1 calendar embeds
+- Added Calendar/List toggle buttons (smart defaults: grid on desktop, list on mobile)
+- JS creates embeds on demand — only loads the active view initially
+- Removed "What's Happening" page header to keep calendar above the fold
+- Added 7rem top padding to clear fixed header
+
+*Homepage:*
+- Reverted Ash Wednesday hero takeover back to regular video hero
+- Added "Coming Up" featured event section after hero (single OCS event embed by ID)
+- Replaced legacy sermon iframe + bridge.js with `sermons/latest` v3.1 embed (auto-updates)
+- Removed `.video-wrapper` and `.video-info` sidebar — sermon is now full-width card
+- Added "View All Sermons" button below sermon card
+- Single v3.1.js script at bottom of page (no bridge.js)
+
+*Sermons Page:*
+- Updated sermons.html to v3.1 `sermons/listing` embed (replaced legacy iframe + inplace.bridge.js)
+
+*Test Files Created:*
+- `test-events-forward.html` — used to preview events-forward layout before production
+- `embed-events.html` — helper page created during bridge.js conflict debugging
+
+**Key discovery:** `bridge.js` and `v3.1.js` conflict on Chrome when loaded on same page. Solution was to remove bridge.js entirely and use v3.1 for everything.
+
+**Maintenance reduction:**
+- Sermon: was 3 manual changes per week → now zero (sermons/latest auto-updates)
+- Event promotion: was multi-step hero takeover → now one attribute change (data-ocs-id)
+- Weekly sermon updates are NO LONGER NEEDED
+
+**Note:** Old sermon metadata pattern from Session 13 is obsolete. The `sermons/latest` embed handles everything automatically.
+
 ### January 4, 2026 (Session 13) - Regular Hero Restored, Multiple Updates
 Reverted from New Year's seasonal hero back to regular content. Multiple content and bug fixes.
 
@@ -414,11 +464,8 @@ Reverted from New Year's seasonal hero back to regular content. Multiple content
 - Updated About section: heading changed to "170 Years & Growing", Pardue Center paragraph moved first
 - Fixed fade-in animation bug: removed `.section` from IntersectionObserver (was causing pages to render invisible until scroll)
 
-**Sermon metadata pattern (for weekly updates):**
-Each week, update three items in `site/index.html`:
-1. `id="onechurch_form_sermon_XX"` - iframe ID
-2. `sermon=XX` in the src URL
-3. `.video-info` content: `<h3>` for title, `<p>` for scripture reference
+**Sermon metadata pattern ~~(for weekly updates)~~ — OBSOLETE as of Session 14:**
+Replaced by `sermons/latest` v3.1 embed which auto-updates. No manual changes needed.
 
 **Note:** Seasonal CSS classes remain in `style.css` but are inactive (no longer referenced in HTML). Can be reused for future seasonal content.
 
