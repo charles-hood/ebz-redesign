@@ -121,7 +121,7 @@ Change `data-ocs-id` to promote a different event. Find event IDs in OCS admin.
 <div class="ocs-embed" data-ocs-bg="#ffffff" data-ocs-title="#333333" data-ocs-text="#333333" data-ocs-box="#ffffff" data-ocs-accent="#020a0d" data-ocs-button="#020a0d" data-ocs-tenant="ebz" data-ocs-embed="events/listing"></div>
 ```
 
-**Script (one per page, at bottom of body):**
+**Script (one per page, in `<head>` for reliable initialization):**
 ```html
 <script async src="https://cdn.onechurchsoftware.com/embed/v3.1.js"></script>
 ```
@@ -135,8 +135,10 @@ Change `data-ocs-id` to promote a different event. Find event IDs in OCS admin.
 ### Social Media
 - **Facebook:** https://www.facebook.com/EbzMethodistChurch
 - **YouTube:** https://www.youtube.com/@ebenezermethodistchurchofm6983/streams
+- **Instagram (Pardue Center):** https://www.instagram.com/parduecenterofficial
+- **Instagram (Youth/RISE):** https://www.instagram.com/rise_youth__/ (not yet linked on site — add when youth section is built)
 
-Social icons (SVG) are included in the footer of all pages.
+Social icons (Facebook, YouTube, Instagram) are in the footer of all pages. Instagram also appears as a "See Our Space" button in the Pardue Center venue section on the homepage.
 
 ### Juicer (Facebook Feed)
 Aggregates Facebook posts into an embedded feed on the homepage. Using **Starter plan** (no branding).
@@ -318,11 +320,16 @@ cd /var/www/ebz-redesign && git pull
 To promote a different event on the homepage "Coming Up" section:
 
 1. Find the event ID in One Church Software admin
-2. Edit `site/index.html` — change the `data-ocs-id` attribute:
+2. Edit `site/index.html` — change **both** the `data-ocs-id` and the overlay `<a>` href:
 ```html
-<div class="ocs-embed" data-ocs-id="NEW_ID_HERE" data-ocs-primary="#020a0d" data-ocs-description="false" data-ocs-tenant="ebz" data-ocs-embed="event"></div>
+<div style="position: relative; cursor: pointer; max-width: 600px; margin: 0 auto;">
+    <div class="ocs-embed" data-ocs-id="NEW_ID" data-ocs-primary="#020a0d" data-ocs-description="false" data-ocs-tenant="ebz" data-ocs-embed="event"></div>
+    <a href="https://ebz.onechurchsoftware.com/api/share/events/NEW_ID" target="_blank" rel="noopener" style="position: absolute; inset: 0; z-index: 10;"></a>
+</div>
 ```
 3. Commit and deploy
+
+**OCS share URL format:** `https://ebz.onechurchsoftware.com/api/share/events/{EVENT_ID}`
 
 This replaces the old hero takeover pattern for routine event promotion. Hero takeovers are still available for major holidays.
 
@@ -422,7 +429,8 @@ Major infrastructure overhaul: migrated all One Church Software embeds from lega
 
 *Calendar/Events:*
 - Replaced littlewhite.church iframe on events.html with OCS v3.1 calendar embeds
-- Added Calendar/List toggle buttons (smart defaults: grid on desktop, list on mobile)
+- Added Grid/List toggle buttons (smart defaults: grid on desktop, list on mobile)
+- Centered header row with bold "Events" label alongside toggle buttons
 - JS creates embeds on demand — only loads the active view initially
 - Removed "What's Happening" page header to keep calendar above the fold
 - Added 7rem top padding to clear fixed header
@@ -433,7 +441,15 @@ Major infrastructure overhaul: migrated all One Church Software embeds from lega
 - Replaced legacy sermon iframe + bridge.js with `sermons/latest` v3.1 embed (auto-updates)
 - Removed `.video-wrapper` and `.video-info` sidebar — sermon is now full-width card
 - Added "View All Sermons" button below sermon card
-- Single v3.1.js script at bottom of page (no bridge.js)
+- v3.1.js moved to `<head>` (per OCS docs recommendation for reliable initialization)
+
+*Featured Event Refinements:*
+- Updated featured event from Ash Wednesday (10490) to Wedding Expo (10477)
+- OCS single event embeds are NOT natively clickable (confirmed with bare test page)
+- Added transparent `<a>` overlay to make card clickable → OCS share page (new tab)
+- Capped embed at `max-width: 600px; margin: 0 auto` to prevent full-width blowout
+- Responsive padding via `.coming-up` class: 2rem mobile, 3.5rem desktop
+- Button renamed: "View Full Calendar" → "View More Events"
 
 *Sermons Page:*
 - Updated sermons.html to v3.1 `sermons/listing` embed (replaced legacy iframe + inplace.bridge.js)
