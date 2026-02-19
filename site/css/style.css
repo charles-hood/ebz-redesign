@@ -872,7 +872,7 @@ h4 { font-size: 1.25rem; }
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--space-md);
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-sm);
 }
 
 .event-modal-images img {
@@ -880,6 +880,25 @@ h4 { font-size: 1.25rem; }
     height: 150px;
     object-fit: cover;
     border-radius: 8px;
+}
+
+.modal-instagram-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    color: var(--color-primary-light);
+    text-decoration: none;
+    margin-bottom: var(--space-md);
+    transition: color 0.2s;
+}
+
+.modal-instagram-link:hover {
+    color: var(--color-accent);
+}
+
+.modal-instagram-link svg {
+    flex-shrink: 0;
 }
 
 .event-modal-contact h3 {
