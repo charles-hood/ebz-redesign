@@ -58,9 +58,10 @@
             border-color: var(--color-primary, #1a365d);
         }
     </style>
-    <!-- Preconnect to OCS CDN for faster embed load -->
+    <!-- OCS embed script — must be in <head> so it initializes after DOM embeds are present -->
     <link rel="preconnect" href="https://cdn.onechurchsoftware.com">
     <link rel="dns-prefetch" href="https://cdn.onechurchsoftware.com">
+    <script async src="https://cdn.onechurchsoftware.com/embed/v3.1.js"></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -97,44 +98,19 @@
                         <button id="btnList" aria-label="List view">List</button>
                     </div>
                 </div>
-                <div id="calendarGrid" style="display:none;"></div>
-                <div id="calendarList" style="display:none;"></div>
+                <div id="calendarGrid" style="display:none;">
+                    <div class="ocs-embed" data-ocs-bg="#ffffff" data-ocs-tenant="ebz" data-ocs-embed="events/calendar"></div>
+                </div>
+                <div id="calendarList" style="display:none;">
+                    <div class="ocs-embed" data-ocs-bg="#ffffff" data-ocs-title="#333333" data-ocs-text="#333333" data-ocs-box="#ffffff" data-ocs-accent="#020a0d" data-ocs-button="#020a0d" data-ocs-tenant="ebz" data-ocs-embed="events/listing"></div>
+                </div>
             </div>
             <script>
                 (function() {
-                    var loaded = { grid: false, list: false };
-                    var scriptLoaded = false;
                     var btnGrid = document.getElementById('btnGrid');
                     var btnList = document.getElementById('btnList');
                     var elGrid = document.getElementById('calendarGrid');
                     var elList = document.getElementById('calendarList');
-
-                    function loadScript() {
-                        if (scriptLoaded) return;
-                        scriptLoaded = true;
-                        var s = document.createElement('script');
-                        s.src = 'https://cdn.onechurchsoftware.com/embed/v3.1.js';
-                        s.async = true;
-                        document.querySelector('.calendar-container').appendChild(s);
-                    }
-
-                    function createEmbed(type) {
-                        var d = document.createElement('div');
-                        d.className = 'ocs-embed';
-                        d.dataset.ocsBg = '#ffffff';
-                        d.dataset.ocsTenant = 'ebz';
-                        if (type === 'list') {
-                            d.dataset.ocsEmbed = 'events/listing';
-                            d.dataset.ocsTitle = '#333333';
-                            d.dataset.ocsText = '#333333';
-                            d.dataset.ocsBox = '#ffffff';
-                            d.dataset.ocsAccent = '#020a0d';
-                            d.dataset.ocsButton = '#020a0d';
-                        } else {
-                            d.dataset.ocsEmbed = 'events/calendar';
-                        }
-                        return d;
-                    }
 
                     function show(view) {
                         if (view === 'grid') {
@@ -142,21 +118,11 @@
                             elGrid.style.display = 'block';
                             btnGrid.classList.add('active');
                             btnList.classList.remove('active');
-                            if (!loaded.grid) {
-                                elGrid.appendChild(createEmbed('grid'));
-                                loaded.grid = true;
-                                loadScript();
-                            }
                         } else {
                             elGrid.style.display = 'none';
                             elList.style.display = 'block';
                             btnList.classList.add('active');
                             btnGrid.classList.remove('active');
-                            if (!loaded.list) {
-                                elList.appendChild(createEmbed('list'));
-                                loaded.list = true;
-                                loadScript();
-                            }
                         }
                     }
 
