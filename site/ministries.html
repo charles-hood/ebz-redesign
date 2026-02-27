@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ministries | Ebenezer Church | Milton, GA</title>
+    <meta name="description" content="Explore the ministries of Ebenezer Church in Milton, GA — children, youth, men, women, music, outreach, prayer, grief support, and more.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Ministries | Ebenezer Church">
+    <meta property="og:description" content="Find your place to connect, grow, and serve at Ebenezer Church.">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://ebenezermilton.org/ministries">
+    <link rel="icon" type="image/png" href="images/logo-header.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@400;500;600;700&display=optional" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .ministries-hero {
+            padding: 7rem 0 3rem;
+            text-align: center;
+            background: var(--color-bg-alt);
+        }
+        .ministries-hero h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+        }
+        .ministries-hero p {
+            color: var(--color-text-light);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .ministry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 2rem;
+            padding: 3rem 0 4rem;
+        }
+        .ministry-card {
+            background: white;
+            border-radius: var(--radius-lg, 12px);
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .ministry-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+        }
+        .ministry-card a.ministry-card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .ministry-card-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+        .ministry-card-body {
+            padding: 1.5rem;
+        }
+        .ministry-card-body h2 {
+            font-size: 1.35rem;
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+        }
+        .ministry-card-body .ministry-subtitle {
+            font-size: 0.85rem;
+            color: var(--color-accent);
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+        .ministry-card-body p {
+            color: var(--color-text-light);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+        .ministry-card-body .ministry-verse {
+            font-style: italic;
+            color: var(--color-text-muted, #888);
+            font-size: 0.9rem;
+            margin-top: 0.75rem;
+            border-left: 3px solid var(--color-accent);
+            padding-left: 0.75rem;
+        }
+        .ministry-card-body .ministry-details {
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+        }
+        .ministry-card-body .ministry-details strong {
+            color: var(--color-text);
+        }
+        .ministry-link {
+            display: inline-block;
+            margin-top: 1rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            font-size: 0.9rem;
+        }
+        .ministry-link::after {
+            content: ' →';
+        }
+        @media (max-width: 767px) {
+            .ministry-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 2rem 0 3rem;
+            }
+            .ministry-card-image {
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="header">
+        <nav class="nav">
+            <a href="/" class="logo">
+                <img src="images/logo-header.png" alt="Ebenezer Church">
+            </a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html#visit">Get Started</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#watch">Watch</a></li>
+                <li><a href="index.html#venue">The Pardue Center</a></li>
+                <li><a href="ministries.html" class="active">Ministries</a></li>
+                <li><a href="events.html">Calendar</a></li>
+                <li><a href="index.html#give" class="btn btn-outline">Give</a></li>
+                <li><a href="index.html#visit" class="btn btn-primary">Plan a Visit</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="ministries-hero">
+        <div class="container">
+            <h1>Ministries</h1>
+            <p>Find your place to connect, grow, and serve.</p>
+        </div>
+    </section>
+
+    <!-- Ministry Cards -->
+    <section class="section">
+        <div class="container">
+            <div class="ministry-grid">
+
+                <!-- Children's Ministry -->
+                <div class="ministry-card">
+                    <img src="images/ministries/nursery.jpg" alt="Children's Ministry" class="ministry-card-image">
+                    <div class="ministry-card-body">
+                        <h2>Children's Ministry</h2>
+                        <div class="ministry-subtitle">Nursery through 5th Grade</div>
+                        <p>Ebenezer's Children's Ministry is a Christ-centered, family-focused ministry dedicated to introducing kids to Jesus and helping them grow through biblical teaching, discipleship, and age-appropriate faith activities. We strive to provide a safe, nurturing, and engaging environment where kids can experience God's love and build a strong spiritual foundation.</p>
+                        <p class="ministry-verse">"Whoever welcomes one such child in my name welcomes me." — Mark 9:37</p>
+                        <div class="ministry-details">
+                            <strong>Ages:</strong> Nursery (0–18 mos.) · Toddler (18 mos.–3 yrs.) · Pre-K (4–5) · Children (Grades 1–5)
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Youth / RISE -->
+                <div class="ministry-card">
+                    <img src="images/ministries/youth.jpg" alt="RISE Youth Ministry" class="ministry-card-image">
+                    <div class="ministry-card-body">
+                        <h2>RISE Youth</h2>
+                        <div class="ministry-subtitle">Grades 6–12 · Thursdays 6:30–8:30 PM</div>
+                        <p>RISE Youth is a vibrant ministry for students in grades 6–12. Our mission is to help students grow in faith, community, and purpose. Each week includes engaging games, powerful worship, and a relevant message from our youth minister, Asa Sellers, followed by meaningful devotional time in small groups. RISE provides a welcoming environment where teens can connect, be encouraged, and take the next step in their walk with Christ.</p>
+                    </div>
+                </div>
+
+                <!-- Men's Ministry -->
+                <div class="ministry-card">
+                    <img src="images/ministries/men.jpg" alt="Men's Ministry" class="ministry-card-image">
+                    <div class="ministry-card-body">
+                        <h2>Men's Ministry</h2>
+                        <p>We are dedicated to helping men grow in Christ, build authentic relationships, and live out their God-given calling through Bible study, fellowship, and discipleship. Whether you're looking for accountability, spiritual growth, or a community of Christian men walking through life together, you'll find a welcoming brotherhood here. We aim to equip men to live with integrity, purpose, and courage as they follow Jesus daily.</p>
+                    </div>
+                </div>
+
+                <!-- Women's Ministry -->
+                <div class="ministry-card">
+                    <img src="images/ministries/women.jpg" alt="Women's Ministry" class="ministry-card-image">
+                    <div class="ministry-card-body">
+                        <h2>Women's Ministry</h2>
+                        <p>Life is complicated, especially for women pulled in many directions. Ebenezer's Women's Ministry is a community of women growing together in faith, friendship, and service. Whether you're seeking connection, spiritual growth, or a place to belong — you're welcome here.</p>
+                        <div class="ministry-details">
+                            <strong>Connect</strong> — Monthly lunch groups, annual Christmas brunch, small groups<br>
+                            <strong>Grow</strong> — Bible studies, retreats, speakers on real-life topics<br>
+                            <strong>Serve</strong> — Prayer blankets, outreach projects, supporting families in need
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Music -->
+                <div class="ministry-card">
+                    <img src="images/ministries/music.jpg" alt="Music Ministry" class="ministry-card-image">
+                    <div class="ministry-card-body">
+                        <h2>Music Ministry</h2>
+                        <p>Our Music Ministry is a lighthearted, friendly community where we grow in faith and enjoy serving together. With a dynamic church choir, a developing orchestra, and a vibrant contemporary praise band, we offer meaningful opportunities for singers and instrumentalists to use their gifts in worship. Whether you're an experienced musician or just beginning, you'll find encouragement, friendship, and a joyful place to serve.</p>
+                    </div>
+                </div>
+
+                <!-- Outreach / Missions -->
+                <div class="ministry-card">
+                    <a href="outreach.html" class="ministry-card-link">
+                        <img src="images/outreach.jpg" alt="Outreach & Missions" class="ministry-card-image">
+                        <div class="ministry-card-body">
+                            <h2>Outreach & Missions</h2>
+                            <p>Our community outreach ministry partners with local schools, families in need, food pantries, and nonprofits to provide essential support. By meeting practical needs and building meaningful relationships, we work to bring hope, stability, and long-term impact to all we serve.</p>
+                            <span class="ministry-link">Learn more</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Beat The Drum -->
+                <div class="ministry-card">
+                    <a href="beat-the-drum.html" class="ministry-card-link">
+                        <img src="images/beat-the-drum.jpg" alt="Beat The Drum Village" class="ministry-card-image">
+                        <div class="ministry-card-body">
+                            <h2>Beat The Drum Village</h2>
+                            <div class="ministry-subtitle">Kenya Orphanage Partnership</div>
+                            <p>Beat The Drum Village in Kenya is an orphanage we support financially, providing home and education for children orphaned by HIV/AIDS. We are honored to partner in this life-changing work.</p>
+                            <span class="ministry-link">Learn more</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Prayer -->
+                <div class="ministry-card">
+                    <img src="images/ministries/worship-service.jpg" alt="Prayer Ministry" class="ministry-card-image">
+                    <div class="ministry-card-body">
+                        <h2>Prayer Ministry</h2>
+                        <div class="ministry-subtitle">Mondays at 9:00 AM</div>
+                        <p>Ebenezer has an active prayer ministry that meets at 9 a.m. Mondays to pray corporately for our individual needs and those of church members and friends. A secure WhatsApp group is available for posting urgent needs. No prayer concern is too small; we believe in the power of prayer. God has led many people in crisis to our Monday morning gathering — an opportunity we cherish.</p>
+                    </div>
+                </div>
+
+                <!-- Grief -->
+                <div class="ministry-card">
+                    <div class="ministry-card-body">
+                        <h2>You Are Not Alone</h2>
+                        <div class="ministry-subtitle">Grief Support · Monthly</div>
+                        <p>You Are Not Alone is a compassionate support group for anyone experiencing grief or loss. Participants gather monthly to share, listen, and receive support in a safe, understanding, and confidential environment. We care about all your losses — whether it's job loss, the loss of a precious pet, the death of a loved one, or the loss of the life you expected to lead — and we walk with you through every step.</p>
+                    </div>
+                </div>
+
+                <!-- Continuing With Joy (Widows) -->
+                <div class="ministry-card">
+                    <div class="ministry-card-body">
+                        <h2>Continuing With Joy</h2>
+                        <div class="ministry-subtitle">Widows Ministry · Monthly</div>
+                        <p>Continuing With Joy offers support and encouragement to widows in a faith-based, loving, and caring ministry. The women gather monthly for food, fun, and fellowship, with a festive holiday gathering each Christmas. Between meetings, the women pray for and support each other in many ways. The name truly personifies what the ministry is all about: a group that, with the Lord's help, exemplifies what it means to continue with joy.</p>
+                    </div>
+                </div>
+
+                <!-- Education -->
+                <div class="ministry-card">
+                    <div class="ministry-card-body">
+                        <h2>Education</h2>
+                        <p>Details coming soon. Check back for information about our education ministry offerings.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="images/logo.png" alt="Ebenezer Church" class="footer-logo">
+                    <p>A community of faith since 1853.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/EbzMethodistChurch" target="_blank" rel="noopener" aria-label="Facebook">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="https://www.youtube.com/@ebenezermethodistchurchofm6983/streams" target="_blank" rel="noopener" aria-label="YouTube">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/parduecenterofficial" target="_blank" rel="noopener" aria-label="Instagram">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#watch">Watch</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="ministries.html">Ministries</a></li>
+                        <li><a href="index.html#venue">The Pardue Center</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="sermons.html">Sermons</a></li>
+                        <li><a href="index.html#give">Give</a></li>
+                        <li><a href="history.html">Our History</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p>12900 Arnold Mill Road<br>Roswell, GA 30075</p>
+                    <p><a href="tel:770-640-7287">770-640-7287</a></p>
+                    <p><a href="mailto:office@ebzchurch.org">office@ebzchurch.org</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> Ebenezer Church. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>document.getElementById('currentYear').textContent = new Date().getFullYear();</script>
+</body>
+</html>
