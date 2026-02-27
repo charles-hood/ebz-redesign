@@ -481,6 +481,31 @@ h4 { font-size: 1.25rem; }
     font-weight: 600;
 }
 
+/* Mission Capstone (beliefs page) */
+.mission-capstone {
+    text-align: center;
+    margin-top: 2.5rem;
+    padding-top: 1rem;
+}
+
+.capstone-rule {
+    border: none;
+    width: 60px;
+    height: 2px;
+    background: var(--color-accent);
+    margin: 0 auto 1.5rem;
+}
+
+.capstone-label {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    margin-bottom: 0.75rem;
+}
+
 /* Watch Section */
 .section-watch {
     background: var(--color-bg);
