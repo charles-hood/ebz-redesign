@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beat The Drum Update - February 2026 | Ebenezer Church</title>
+    <meta name="description" content="Quarterly update from Beat The Drum Village in Kenya — child welfare, education progress, Christmas celebrations, and health updates.">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" type="image/png" href="images/logo-header.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@400;500;600;700&display=optional" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .btd-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .btd-content h2 {
+            margin-top: var(--space-2xl);
+            margin-bottom: var(--space-md);
+            color: var(--color-primary);
+        }
+        .btd-content h3 {
+            color: var(--color-primary);
+            margin-top: var(--space-xl);
+            margin-bottom: var(--space-sm);
+            font-size: 1.25rem;
+        }
+        .btd-content p {
+            margin-bottom: var(--space-md);
+            color: var(--color-text-light);
+            line-height: 1.8;
+        }
+        .btd-content ul {
+            margin: 0 0 var(--space-md) var(--space-lg);
+            color: var(--color-text-light);
+            line-height: 1.8;
+        }
+        .btd-content li {
+            margin-bottom: var(--space-xs);
+        }
+        .btd-intro {
+            font-size: 1.125rem;
+            color: var(--color-text);
+            padding-bottom: var(--space-lg);
+            margin-bottom: var(--space-lg);
+            border-bottom: 1px solid var(--color-border);
+        }
+        .btd-intro p {
+            color: var(--color-text);
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            color: var(--color-primary);
+            font-weight: 500;
+            margin-bottom: var(--space-lg);
+        }
+        .back-link:hover {
+            color: var(--color-primary-dark);
+        }
+        .btd-photo {
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            margin: var(--space-md) 0;
+            box-shadow: var(--shadow-lg);
+        }
+        .btd-photo img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .btd-photo.hero-photo img {
+            height: 350px;
+            object-fit: cover;
+        }
+        .photo-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-md);
+            margin: var(--space-md) 0;
+        }
+        .photo-row .btd-photo {
+            margin: 0;
+        }
+        .photo-row .btd-photo img {
+            height: 250px;
+            object-fit: cover;
+        }
+        .health-profile {
+            display: flex;
+            gap: var(--space-lg);
+            align-items: flex-start;
+            margin: var(--space-md) 0;
+        }
+        .health-profile img {
+            width: 200px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: var(--shadow-lg);
+            flex-shrink: 0;
+        }
+        .health-profile .profile-text {
+            flex: 1;
+            min-width: 0;
+        }
+        .health-profile .profile-text p:last-child {
+            margin-bottom: 0;
+        }
+        .costs-box {
+            background: var(--color-bg-alt);
+            border-left: 4px solid var(--color-accent);
+            padding: var(--space-lg);
+            margin: var(--space-md) 0;
+            border-radius: 0 12px 12px 0;
+        }
+        .costs-box p {
+            margin-bottom: var(--space-xs);
+        }
+        .costs-box p:last-child {
+            margin-bottom: 0;
+        }
+        .update-date {
+            display: inline-block;
+            background: var(--color-accent);
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            margin-bottom: var(--space-md);
+        }
+        .signature {
+            margin-top: var(--space-lg);
+            font-style: italic;
+            border-top: 1px solid var(--color-border);
+            padding-top: var(--space-lg);
+        }
+        .signature strong {
+            font-style: normal;
+            display: block;
+            color: var(--color-text);
+        }
+        .donate-box {
+            background: var(--color-primary);
+            color: white;
+            border-radius: 12px;
+            padding: var(--space-xl);
+            margin-top: var(--space-2xl);
+            text-align: center;
+        }
+        .donate-box h3 {
+            color: white;
+            font-size: 2rem;
+            margin-top: 0;
+            margin-bottom: var(--space-sm);
+        }
+        .donate-box p {
+            color: rgba(255,255,255,0.9);
+            margin-bottom: var(--space-md);
+        }
+        .donate-box .btn {
+            background: white;
+            color: var(--color-primary);
+            border-color: white;
+        }
+        .donate-box .btn:hover {
+            background: var(--color-accent);
+            border-color: var(--color-accent);
+        }
+        @media (max-width: 600px) {
+            .btd-photo.hero-photo img {
+                height: 220px;
+            }
+            .photo-row {
+                grid-template-columns: 1fr;
+            }
+            .photo-row .btd-photo img {
+                height: 200px;
+            }
+            .health-profile {
+                flex-direction: column;
+            }
+            .health-profile img {
+                width: 160px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="header">
+        <nav class="nav">
+            <a href="/" class="logo">
+                <img src="images/logo-header.png" alt="Ebenezer Church">
+            </a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html#visit">Get Started</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#watch">Watch</a></li>
+                <li><a href="index.html#venue">The Pardue Center</a></li>
+                <li><a href="ministries.html">Ministries</a></li>
+                <li><a href="events.html">Calendar</a></li>
+                <li><a href="index.html#give" class="btn btn-outline">Give</a></li>
+                <li><a href="index.html#visit" class="btn btn-primary">Plan a Visit</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Beat The Drum Village</h1>
+            <p>Quarterly Update</p>
+        </div>
+    </section>
+
+    <!-- Update Content -->
+    <section class="section">
+        <div class="container">
+            <div class="btd-content">
+                <a href="beat-the-drum.html" class="back-link">&larr; Back to Beat The Drum</a>
+
+                <span class="update-date">February 2026</span>
+
+                <div class="btd-photo hero-photo">
+                    <img src="images/btd-update/children-school-uniforms.jpg" alt="Beat The Drum children in their school uniforms">
+                </div>
+
+                <div class="btd-intro">
+                    <p>Warm greetings to you, your family, and the church.</p>
+                    <p>We write to sincerely thank you for your continued support and commitment to the children at Beat the Drum. Because of your generosity and faithful partnership, we continue to witness transformation in the lives of the children under our care. Your love, prayers, and support remind them that they are valued, remembered, and deeply cared for.</p>
+                </div>
+
+                <!-- Child Welfare -->
+                <h2>Child Welfare</h2>
+                <div class="btd-photo">
+                    <img src="images/btd-update/children-casual.jpg" alt="Children at Beat the Drum Village">
+                </div>
+                <p>We are deeply grateful for our friends and sponsors, especially Ebenezer Church, who faithfully support the needs of our children. Your contributions go a long way toward the welfare of the BTD family.</p>
+                <p>Currently, all our children are attending school except for Gladys, whose education has been affected by her medical condition. Gladys undergoes dialysis twice a week and has experienced several hospital admissions. However, whenever she is discharged from the hospital and able to attend, she faithfully returns to school and continues with her studies.</p>
+                <p>Your partnership is not just financial support &mdash; it is restoring hope and giving every child the opportunity for a brighter future.</p>
+
+                <!-- Education -->
+                <h2>Education</h2>
+                <div class="btd-photo">
+                    <img src="images/btd-update/students-with-staff.jpg" alt="Students with staff at Beat the Drum">
+                </div>
+                <p>Education remains one of our core priorities. We are pleased to report that all school-going children are enrolled and attending school consistently. At the beginning of this academic year, two students joined Junior School, while the rest of the children successfully progressed to the next grade levels.</p>
+                <p>In addition to academic learning, we continue to emphasize discipline, responsibility, and character development, helping the children grow into responsible and confident individuals.</p>
+                <p>We are encouraged to see many of them developing confidence, ambition, and hope for their future.</p>
+
+                <!-- Christmas -->
+                <h2>Christmas Celebrations</h2>
+                <p>Christmas was a joyful and memorable season for our children. Through your support, we were able to organize a meaningful celebration that included:</p>
+                <ul>
+                    <li>A special Christmas meal</li>
+                    <li>A fellowship celebration with worship, testimonies, and thanksgiving</li>
+                </ul>
+                <div class="photo-row">
+                    <div class="btd-photo">
+                        <img src="images/btd-update/christmas-meal.jpg" alt="Children enjoying their Christmas meal">
+                    </div>
+                    <div class="btd-photo">
+                        <img src="images/btd-update/christmas-feast.jpg" alt="Christmas feast spread at Beat the Drum">
+                    </div>
+                </div>
+                <p>The celebration created a wonderful atmosphere of joy and gratitude, reminding the children that they are loved, valued, and not forgotten.</p>
+                <p>Thank you for making Christmas special and meaningful for them.</p>
+
+                <!-- Farming -->
+                <h2>Farming Projects</h2>
+                <p>We thank God for the continued progress in our farming projects, which play an important role in supporting both nutrition and sustainability at the home.</p>
+                <p>Recently, we slaughtered some chickens from our poultry project to improve the children's meals. Our dairy cows continue producing milk consistently, supporting the children's nutritional needs while also contributing to sustainability. Our fruit project is also doing well, particularly bananas and mangoes.</p>
+                <p>Although we experienced some dry spells, the onset of the rains gives us hope for a successful vegetable farming season ahead. We remain committed to strengthening food security for the benefit of the children.</p>
+
+                <!-- Health -->
+                <h2>Health and Well-being</h2>
+                <p>The overall health of the children remains stable, except for two children who continue to require close medical attention.</p>
+                <p>Routine medical check-ups have been conducted, and children on long-term medication continue to receive consistent monitoring. Nutrition standards have been maintained to support proper growth, and health education sessions were conducted to promote hygiene and preventive care. We remain committed to ensuring that every child receives timely and quality medical attention whenever needed.</p>
+                <p>Below is a detailed update on the two children currently facing health challenges.</p>
+
+                <h3>Gladys Nyambura</h3>
+                <div class="health-profile">
+                    <img src="images/btd-update/gladys.jpg" alt="Gladys Nyambura">
+                    <div class="profile-text">
+                        <p>Two years ago, Gladys was diagnosed with diabetes, which later led to severe kidney complications requiring dialysis. Since then, she has courageously endured a difficult medical journey marked by frequent hospital admissions and repeated procedures.</p>
+                        <p>Gladys currently undergoes dialysis twice every week. Due to repeated catheter blockages and infections, she has experienced multiple hospital admissions at Kenyatta National Hospital (KNH).</p>
+                    </div>
+                </div>
+                <p>Recent developments include:</p>
+                <ul>
+                    <li><strong>September 2025:</strong> Attempt to create a permanent AV fistula was unsuccessful.</li>
+                    <li><strong>October 2025:</strong> Catheter inserted in the left leg after previous chest catheters failed.</li>
+                    <li><strong>December 2025 &ndash; January 2026:</strong> Admitted at KNH due to catheter infection and blockage.</li>
+                    <li><strong>February 2026:</strong> Several readmissions caused by catheter blockages, including one instance where the catheter dislodged while she was on her way to dialysis.</li>
+                    <li><strong>17 February 2026:</strong> A permanent catheter was inserted in the leg to provide more durable access and reduce recurrent infections.</li>
+                </ul>
+                <p>She was admitted at Kenyatta National Hospital for one week in February. In addition, Gladys is currently experiencing some side effects, especially fluid accumulation and some ENT issues, which she already has a scheduled clinic for.</p>
+                <p>Despite her condition, Gladys remains determined to continue her education, although she misses two school days each week due to dialysis treatments.</p>
+                <p>Recent changes in Kenya's health insurance system from NHIF to SHA have significantly affected children living in charitable homes. Unfortunately, Gladys is currently not covered, and previous support avenues through the government system are no longer available. As a result, all dialysis sessions and hospital bills must now be paid in cash.</p>
+
+                <div class="costs-box">
+                    <p><strong>Medical costs:</strong></p>
+                    <p>Dialysis per session: KES 11,872</p>
+                    <p>Weekly dialysis cost: KES 23,744</p>
+                    <p>A permanent catheter procedure was performed on 17 February 2026, and we hope this will reduce complications and repeated procedures.</p>
+                    <p><strong>From 1 January 2026 to date, the total medical cost has reached KES 389,744.</strong></p>
+                </div>
+
+                <p>These expenses continue to increase due to:</p>
+                <ul>
+                    <li>Repeated hospital admissions</li>
+                    <li>Ward charges</li>
+                    <li>Dialysis sessions</li>
+                    <li>Laboratory tests and medical procedures</li>
+                </ul>
+
+                <h3>Raphael Lutian</h3>
+                <div class="health-profile">
+                    <img src="images/btd-update/raphael.jpg" alt="Raphael Lutian">
+                    <div class="profile-text">
+                        <p>Although Raphael has been reported to have good adherence to his medication, his viral load has unfortunately been increasing with each repeat test. As of November 2025, his viral load was 20,900 copies, which indicates the need for further medical investigation.</p>
+                        <p>Raphael attends clinic at Kijabe Hospital, where doctors have planned to conduct a Drug Resistance Test (DRT).</p>
+                    </div>
+                </div>
+
+                <!-- Appreciation -->
+                <h2>Appreciation and Appeal</h2>
+                <p>We are deeply grateful for your continued partnership and generosity. Gladys' life today is sustained through consistent dialysis and medical care made possible through your support and prayers.</p>
+                <p>We kindly request your continued support as we navigate these unexpected and high medical costs, ensuring that her treatment continues without interruption.</p>
+
+                <!-- Conclusion -->
+                <h2>Closing</h2>
+                <p>Once again, we extend our heartfelt gratitude to you, your family, and the entire church for standing with us and the children at Beat the Drum. Your prayers, generosity, and continued partnership are making a real and lasting difference in their lives. Because of your support, these children are able to grow in a safe environment, pursue their education, and receive the care they need to build a hopeful future.</p>
+                <p>We remain committed to nurturing them not only physically and academically, but also spiritually and emotionally. May God richly bless you for your kindness and faithfulness. We look forward to continuing this journey together as we transform lives and restore hope.</p>
+                <div class="signature">
+                    <strong>Mrs Esther Muchiri</strong>
+                    GOA Compassion Director
+                </div>
+
+                <div class="donate-box">
+                    <h3>Support Beat The Drum</h3>
+                    <p>Your generosity sustains these children's education, healthcare, and daily needs.</p>
+                    <a href="https://app.onechurchsoftware.com/ebz/egiving" class="btn" target="_blank">Give Now</a>
+                    <p style="font-size: 0.875rem; margin-top: var(--space-sm); opacity: 0.85;">Please select "Beat the Drum (Glory Outreach Assembly)" from the dropdown menu.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="images/logo.png" alt="Ebenezer Church" class="footer-logo">
+                    <p>A community of faith since 1853</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/EbzMethodistChurch" target="_blank" rel="noopener" aria-label="Facebook">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="https://www.youtube.com/@ebenezermethodistchurchofm6983/streams" target="_blank" rel="noopener" aria-label="YouTube">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/parduecenterofficial" target="_blank" rel="noopener" aria-label="Instagram">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#watch">Watch</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="ministries.html">Ministries</a></li>
+                        <li><a href="index.html#venue">The Pardue Center</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="sermons.html">Sermons</a></li>
+                        <li><a href="index.html#give">Give</a></li>
+                        <li><a href="history.html">Our History</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p>12900 Arnold Mill Road<br>Roswell, GA 30075</p>
+                    <p><a href="tel:770-640-7287">770-640-7287</a></p>
+                    <p><a href="mailto:office@ebzchurch.org">office@ebzchurch.org</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> Ebenezer Church. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>document.getElementById('currentYear').textContent = new Date().getFullYear();</script>
+</body>
+</html>
