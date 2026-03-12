@@ -421,6 +421,35 @@ h4 { font-size: 1.25rem; }
     opacity: 0.9;
 }
 
+.hero-services {
+    margin-bottom: 0.5rem;
+}
+
+.hero-services-heading {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    opacity: 0.75;
+    margin-bottom: 0.35rem;
+}
+
+.hero-service-line {
+    font-size: 1.4rem;
+    margin: 0.2rem 0;
+    line-height: 1.4;
+}
+
+.hero-service-line strong {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.hero-service-line span {
+    opacity: 0.85;
+    font-weight: 300;
+    margin-left: 0.3em;
+}
+
 .hero-address {
     display: inline-block;
     color: rgba(255, 255, 255, 0.75);
@@ -1503,6 +1532,14 @@ h4 { font-size: 1.25rem; }
 
 .hero-content {
     padding: var(--space-lg);
+}
+
+.hero-service-line {
+    font-size: 1.15rem;
+}
+
+.hero-service-line strong {
+    font-size: 1.25rem;
 }
 
 .hero-ctas {

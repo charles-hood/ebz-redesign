@@ -54,6 +54,7 @@ ebzrefesh/
 │   ├── beat-the-drum.html    # Beat The Drum Village - Kenya orphanage
 │   ├── beliefs.html          # Statement of faith
 │   ├── events.html           # Calendar page (OCS v3.1 grid/list toggle)
+│   ├── ministries.html       # Ministries landing page (10 ministry cards)
 │   ├── test-events-forward.html  # Test page for events-forward layout
 │   ├── embed-events.html     # Helper page (may be unused)
 │   ├── css/
@@ -69,15 +70,23 @@ ebzrefesh/
 │       ├── church-side-view-full.jpg  # High-res church (history page hero)
 │       ├── pardue-center.jpg # Sunrise shot of Pardue Center
 │       ├── full-contemporary.jpg # Give section background
-│       ├── wedding-venue.jpg # Wedding modal image
-│       ├── pavillion.jpg     # Event/wedding modal image
+│       ├── wedding-venue.jpg # Wedding modal image (sanctuary exterior)
+│       ├── wedding-pavilion.jpg # Real wedding ceremony in pavilion
+│       ├── pavillion.jpg     # Event modal image (empty pavilion)
 │       ├── pardue-stage.jpg  # Event modal image
 │       ├── outreach.jpg      # Drake House volunteers photo
 │       ├── beat-the-drum.jpg # BTD children in uniforms (content page)
 │       ├── beat-the-drum-video.jpg  # YouTube thumbnail (card image)
 │       ├── beliefs-hero.png  # Beliefs page image
 │       ├── give-qr.png       # QR code for giving
-│       └── staff/            # Staff headshots
+│       ├── staff/            # Staff headshots
+│       └── ministries/       # Ministry card photos
+│           ├── nursery.jpg
+│           ├── youth.jpg
+│           ├── men.jpg
+│           ├── women.jpg
+│           ├── music.jpg
+│           └── worship-service.jpg
 └── ebenezer_meeting_notes_session.md  # Context from design meeting
 ```
 
@@ -171,9 +180,9 @@ Using the steeple icon only (`logo-header.png`) rather than the full horizontal 
 
 ### Navigation Structure
 ```
-Watch | About | Connect | Calendar | The Center | [Give] | [Plan a Visit]
+Get Started | About | Watch | The Pardue Center | Ministries | Calendar | [Give] | [Plan a Visit]
 ```
-"The Center" refers to the Pardue Family Foundation Center (venue). Calendar was added as a top-level nav item to give visibility to church activities.
+Updated Feb 2026 per Candi's request. "Get Started" links to #visit (interim until dedicated page is built). "The Pardue Center" links to #venue. "Ministries" links to `ministries.html`. Other nav items link to homepage sections or existing pages. Calendar links to `events.html`.
 
 ### Color Palette
 ```css
@@ -257,10 +266,15 @@ Clicking a staff card opens a modal with their photo, title, bio, and email butt
 - ✅ OCS v3.1 embed migration - all pages now use v3.1 (no more bridge.js)
 - ✅ Auto-updating sermon - `sermons/latest` embed, zero weekly maintenance
 - ✅ Featured event section - "Coming Up" on homepage with single event card by ID
+- ✅ Ministries landing page - `ministries.html` with cards for all 10 ministries
+- ✅ Nav restructure per Candi - new order with Get Started, Ministries, The Pardue Center
+- ✅ Mission statement updated - "To know the love of God, to share it with others, and make disciples of Jesus Christ."
+- ✅ Address corrected to Roswell, GA (was Milton) on all pages
+- ✅ Address in hero - subtle Google Maps link below service times
 
 ## Church Information
 
-**Address:** 12900 Arnold Mill Road, Milton, GA 30075
+**Address:** 12900 Arnold Mill Road, Roswell, GA 30075
 **Phone:** 770-640-7287
 **Email:** office@ebzchurch.org
 
@@ -422,6 +436,72 @@ Replace the hero section with:
 
 ## Session History
 
+### February 27, 2026 (Session 16) - Nav Restructure, Ministries Page, Mission Statement
+Implemented Candi and Glenn's feedback: updated mission statement, fixed address, restructured navigation, and created ministries landing page.
+
+**What was changed:**
+
+*Mission Statement (all pages):*
+- Updated from "To know the love of God, grow as disciples of His son Jesus Christ, and go share His love" to "To know the love of God, to share it with others, and make disciples of Jesus Christ."
+- Changed on index.html, history.html, outreach.html, test-events-forward.html
+- Beliefs page: removed "We believe our mission is..." line, replaced with distinct capstone block — gold accent rule + body-font text matching page style, not "We believe" prefix (Glenn's preference: it IS the mission, not a belief about the mission)
+
+*Address Fix (all pages):*
+- Corrected postal address from Milton, GA to Roswell, GA on all pages (footers, Plan Your Visit, Google Maps link)
+- Meta tags/titles keep "Milton, GA" for SEO targeting
+- Added address as subtle Google Maps link in hero below service times (Glenn's request for prominence)
+- `.hero-address` class: dimmed white, thin underline, brightens on hover
+
+*Navigation Restructure (all 9 pages):*
+- Old: `Watch | About | Connect | Calendar | The Center | [Give] | [Plan a Visit]`
+- New: `Get Started | About | Watch | The Pardue Center | Ministries | Calendar | [Give] | [Plan a Visit]`
+- Interim linking: Get Started → #visit, About → #about, Watch → #watch, The Pardue Center → #venue, Ministries → ministries.html, Calendar → events.html
+- Updated footer Quick Links and breadcrumb "Back to" links on outreach/beat-the-drum pages
+
+*Ministries Landing Page (new):*
+- Created `ministries.html` with card grid for all 10 ministries
+- Content from Candi's `Ministry wording for new website.docx`
+- Photos copied from temp-images/ to site/images/ministries/ (resized to max 1600px)
+- Cards with photos: Children's, Youth (RISE), Men, Women, Music, Outreach, Beat The Drum, Prayer
+- Cards without photos: Grief ("You Are Not Alone"), Widows ("Continuing With Joy"), Education (placeholder)
+- Outreach and Beat The Drum cards link to existing dedicated pages
+- `object-position: top` on card images to prevent head cropping
+
+**Still pending from Candi's list:**
+- Get Started dedicated page (currently links to #visit)
+- About page expansion (waiting on Glenn welcome video)
+- Pardue Center dedicated page (waiting on description text; room capacities/maps ready in temp-images/)
+- Education ministry photo (Glenn working on it)
+- Grief, Widows, Prayer ministry photos (Candi unsure how to illustrate)
+
+### February 18, 2026 (Session 15) - Wedding & Event Modal Polish
+Improved both inquiry modals, especially for mobile fit.
+
+**What was changed:**
+
+*Wedding Modal:*
+- Swapped empty pavilion photo (`pavillion.jpg`) for real wedding ceremony photo (`wedding-pavilion.jpg`)
+- Added Instagram link (`@parduecenterofficial`) below photos in both modals
+- Mobile: shows pavilion wedding photo (second), hides sanctuary photo (first)
+- Mobile: title shortened to "Weddings" (from "Weddings at Ebenezer")
+- Mobile: intro condensed to single sentence ("Our campus offers versatile venues for weddings of any size.")
+- Mobile: separate desktop/mobile paragraphs (like headings) for independent text
+- Mobile: Instagram text "More Photos on Instagram" (desktop: "See more photos on Instagram")
+- Mobile: removed "Get in Touch" heading
+- Mobile: phone number integrated into Lisa's contact card, standalone phone line hidden
+
+*Event Modal:*
+- Mobile: removed "Get in Touch" heading (same pattern as wedding)
+- Mobile: phone number integrated into Robbie's contact card
+
+*CSS Pattern:*
+- `.modal-heading-desktop` / `.modal-heading-mobile` classes reused for intro paragraphs
+- `.ig-text-desktop` / `.ig-text-mobile` spans for responsive link text
+- `.contact-phone-inline` shown on mobile, hidden on desktop
+- `.modal-event .event-modal-contact h3` hidden on mobile (covers both modals)
+
+**Desktop unchanged** — both modals still show full content, both photos, both contacts, full text.
+
 ### February 18, 2026 (Session 14) - OCS v3.1 Migration, Events-Forward Homepage
 Major infrastructure overhaul: migrated all One Church Software embeds from legacy iframe+bridge.js to v3.1 embed system. Redesigned homepage to be more event-centric.
 
@@ -450,6 +530,16 @@ Major infrastructure overhaul: migrated all One Church Software embeds from lega
 - Capped embed at `max-width: 600px; margin: 0 auto` to prevent full-width blowout
 - Responsive padding via `.coming-up` class: 2rem mobile, 3.5rem desktop
 - Button renamed: "View Full Calendar" → "View More Events"
+
+*Instagram Integration:*
+- Pardue Center Instagram icon added to footer on all 7 pages (Facebook, YouTube, Instagram)
+- "See Our Space" button with IG icon added to Pardue Center venue section
+- Youth/RISE Instagram (`rise_youth__`) noted for future youth section
+- Fixed `.btn` `line-height: 1` in style.css to normalize `<a>` vs `<button>` height
+
+*Events Page:*
+- Centered "Events" label + Grid/List toggle buttons in header row
+- Renamed "Calendar" button to "Grid"
 
 *Sermons Page:*
 - Updated sermons.html to v3.1 `sermons/listing` embed (replaced legacy iframe + inplace.bridge.js)
