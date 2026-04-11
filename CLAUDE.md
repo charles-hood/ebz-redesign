@@ -311,17 +311,35 @@ Clicking a staff card opens a modal with their photo, title, bio, and email butt
 
 ## Deployment
 
-**Pilot Domain:** ebenezermilton.org (may not be final domain)
+**Primary domain:** ebzchurch.org (www.ebzchurch.org)
+**Alias domain:** ebenezermilton.org (www.ebenezermilton.org) — serves the same content
 **Hosting:** Digital Ocean VPS droplet with Caddy
 **Repo:** https://github.com/charles-hood/ebz-redesign
 
-**Caddy config:**
+The legacy WordPress site at ebzchurch.org was replaced by this repo in April 2026. Both domains point at `/var/www/ebz-redesign/site` via the same Caddy block.
+
+**Caddy config (abbreviated):**
 ```
-ebenezermilton.org {
+ebenezermilton.org, www.ebenezermilton.org,
+ebzchurch.org, www.ebzchurch.org {
     root * /var/www/ebz-redesign/site
     file_server
     encode gzip
+
+    # Cache control for static assets and HTML (see full config on server)
+
+    try_files {path} {path}.html {path}/ /index.html
 }
+```
+
+**Extensionless URL routing (important):**
+The `{path}.html` segment in `try_files` is what makes extensionless URLs like `https://ebzchurch.org/events` resolve to `events.html`. **The `<link rel="canonical">` tags on every sub-page (`events.html`, `sermons.html`, `history.html`, `beliefs.html`, `ministries.html`, `outreach.html`, `beat-the-drum.html`, `easter.html`) all point at extensionless URLs like `https://ebzchurch.org/events`.** Those canonicals depend on this Caddy rule to resolve correctly.
+
+If the Caddy `try_files` ever loses the `{path}.html` fallback, extensionless URLs will silently fall through to `/index.html` with a 200 response, and every canonical on the site will return homepage content — a self-referential SEO mess. Codex flagged this as a repo-level audit finding in April 2026 because the dependency is invisible to anyone reading only the repo; the Caddy config lives on the server. Verification command after any Caddy change:
+```bash
+curl -sL https://ebzchurch.org/events | grep -o '<title>[^<]*</title>'
+# Expect: <title>Events | Ebenezer Methodist Church | Milton, GA</title>
+# NOT the homepage title.
 ```
 
 **To deploy updates:**
@@ -435,6 +453,31 @@ Replace the hero section with:
 - `overflow-x: hidden` on html/body prevents horizontal scroll issues on mobile
 
 ## Session History
+
+### March 12, 2026 (Session 17) - Hero Service Times & Baptism Slideshow Photos
+Implemented Candi's homepage feedback: differentiated service times and added baptism photos to hero slideshow.
+
+**What was changed:**
+
+*Hero Service Times (index.html):*
+- Replaced single-line "Sundays at 8:30, 10:00 & 11:15 AM" with structured listing
+- Now shows: small "SUNDAYS" label, then "8:30 & 11:15 AM Traditional" and "10:00 AM Contemporary"
+- Times are bold and larger font (1.5rem desktop, 1.25rem mobile)
+- Style labels (Traditional/Contemporary) in lighter weight for visual hierarchy
+- CSS classes: `.hero-services`, `.hero-services-heading`, `.hero-service-line`
+
+*Hero Slideshow Videos (both desktop and mobile):*
+- Added 2 baptism photos (Glenn baptizing): `child-baptism` and `thea-baptism`
+- Slideshow now 8 photos (was 6), 32 seconds total at 4 seconds per photo
+- Photos interleaved with existing content (not back-to-back)
+- Order: Pardue Center → Worship Band → Pastor Glenn → Child Baptism → Guitar Session → Pavilion → Thea Baptism → Youth Group
+- Desktop: portrait source photos cropped to 16:9 landscape; thea-baptism crop shifted up (top=700) to keep Glenn's head in frame
+- Mobile: original portrait photos used directly for best framing
+- Slideshow scripts updated to use explicit ordered lists instead of alphabetical glob
+- Source photos and scripts in `/Users/charles/Downloads/church-photos-to-video/`
+
+**Still pending:**
+- Praise team photo for slideshow (waiting on permission from all band members)
 
 ### February 27, 2026 (Session 16) - Nav Restructure, Ministries Page, Mission Statement
 Implemented Candi and Glenn's feedback: updated mission statement, fixed address, restructured navigation, and created ministries landing page.
