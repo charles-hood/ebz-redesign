@@ -271,6 +271,11 @@ Clicking a staff card opens a modal with their photo, title, bio, and email butt
 - ✅ Mission statement updated - "To know the love of God, to share it with others, and make disciples of Jesus Christ."
 - ✅ Address corrected to Roswell, GA (was Milton) on all pages
 - ✅ Address in hero - subtle Google Maps link below service times
+- ✅ robots.txt and sitemap.xml (April 2026 audit follow-up)
+- ✅ aria-expanded/aria-controls on mobile nav toggle (April 2026 audit follow-up)
+- ✅ :focus-visible keyboard focus ring (April 2026 audit follow-up)
+- ✅ Lazy loading and fetchpriority hints on all content images (April 2026 audit follow-up)
+- ✅ Image optimization pass — site/images halved from ~50MB to 20MB (April 2026 audit follow-up)
 
 ## Church Information
 
@@ -453,6 +458,57 @@ Replace the hero section with:
 - `overflow-x: hidden` on html/body prevents horizontal scroll issues on mobile
 
 ## Session History
+
+### April 11, 2026 (Session 18) - External Audit Follow-up: SEO, A11y, Performance
+Acted on findings from external audits by Codex (CLI) and Claude MacOS App. Five focused commits, all on `main`.
+
+**Audit findings closed:**
+
+*Footer/canonical/test-page hygiene (`b5fa27c`):*
+- Fixed broken `/#fragment` footer links on `sermons.html` (the only page that hadn't been updated when the rest of the site moved to file-route footers)
+- Switched `easter.html` canonical from `ebenezermilton.org` to `ebzchurch.org` to match every other page
+- Deleted `test-events-forward.html`, `embed-events.html`, `test-event-embed.html` — they were shipping with live branding and crawlable
+
+*Caddy `try_files` dependency documented (`8cd6476`):*
+- Added a callout in the Deployment section explaining that every sub-page canonical (`/events`, `/sermons`, etc.) depends on the `{path}.html` segment of Caddy's `try_files` chain. Without it, extensionless URLs silently fall through to `/index.html` with a 200 — a self-referential SEO trap. Includes a one-line `curl` verification command.
+- Updated server Caddy config to add the `{path}.html` fallback (server-side change, not in this repo). Verified via WebFetch that all sub-page canonicals now resolve to the correct page content.
+- Also updated stale "pilot domain" language — `ebzchurch.org` is now the primary production domain (legacy WordPress retired), `ebenezermilton.org` is an alias.
+
+*Quick-wins batch — a11y, SEO, dead code (`592dce1`):*
+- Deleted orphan `1387-147055514.mp4` (11MB at repo root, zero refs) and unused `site/images/logo-header.jpg` (the .png is in use)
+- Fixed Robbie title in CLAUDE.md staff table: "Executive Minister" → "Facilities Manager"
+- Removed dead parallax handler in `main.js` (targeted `.hero-bg img` which never exists — homepage hero is a `<video>`)
+- Removed unused `lastScroll` variable in the header scroll handler
+- Moved `.fade-in` animation rules from `main.js` `createElement('style')` injection into `style.css`
+- Created `site/robots.txt` and `site/sitemap.xml` (sitemap uses extensionless URLs that match the rel=canonical tags)
+- Added `aria-expanded` and `aria-controls="primary-nav"` to `.nav-toggle` on all 10 HTML pages, with the JS click + link-close handlers flipping `aria-expanded` so screen readers can tell when the mobile menu is open
+- Added `:focus-visible` outline ring (gold accent) for `.btn`, `.nav-links a`, `.nav-toggle`, `.staff-card`, `.modal-close`, footer links, and `.hero-address`
+
+*Lazy loading and fetchpriority hints (`a7ef542`):*
+- Added `loading="lazy" decoding="async"` to ~50 images across 10 pages
+- Added `fetchpriority="high" decoding="async"` to 7 LCP images (one per content-heavy sub-page) instead of lazy
+- Header logos left untouched (above-the-fold, eager is correct)
+- Before this commit, exactly one image on the entire site had `loading="lazy"`
+
+*Image optimization (`846805f`):*
+- Re-encoded ~20 images at JPEG q88 with dimension caps appropriate to display size. Total `site/images/` directory dropped from ~50MB to 20MB.
+- Hero/full-bleed images: max 2000px wide
+- Ministry card images: max 1600px wide
+- Staff portraits: max 1000px wide (display at ~250px CSS)
+- ImageMagick command: `magick FILE -resize 'WIDTHxWIDTH>' -strip -interlace Plane -sampling-factor 4:2:0 -quality 88 OUT.tmp`
+- Auto-skip if re-encoded version is larger than original (catches already-tightly-compressed files like `pavillion.jpg` and `spring-fling-market.jpg`)
+- Converted `beliefs-hero.png` (3.0MB photo of a Bible) → `beliefs-hero.jpg` (287KB), 91% saved, updated `beliefs.html` reference
+- Deleted 7 orphaned media files (~22MB) that had zero HTML references: `snow-background.mp4`, `ebz-merry-xmas.mp4`, `happy-new-year-2026.png`, `ash-wednesday.png`, `Wedding-Open-House-flier.png`, `holly.png`, `staff/greg-millette.jpg`
+- Backup of orphans before deletion: `/Users/charles/Projects/ebzrefesh-archive/orphans-2026-04-11/`
+
+**Discovery:** `church-community.jpg` and `church-side-view-full.jpg` are byte-identical in git (same blob hash). Same photo, two paths, intentionally separate so the church can swap one without affecting the other.
+
+**Items still pending from the audits (deferred):**
+- Modal controller dedup in `main.js` (~120 lines of duplicated open/close/ESC/backdrop code across staff/event/wedding/Christmas modals)
+- Modal a11y wiring (focus trap, `role="dialog"`, `aria-modal`, focus restoration)
+- CSP headers + extracting inline scripts (bigger project — touches Caddy config + every HTML file)
+- Hero video re-encoding (`hero-slideshow.mp4` 2.8MB, `hero-slideshow-mobile.mp4` 1.3MB — now the biggest assets)
+- WebP conversion for the largest images (could shave another ~30%, requires `<picture>` fallback or direct swap)
 
 ### March 12, 2026 (Session 17) - Hero Service Times & Baptism Slideshow Photos
 Implemented Candi's homepage feedback: differentiated service times and added baptism photos to hero slideshow.
