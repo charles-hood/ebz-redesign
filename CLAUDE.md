@@ -523,6 +523,8 @@ That whole workaround became moot when RISE got swapped for the Encouragement Pr
 
 **Validation case for the content-owner guidelines doc:** The Encouragement Project flyer was provided at exactly 1080×1350 — the size now recommended in the guidelines doc. Workflow was zero-fuss: drop the file, optimize at q88 (48% smaller), update one HTML reference, done. The contrast between the RISE flow (square image → padding workaround → still fragile) and the Encouragement Project flow (correctly-sized source → straightforward swap) is exactly why the guidelines doc exists.
 
+**Mobile gap polish (commit `dfed17b`):** Candi spotted on her phone that the two stacked Coming Up cards were nearly flush. `.featured-events-grid` gap was `var(--space-lg)` (2rem/32px), which was technically applied but read as too tight between two light-edged card images. Bumped to `var(--space-xl)` (3rem/48px). Desktop side-by-side stays within the 900px max-width container so layout is unchanged — just a hair more column gap there too.
+
 ### April 11, 2026 (Session 19) - Tier 1 Design Polish from Design Audit
 External design and UI review (separate Claude Code session) identified ~30 items across the homepage and sub-pages. Most were design opinions or stakeholder decisions; several were verifiable bugs and easy polish wins. Triaged into two tiers: mechanical fixes (Tier 1, executed) vs stakeholder-facing changes (Tier 2, deferred to discussion doc).
 
