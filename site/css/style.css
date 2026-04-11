@@ -262,6 +262,12 @@ h4 { font-size: 1.25rem; }
     color: var(--color-primary);
 }
 
+.nav-links a.active:not(.btn) {
+    color: var(--color-primary);
+    border-bottom: 2px solid var(--color-accent);
+    padding-bottom: 2px;
+}
+
 .nav-links .btn {
     padding: 0.625rem 1.25rem;
 }
@@ -1183,7 +1189,15 @@ h4 { font-size: 1.25rem; }
 }
 
 .feature-icon {
-    font-size: 1.25rem;
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
+    color: white;
+}
+
+.feature-icon svg {
+    width: 1.75rem;
+    height: 1.75rem;
 }
 
 .venue-ctas {
