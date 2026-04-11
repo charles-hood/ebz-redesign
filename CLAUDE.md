@@ -494,9 +494,9 @@ Two-line fix in `events.html`:
 
 The Grid/List toggle stays in the header — desktop users who want the month grid can still switch with one click. Event detail pages on OCS still show flyer images when users click into a specific event. The change only affects the listing surface on `events.html`.
 
-**"Coming Up" homepage section: single image → multi-card grid (commits `f84fa4a`, `afab1f4`):**
+**"Coming Up" homepage section: single image → multi-card grid (commits `f84fa4a`, `afab1f4`, `0312777`):**
 
-Per Candi: instead of highlighting one featured event, show 2-3 side-by-side on desktop (stacking on mobile). Added the RISE Youth event as the second card (event 10407, sourced from `RISE-2.png` in working tree → `images/rise-youth.jpg`).
+Per Candi: instead of highlighting one featured event, show 2-3 side-by-side on desktop (stacking on mobile). Initially added the RISE Youth event as the second card, then swapped it for The Encouragement Project Open House (event 11020) in `0312777` because RISE is a recurring weekly Thursday gathering rather than a one-off special event. The current second card uses `images/encouragement-project.jpg`, sourced as a 1080×1350 4:5 JPEG (Canva Instagram Portrait preset — exactly the size now recommended in `PLAN-content-image-guidelines.md`). Native aspect, no padding or cropping needed.
 
 Promoted the previously inline-styled ad-hoc card pattern to real CSS classes:
 - `.featured-events-grid` — `display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); max-width: 900px;` — auto-flows to 2 or 3 columns at viewports ≥ 880px-ish, stacks to 1 column under ~580px
@@ -505,9 +505,9 @@ Promoted the previously inline-styled ad-hoc card pattern to real CSS classes:
 
 Adding a third featured event later is now a 4-line HTML change (drop in another `<a class="featured-event-card">` block), no CSS or layout work needed.
 
-**Aspect-ratio cropping problem and the padding workaround (commit `afab1f4`):**
+**Aspect-ratio cropping problem and the padding workaround (commit `afab1f4`, since superseded by `0312777`):**
 
-After the multi-card layout shipped, Candi spotted that the RISE card was clipping the "E" in "Every Thursday" on the left edge. Root cause: spring fling is 904×1280 (tall portrait, ~5:7 aspect, 0.706) and RISE was 1024×1024 (square, 1.0). The forced 4:5 card aspect with `object-fit: cover` was cropping ~12.5% from each side of the square RISE image — fine for a centered logo, fatal for edge-anchored text.
+While RISE was the second card, Candi spotted that it was clipping the "E" in "Every Thursday" on the left edge. Root cause: spring fling is 904×1280 (tall portrait, ~5:7 aspect, 0.706) and RISE was 1024×1024 (square, 1.0). The forced 4:5 card aspect with `object-fit: cover` was cropping ~12.5% from each side of the square RISE image — fine for a centered logo, fatal for edge-anchored text.
 
 Considered alternatives:
 - Square (1:1) cards — would crop spring fling 21% top/bottom (loses a third of the flyer)
@@ -515,9 +515,13 @@ Considered alternatives:
 - `object-fit: contain` — adds visible letterboxing
 - Native aspects (no force) — different card heights, jagged layout (the same problem we just fixed on events.html)
 
-**Resolved by padding the source image to match the card aspect.** Used ImageMagick `-gravity center -background black -extent 1024x1280` to add 128px of solid black on top and bottom of the RISE image. The RISE design has a black background already, so the padding bars are visually invisible — the card just looks like a slightly taller flyer. The 4:5 card aspect now fits the padded image with no crop, preserving all text. File size barely changed (83KB → 85KB) because solid black compresses well.
+**Resolved (at the time) by padding the source image to match the card aspect.** Used ImageMagick `-gravity center -background black -extent 1024x1280` to add 128px of solid black on top and bottom of the RISE image. The RISE design has a black background already, so the padding bars were visually invisible — the card just looked like a slightly taller flyer. The 4:5 card aspect fit the padded image with no crop, preserving all text. File size barely changed (83KB → 85KB) because solid black compresses well.
 
-**Useful technique for future:** When forcing a card aspect ratio with `object-fit: cover` would crop important edge content, pad the source image to match the card aspect using a background color that blends with the source's own background. Beats the alternatives (different aspect, contain, native sizes).
+That whole workaround became moot when RISE got swapped for the Encouragement Project a few minutes later — the new flyer was provided at native 1080×1350 (4:5), so it slotted in cleanly with no padding needed. The RISE image was deleted in `0312777`.
+
+**Useful technique for future, even though we ended up not needing it here:** When forcing a card aspect ratio with `object-fit: cover` would crop important edge content, and you can't get a redesigned source at the right aspect, pad the source image with a background color that blends with the source's own background. Beats the alternatives (different aspect, contain, native sizes). Documented in `PLAN-content-image-guidelines.md` as the fallback when content owners can't provide images at the recommended 1080×1350 size.
+
+**Validation case for the content-owner guidelines doc:** The Encouragement Project flyer was provided at exactly 1080×1350 — the size now recommended in the guidelines doc. Workflow was zero-fuss: drop the file, optimize at q88 (48% smaller), update one HTML reference, done. The contrast between the RISE flow (square image → padding workaround → still fragile) and the Encouragement Project flow (correctly-sized source → straightforward swap) is exactly why the guidelines doc exists.
 
 ### April 11, 2026 (Session 19) - Tier 1 Design Polish from Design Audit
 External design and UI review (separate Claude Code session) identified ~30 items across the homepage and sub-pages. Most were design opinions or stakeholder decisions; several were verifiable bugs and easy polish wins. Triaged into two tiers: mechanical fixes (Tier 1, executed) vs stakeholder-facing changes (Tier 2, deferred to discussion doc).
