@@ -289,7 +289,7 @@ Clicking a staff card opens a modal with their photo, title, bio, and email butt
 | Name | Title | Email |
 |------|-------|-------|
 | Glenn Hannigan | Senior Pastor | ghannigan1@yahoo.com |
-| Robbie Underwood | Executive Minister | robbie@ebzchurch.org |
+| Robbie Underwood | Facilities Manager | robbie@ebzchurch.org |
 | Asa Sellers | Worship Leader | worship@ebzchurch.org |
 | Lisa Coxworth | Administrative Assistant | office@ebzchurch.org |
 

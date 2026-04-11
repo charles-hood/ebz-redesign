@@ -1925,6 +1925,50 @@ h4 { font-size: 1.25rem; }
 }
 
 /* ============================================
+   Focus styles (keyboard navigation)
+   ============================================ */
+:focus {
+    outline: none;
+}
+
+.btn:focus-visible,
+.nav-links a:focus-visible,
+.nav-toggle:focus-visible,
+.staff-card:focus-visible,
+.modal-close:focus-visible,
+.footer-links a:focus-visible,
+.footer-social a:focus-visible,
+.hero-address:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+.btn-primary:focus-visible,
+.btn-outline-light:focus-visible {
+    outline-color: var(--color-accent-light);
+}
+
+/* ============================================
+   Fade-in animation (triggered by JS via IntersectionObserver)
+   ============================================ */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card.fade-in,
+.staff-card.fade-in {
+    transition-delay: calc(var(--index, 0) * 0.1s);
+}
+
+/* ============================================
    Reduced Motion
    ============================================ */
 @media (prefers-reduced-motion: reduce) {
@@ -1934,10 +1978,6 @@ h4 { font-size: 1.25rem; }
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
-    }
-
-    .hero-bg img {
-        transform: none !important;
     }
 }
 

@@ -40,8 +40,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (navToggle && navLinks) {
         navToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
+            const isOpen = navLinks.classList.toggle('active');
             navToggle.classList.toggle('active');
+            navToggle.setAttribute('aria-expanded', String(isOpen));
         });
 
         // Close menu when clicking a link
@@ -49,24 +50,20 @@ document.addEventListener('DOMContentLoaded', () => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
                 navToggle.classList.remove('active');
+                navToggle.setAttribute('aria-expanded', 'false');
             });
         });
     }
 
     // Header scroll effect
     const header = document.querySelector('.header');
-    let lastScroll = 0;
 
     window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-
-        if (currentScroll > 50) {
+        if (window.pageYOffset > 50) {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
         }
-
-        lastScroll = currentScroll;
     });
 
     // Smooth scroll for anchor links
@@ -111,25 +108,6 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
-    // Add fade-in animation styles dynamically
-    const style = document.createElement('style');
-    style.textContent = `
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .card.fade-in,
-        .staff-card.fade-in {
-            transition-delay: calc(var(--index, 0) * 0.1s);
-        }
-    `;
-    document.head.appendChild(style);
-
     // Set stagger delay for cards
     document.querySelectorAll('.card').forEach((card, index) => {
         card.style.setProperty('--index', index);
@@ -138,16 +116,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.staff-card').forEach((card, index) => {
         card.style.setProperty('--index', index);
     });
-
-    // Parallax effect for hero
-    const hero = document.querySelector('.hero-bg img');
-    if (hero) {
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const rate = scrolled * 0.3;
-            hero.style.transform = `translate3d(0, ${rate}px, 0)`;
-        });
-    }
 
     // Staff Data
     const staffData = {
