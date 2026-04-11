@@ -150,31 +150,36 @@ The mission capstone at the bottom stays exactly as-is — that's the strongest 
 
 ## 5. The "Coming Up" featured event on the homepage
 
+### Status update (April 11, 2026)
+
+Candi already moved this forward partially. The section now supports **multiple featured events side-by-side** instead of just one — currently showing two cards (Spring Fling Market + RISE Youth) that stack to one column on mobile. Adding a third card later is a 4-line HTML change. So the "single postage stamp" complaint is resolved.
+
+What's still open from the original audit suggestion below is the **metadata fields** question — whether we want to add date, time, location, and description text *around* each card image, or keep them as image-only. Read on for the original framing.
+
 ### What we have now
 
-The "Coming Up" section near the top of the homepage shows a single image — currently the Spring Fling Market flyer. It's a clickable image that opens the event page on One Church Software. That's it. No date, no time, no description, no extra context — just the flyer image.
+The "Coming Up" section near the top of the homepage shows two flyer images side-by-side, each clickable to its event page on One Church Software. There's no date, no time, no description, no extra context — just the flyer images.
 
 ### What the audit flagged
 
-The current pattern only works when the flyer is professionally designed. When it's a quick internal graphic, the section looks rough. There's also no fallback when there isn't a featured event ready to promote — the section either shows stale content or sits empty.
+The current pattern only works when the flyer is professionally designed. When it's a quick internal graphic, the cards look rough.
 
 ### What we're proposing
 
-Build a proper event card with:
-- Event image (the same flyer or a photo)
+Add metadata around each card:
 - Event title (e.g., "Spring Fling Market")
 - Date and time ("Saturday, April 18 · 10am–2pm")
 - Location ("The Pardue Center")
 - 1-2 sentence description ("Join us for our annual spring market featuring local vendors, food, and activities for kids.")
 - A button ("Learn More" or "Get Tickets")
 
-This way even a hastily-made flyer image still looks intentional because the metadata around it carries the message. The downside is that updating the featured event becomes a 5-minute task instead of a 30-second image swap — someone has to type in the date, location, and description each time.
+This way even a hastily-made flyer image still looks intentional because the metadata around it carries the message. The downside is that updating a featured event becomes a 5-minute task instead of a 30-second image swap — someone has to type in the date, location, and description each time.
 
 ### What I need from you
 
 Candi: this is a workflow change. Two questions:
 
-1. **Are you willing to enter event metadata (4-5 fields) each time you change the featured event?** If yes, we do the rebuild. If no, we leave it as the simple image swap.
+1. **Are you willing to enter event metadata (4-5 fields) each time you change a featured event?** If yes, we do the rebuild. If no, we leave it as the image-only cards we have now (which already look better than the single-image version).
 2. **If yes, who's the source of truth for those fields?** Are they already in One Church Software when you create the event? If so, we can just copy/paste from there.
 
 There's also a middle option: build the new card design but keep the metadata-free fallback for "I don't have time to fill in the fields right now." The card would gracefully degrade to just an image when the metadata fields are empty.

@@ -282,6 +282,10 @@ Clicking a staff card opens a modal with their photo, title, bio, and email butt
 - ✅ Education placeholder ministry card hidden until content ready (April 2026 design audit Tier 1)
 - ✅ Footer unification across all pages — 10-link Option 5 set (5+5) (April 2026 design audit Tier 1)
 - ✅ Juicer section heading rename "Follow Us on Facebook" → "From Our Feed" (April 2026 design audit Tier 1)
+- ✅ Grief Support ministry card photo (`not-alone.jpg`) (April 2026 Session 20)
+- ✅ Widows ministry card photo (`widows.jpg`, beaded craft project) (April 2026 Session 20)
+- ✅ Events page default view → list-without-images on all viewports (April 2026 Session 20, Candi UX call)
+- ✅ Multi-card "Coming Up" featured events grid (2-card responsive layout) (April 2026 Session 20)
 
 ## Church Information
 
@@ -464,6 +468,56 @@ Replace the hero section with:
 - `overflow-x: hidden` on html/body prevents horizontal scroll issues on mobile
 
 ## Session History
+
+### April 11, 2026 (Session 20) - Ministry Photos, Events Page UX, Multi-Card Coming Up
+Same calendar day as Session 19 but a separate logical batch — direct Candi requests rather than audit follow-up. Six small commits:
+
+**Ministry photos finally resolved (commits `d5b7106`, `5be8a34`, `5d21da2`):**
+
+The "Grief, Widows, Prayer ministry photos (Candi unsure how to illustrate)" item has been on the pending list since the ministries page launched in Session 16. Resolved this session:
+
+- **Widows / "Continuing With Joy"** card now uses `images/ministries/widows.jpg` — sourced from `beads.jpg` in the working tree (286KB @ 2048×1529, beaded craft project the group did, no people in frame so no confidentiality concern). Resized to 1600px wide via `magick -resize '1600x1600>'` without quality re-encoding (52% smaller, 286KB → 138KB). The resize-only path beat the q88 reencode because the source was already lightly compressed.
+- **Grief / "You Are Not Alone"** card initially used `grief.png` from working tree (`5be8a34`), then was replaced with `not-alone.png` (`5d21da2`) per Candi's preference. Final filename is `images/ministries/not-alone.jpg` (named after the ministry, not the category — semantically clearer than `grief.jpg`). PNG → JPG conversion at q88, 92% smaller (2.0MB → 184KB).
+- **Prayer** was already using `worship-service.jpg` as a stand-in from a prior session — this was just confirmed, no change.
+
+All visible ministry cards now have images. Education remains HTML-commented in production until Glenn ships content.
+
+**Events page default view changed (commit `b8c7876`) — Candi's UX call:**
+
+The events page defaulted to grid view on desktop, list-with-images on mobile. Candi noticed two problems:
+1. Grid view (a month calendar with text in cells) is mostly empty squares for a church with ~10 events per month — bad fit for the "what's coming up?" reading intent.
+2. List-with-images was visually jagged because some events have polished flyers and others don't.
+
+Two-line fix in `events.html`:
+- Added `data-ocs-images="false"` to the `events/listing` embed (OCS attribute that suppresses event images in the listing surface)
+- Changed default-view JS from `window.innerWidth <= 768 ? 'list' : 'grid'` to just `show('list')`
+
+The Grid/List toggle stays in the header — desktop users who want the month grid can still switch with one click. Event detail pages on OCS still show flyer images when users click into a specific event. The change only affects the listing surface on `events.html`.
+
+**"Coming Up" homepage section: single image → multi-card grid (commits `f84fa4a`, `afab1f4`):**
+
+Per Candi: instead of highlighting one featured event, show 2-3 side-by-side on desktop (stacking on mobile). Added the RISE Youth event as the second card (event 10407, sourced from `RISE-2.png` in working tree → `images/rise-youth.jpg`).
+
+Promoted the previously inline-styled ad-hoc card pattern to real CSS classes:
+- `.featured-events-grid` — `display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); max-width: 900px;` — auto-flows to 2 or 3 columns at viewports ≥ 880px-ish, stacks to 1 column under ~580px
+- `.featured-event-card` — `aspect-ratio: 4/5; border-radius: 12px; overflow: hidden;` with hover lift transition
+- `.featured-event-card img` — `object-fit: cover` to fill the card uniformly
+
+Adding a third featured event later is now a 4-line HTML change (drop in another `<a class="featured-event-card">` block), no CSS or layout work needed.
+
+**Aspect-ratio cropping problem and the padding workaround (commit `afab1f4`):**
+
+After the multi-card layout shipped, Candi spotted that the RISE card was clipping the "E" in "Every Thursday" on the left edge. Root cause: spring fling is 904×1280 (tall portrait, ~5:7 aspect, 0.706) and RISE was 1024×1024 (square, 1.0). The forced 4:5 card aspect with `object-fit: cover` was cropping ~12.5% from each side of the square RISE image — fine for a centered logo, fatal for edge-anchored text.
+
+Considered alternatives:
+- Square (1:1) cards — would crop spring fling 21% top/bottom (loses a third of the flyer)
+- 5:6 cards — slightly more balanced but still loses ~10% per side on square images
+- `object-fit: contain` — adds visible letterboxing
+- Native aspects (no force) — different card heights, jagged layout (the same problem we just fixed on events.html)
+
+**Resolved by padding the source image to match the card aspect.** Used ImageMagick `-gravity center -background black -extent 1024x1280` to add 128px of solid black on top and bottom of the RISE image. The RISE design has a black background already, so the padding bars are visually invisible — the card just looks like a slightly taller flyer. The 4:5 card aspect now fits the padded image with no crop, preserving all text. File size barely changed (83KB → 85KB) because solid black compresses well.
+
+**Useful technique for future:** When forcing a card aspect ratio with `object-fit: cover` would crop important edge content, pad the source image to match the card aspect using a background color that blends with the source's own background. Beats the alternatives (different aspect, contain, native sizes).
 
 ### April 11, 2026 (Session 19) - Tier 1 Design Polish from Design Audit
 External design and UI review (separate Claude Code session) identified ~30 items across the homepage and sub-pages. Most were design opinions or stakeholder decisions; several were verifiable bugs and easy polish wins. Triaged into two tiers: mechanical fixes (Tier 1, executed) vs stakeholder-facing changes (Tier 2, deferred to discussion doc).
