@@ -276,6 +276,12 @@ Clicking a staff card opens a modal with their photo, title, bio, and email butt
 - ✅ :focus-visible keyboard focus ring (April 2026 audit follow-up)
 - ✅ Lazy loading and fetchpriority hints on all content images (April 2026 audit follow-up)
 - ✅ Image optimization pass — site/images halved from ~50MB to 20MB (April 2026 audit follow-up)
+- ✅ Venue feature SVG icons (replaced platform-inconsistent emoji) (April 2026 design audit Tier 1)
+- ✅ Nav active state CSS rule (gold accent underline) (April 2026 design audit Tier 1)
+- ✅ Coming Up section background flip (broke up stacked alt-bg sections) (April 2026 design audit Tier 1)
+- ✅ Education placeholder ministry card hidden until content ready (April 2026 design audit Tier 1)
+- ✅ Footer unification across all pages — 10-link Option 5 set (5+5) (April 2026 design audit Tier 1)
+- ✅ Juicer section heading rename "Follow Us on Facebook" → "From Our Feed" (April 2026 design audit Tier 1)
 
 ## Church Information
 
@@ -458,6 +464,50 @@ Replace the hero section with:
 - `overflow-x: hidden` on html/body prevents horizontal scroll issues on mobile
 
 ## Session History
+
+### April 11, 2026 (Session 19) - Tier 1 Design Polish from Design Audit
+External design and UI review (separate Claude Code session) identified ~30 items across the homepage and sub-pages. Most were design opinions or stakeholder decisions; several were verifiable bugs and easy polish wins. Triaged into two tiers: mechanical fixes (Tier 1, executed) vs stakeholder-facing changes (Tier 2, deferred to discussion doc).
+
+**Tier 1 — six fixes in commit `463196b`:**
+
+1. **Venue feature emoji → SVG icons.** Replaced 🏛️💒🎉 in the venue features list with white Lucide stroke icons (church / two rings / users) at 1.75rem. Updated `.feature-icon` CSS to be a flex container with proper SVG sizing instead of relying on the now-irrelevant `font-size: 1.25rem`. Single biggest polish-per-effort change in the audit — the emoji was the worst-rendering element on the homepage, platform-inconsistent and clashing with the otherwise serious typography.
+
+2. **`.nav-links a.active` CSS rule.** Added `color: var(--color-primary); border-bottom: 2px solid var(--color-accent); padding-bottom: 2px;` with `:not(.btn)` to exclude buttons. The `class="active"` attribute was already set on `events.html` (Calendar) and `ministries.html` (Ministries) but had no visual effect — pure dead code until now. Visible only on those two pages; other pages don't set active class so this rule does nothing on them.
+
+3. **Coming Up section background → white.** Removed `background: var(--color-bg-alt)` from the inline style at `index.html:27`. Mission section keeps its alt bg, restoring the white/alt cadence that had been broken by two stacked alt sections.
+
+4. **Education ministry card hidden.** Wrapped the placeholder "Details coming soon" card in HTML comment with a TODO. Grid drops from 10 to 9 cards which actually balances better in the 3-column auto-fill layout (3×3 = no orphan row). Restore when Glenn ships photo and content.
+
+5. **Footer unification — Option 5 (5+5) across 10 pages.** Standardized every page footer on a single 10-link set:
+   - Quick Links: Watch · About · Ministries · The Pardue Center · Give
+   - Resources: Our History · What We Believe · Staff · Outreach · Events
+   - Pre-existing footers came in two patterns (Pattern A had Beliefs/Staff/Events but no Pardue Center; Pattern B had Pardue Center but no Beliefs/Events/Outreach). New set is the union of both. Outreach is now in every footer for the first time. Page-internal anchors use `#anchor` on `index.html` and `index.html#anchor` on sub-pages.
+
+6. **Juicer section heading rename.** "Follow Us on Facebook" → "From Our Feed". Reframes as content (something to read) rather than a conversion ask (something to act on). Audit's framing: people who would follow on Facebook already do.
+
+**Audit items considered but NOT executed (from this session):**
+
+- **"Drop Get Started from nav."** Audit was right that it's redundant with Plan a Visit (both link to `#visit`), but the user caught me almost going along with it. Get Started was specifically requested by Candi in Session 16, and CLAUDE.md/MEMORY.md document that the redundancy is *temporary by design* — there's a planned dedicated `/get-started` page on Candi's pending list, and once that exists the two nav items go to different places. Default for stakeholder-requested features is preserve, not reverse. Saved a feedback memory about this pattern. (See [feedback_dont_reverse_stakeholder_requests.md](.claude/.../memory/feedback_dont_reverse_stakeholder_requests.md) in user memory.)
+
+- **"H4 family inconsistency is design drift."** The audit flagged `.visit-item h4` using DM Sans while other h4s use Playfair, calling it drift. It's actually a deliberate choice — those h4s are field labels (Service Times / Location / What to Expect), not headlines, and Playfair would compete with the h2 above. Skipped.
+
+- **"Drop the SUNDAYS label from hero."** Disagreed — the label gives the two service lines context. Without it, "8:30 & 11:15 AM Traditional / 10:00 AM Contemporary" reads as floating numbers. The Session 17 work that added this structure was deliberate.
+
+- **"Hero scroll indicator is dated."** Personal aesthetic call dressed up as a fact. Skipped.
+
+- **"Demote ministry card titles from h2 to h3."** Pedantic semantic argument with no visual change. Defer to a holistic semantic-headings pass if we ever do one.
+
+**Tier 2 — five items deferred to stakeholder discussion (not in this commit):**
+
+Created [`PLAN-tier2-design-discussion.md`](PLAN-tier2-design-discussion.md) at the repo root. Non-technical doc for Candi and Glenn covering:
+
+1. Replace the Sunday Worship Connect card with Plan Your Wedding (or another) — Candi
+2. Promote the Pardue Center section higher in the homepage order — Candi (values decision)
+3. Rebuild `sermons.html` with a Latest Message hero, preamble, YouTube link — Glenn
+4. Restructure `beliefs.html` 12 "We believe" paragraphs into themed groups — Glenn
+5. Rebuild "Coming Up" featured event as a metadata card — Candi (workflow change)
+
+Total Tier 2 work if everything is approved: roughly half a day. No deadline.
 
 ### April 11, 2026 (Session 18) - External Audit Follow-up: SEO, A11y, Performance
 Acted on findings from external audits by Codex (CLI) and Claude MacOS App. Five focused commits, all on `main`.
