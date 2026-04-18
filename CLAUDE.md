@@ -467,6 +467,33 @@ Replace the hero section with:
 - Use `?regular` URL parameter to preview the normal hero during a takeover
 - `overflow-x: hidden` on html/body prevents horizontal scroll issues on mobile
 
+## Traffic Analytics
+
+Self-hosted Caddy access logs + GoAccess, set up April 2026. No JS, no cookies, no third-party analytics — the site itself has zero analytics code, all tracking happens server-side from access logs.
+
+**Dashboard:** https://stats.ebzchurch.org (HTTP basic auth; creds are NOT in this repo — ask Charles)
+
+**How it works:** Caddy writes JSON access logs for the `ebenezermilton.org, ebzchurch.org` site block to `/var/log/caddy/ebz-access.log` (50MB roll, 10 kept, 720h retention ≈ 30 days). A systemd timer runs every 5 minutes, converts the JSON to Apache Combined Log Format via `jq`, pipes it through GoAccess, and writes a static HTML report to `/var/www/ebz-stats/report.html`. Caddy serves that HTML at the stats subdomain behind basic auth. IPs are anonymized (`--anonymize-ip` zeros the last octet) in the report.
+
+**Key server paths (not in repo — documented for future Claude sessions):**
+- `/etc/caddy/Caddyfile` — `log` directive inside the main site block + `stats.ebzchurch.org` site block with `basic_auth`
+- `/usr/local/bin/goaccess-ebz.sh` — the jq → GoAccess pipeline script
+- `/etc/systemd/system/goaccess-ebz.{service,timer}` — 5-min regeneration
+- `/var/log/caddy/ebz-access.log` + rotated gzips — raw logs
+- `/var/www/ebz-stats/report.html` — the served dashboard
+
+**Common ops:**
+- Regenerate on demand: `systemctl start goaccess-ebz.service`
+- Check timer: `systemctl list-timers goaccess-ebz.timer`
+- Reset history: stop timer, truncate the access log + delete rotated `.gz` files, re-run service
+- Extend pattern to another site: copy the `log` block, script (different paths), and timer unit
+
+**Limitations by design (not gaps — tradeoffs):**
+- No session stitching, no event tracking (e.g. "Give button clicks"), no bounce rate. For that you'd layer Plausible or similar on top.
+- Numbers include bot/crawler traffic — skews higher than a JS-based tool. Keep in mind when reporting to Candi.
+- 5-minute lag between visit and dashboard update (not real-time).
+- History starts April 18, 2026 — Caddy wasn't logging access before then (only errors).
+
 ## Session History
 
 ### April 11, 2026 (Session 20) - Ministry Photos, Events Page UX, Multi-Card Coming Up
