@@ -499,9 +499,13 @@ Self-hosted Caddy access logs + GoAccess, set up April 2026. No JS, no cookies, 
 
 The stats subdomain serves a simplified, server-rendered summary at `/` — two big numbers (visitors this week + last week with a ▲/▼ delta), top 5 pages with friendly names, a 14-day bar list, and an "updated" timestamp. Bots are filtered out (`--ignore-crawlers`). The full GoAccess dashboard (all 15+ panels) is still available one click away at `/details`. Both regenerate from the same 5-min run.
 
-**IMPORTANT: When a new page ships, update the FRIENDLY allowlist on the server.**
+**FRIENDLY name map (cosmetic only, optional to maintain):**
 
-The summary page's "top pages" uses an allowlist in `/usr/local/bin/goaccess-ebz.sh` (bash associative array keyed by URL path → friendly name). Pages not in the list won't appear in Candi's summary — they still show in `/details`. The allowlist is strict because ebzchurch.org's Caddy `try_files` returns 200 for unknown paths (soft-404), which made blocklisting bot probes a losing game. Current allowlisted paths: `/`, `/index.html`, `/events`, `/sermons`, `/ministries`, `/history`, `/beliefs`, `/outreach`, `/beat-the-drum`, `/easter`, `/btd-update-feb-2026`. Add new pages here when they ship.
+The summary page's "top pages" section shows real pages with polished display names from a `FRIENDLY` bash associative array in `/usr/local/bin/goaccess-ebz.sh`. Pages not in the map still appear — they just render with a cleaned-up raw URL (leading slash and `.html` stripped) instead of a hand-picked label. E.g., a new `/youth-camp-2026.html` auto-surfaces as "youth-camp-2026"; adding `FRIENDLY["/youth-camp-2026.html"]="Youth Camp 2026"` prettifies it.
+
+Bot probes are filtered out by cross-referencing GoAccess's `not_found` panel — any URL that's ever 404'd gets dropped from top-pages. This works because ebzchurch.org now returns proper 404s for unknown paths (see Deployment section). Before the April 2026 `try_files` cleanup, bot probes soft-404'd with status 200 and had to be blocked via a strict allowlist; that's no longer needed.
+
+**Wash-out caveat (through ~May 18, 2026):** ~30 minutes of pre-cleanup log entries remain where bot probes like `/staff`, `/dump.sql`, `/database.sql` logged as status 200. Those will stay visible in Candi's top-pages until they age out of the 30-day log retention. Explanation for her if she notices: "old bot visits from before we locked things down, they'll clear naturally."
 
 **Limitations by design (not gaps — tradeoffs):**
 - No session stitching, no event tracking (e.g. "Give button clicks"), no bounce rate. For that you'd layer Plausible or similar on top.
