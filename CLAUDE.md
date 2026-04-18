@@ -343,19 +343,26 @@ ebzchurch.org, www.ebzchurch.org {
 
     # Cache control for static assets and HTML (see full config on server)
 
-    try_files {path} {path}.html {path}/ /index.html
+    try_files {path} {path}.html {path}/
+    handle_errors {
+        rewrite * /404.html
+        file_server
+    }
 }
 ```
 
 **Extensionless URL routing (important):**
 The `{path}.html` segment in `try_files` is what makes extensionless URLs like `https://ebzchurch.org/events` resolve to `events.html`. **The `<link rel="canonical">` tags on every sub-page (`events.html`, `sermons.html`, `history.html`, `beliefs.html`, `ministries.html`, `outreach.html`, `beat-the-drum.html`, `easter.html`) all point at extensionless URLs like `https://ebzchurch.org/events`.** Those canonicals depend on this Caddy rule to resolve correctly.
 
-If the Caddy `try_files` ever loses the `{path}.html` fallback, extensionless URLs will silently fall through to `/index.html` with a 200 response, and every canonical on the site will return homepage content — a self-referential SEO mess. Codex flagged this as a repo-level audit finding in April 2026 because the dependency is invisible to anyone reading only the repo; the Caddy config lives on the server. Verification command after any Caddy change:
+If the Caddy `try_files` ever loses the `{path}.html` fallback, extensionless URLs will silently fall through to a 404 (or, prior to April 2026, to `/index.html` with a 200 response causing a self-referential SEO mess). Codex flagged this as a repo-level audit finding because the dependency is invisible to anyone reading only the repo; the Caddy config lives on the server. Verification command after any Caddy change:
 ```bash
 curl -sL https://ebzchurch.org/events | grep -o '<title>[^<]*</title>'
 # Expect: <title>Events | Ebenezer Methodist Church | Milton, GA</title>
 # NOT the homepage title.
 ```
+
+**404 handling:**
+`site/404.html` is the branded not-found page (full nav, footer, and a few suggested destinations). Caddy's `handle_errors` block rewrites any error to `/404.html` and serves it, so 404s get proper status codes instead of the old soft-404 pattern (which returned 200 serving the homepage for any unknown path). The old pattern was flagged during the April 2026 traffic analytics work — it broke GoAccess's bot-probe filtering and was arguably an SEO/security smell. Removing the `/index.html` fallback is safe because `{path}.html` still catches extensionless URLs before the fallback ever runs.
 
 **To deploy updates:**
 ```bash
@@ -488,11 +495,19 @@ Self-hosted Caddy access logs + GoAccess, set up April 2026. No JS, no cookies, 
 - Reset history: stop timer, truncate the access log + delete rotated `.gz` files, re-run service
 - Extend pattern to another site: copy the `log` block, script (different paths), and timer unit
 
+**Candi-facing summary page (`/`) vs full GoAccess (`/details`):**
+
+The stats subdomain serves a simplified, server-rendered summary at `/` — two big numbers (visitors this week + last week with a ▲/▼ delta), top 5 pages with friendly names, a 14-day bar list, and an "updated" timestamp. Bots are filtered out (`--ignore-crawlers`). The full GoAccess dashboard (all 15+ panels) is still available one click away at `/details`. Both regenerate from the same 5-min run.
+
+**IMPORTANT: When a new page ships, update the FRIENDLY allowlist on the server.**
+
+The summary page's "top pages" uses an allowlist in `/usr/local/bin/goaccess-ebz.sh` (bash associative array keyed by URL path → friendly name). Pages not in the list won't appear in Candi's summary — they still show in `/details`. The allowlist is strict because ebzchurch.org's Caddy `try_files` returns 200 for unknown paths (soft-404), which made blocklisting bot probes a losing game. Current allowlisted paths: `/`, `/index.html`, `/events`, `/sermons`, `/ministries`, `/history`, `/beliefs`, `/outreach`, `/beat-the-drum`, `/easter`, `/btd-update-feb-2026`. Add new pages here when they ship.
+
 **Limitations by design (not gaps — tradeoffs):**
 - No session stitching, no event tracking (e.g. "Give button clicks"), no bounce rate. For that you'd layer Plausible or similar on top.
-- Numbers include bot/crawler traffic — skews higher than a JS-based tool. Keep in mind when reporting to Candi.
+- `--ignore-crawlers` is on, but it's based on GoAccess's known-bot list — stealthier bots still count.
 - 5-minute lag between visit and dashboard update (not real-time).
-- History starts April 18, 2026 — Caddy wasn't logging access before then (only errors).
+- History starts April 18, 2026 — Caddy wasn't logging access before then (only errors). First 8 days show "— (not enough history yet)" in the week-over-week delta; meaningful comparison starts April 26.
 
 ## Session History
 
