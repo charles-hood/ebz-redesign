@@ -594,6 +594,9 @@ h4 { font-size: 1.25rem; }
 .featured-event-card {
     display: block;
     aspect-ratio: 4 / 5;
+    max-width: 420px;
+    width: 100%;
+    margin: 0 auto;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
