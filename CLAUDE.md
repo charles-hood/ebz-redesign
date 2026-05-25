@@ -52,6 +52,9 @@ ebzrefesh/
 │   ├── history.html          # Church history (1853-present)
 │   ├── outreach.html         # Outreach ministries (Drake House, NFCC, etc.)
 │   ├── beat-the-drum.html    # Beat The Drum Village - Kenya orphanage
+│   ├── btd-update-feb-2026.html  # BTD Feb 2026 update (unlinked but on disk)
+│   ├── btd-update-may-2026.html  # BTD May 2026 update (current, linked from beat-the-drum.html)
+│   ├── GLADYS-NYAMBURA-NJERI.pdf  # Memorial PDF linked from May 2026 update
 │   ├── beliefs.html          # Statement of faith
 │   ├── events.html           # Calendar page (OCS v3.1 grid/list toggle)
 │   ├── ministries.html       # Ministries landing page (10 ministry cards)
@@ -313,7 +316,7 @@ Clicking a staff card opens a modal with their photo, title, bio, and email butt
 - **Mission:** Home for children orphaned by HIV/AIDS
 - **Leader:** Bishop David Thagana
 - **Ebenezer Connection:** Started via film project by David McBrayer
-- **Currently Supporting:** 33 children
+- **Currently Supporting:** 31 children (was 33 until May 2026; count reduced after Gladys's passing on 10 May 2026 and one other departure)
 - **Giving Fund:** "Beat the Drum (Glory Outreach Assembly)" in One Church dropdown
 - **YouTube Video:** https://youtu.be/keb1jafdu9U
 - **Image Sources:** `/Users/charles/projects/BTD/` contains newsletter HTML with embedded images
@@ -514,6 +517,28 @@ Bot probes are filtered out by cross-referencing GoAccess's `not_found` panel �
 - History starts April 18, 2026 — Caddy wasn't logging access before then (only errors). First 8 days show "— (not enough history yet)" in the week-over-week delta; meaningful comparison starts April 26.
 
 ## Session History
+
+### May 25, 2026 (Session 21) - BTD May 2026 Update with Gladys Memorial
+
+Replaced the Feb 2026 quarterly update on `beat-the-drum.html` with the May 2026 newsletter from Mrs. Esther Muchiri (GOA Compassion Director). The May newsletter includes news of Gladys Nyambura Njeri's passing on 10 May 2026 after a two-year journey with diabetes and dialysis. The Feb update is left on disk (`btd-update-feb-2026.html`) but no longer linked from anywhere.
+
+**Build pattern matches Feb 2026 (Session 13 era):** `site/btd-update-may-2026.html` is hand-built in the site template (church nav/footer, site CSS variables, back-link, May 2026 date pill, signature, donate box) — not a direct docx-to-HTML conversion. The auto-conversion artifact at `/Users/charles/projects/BTD/btd-newsletter-may-2026.html` (output of the `btd_may_2026.py` workflow there) was used only as a content source, not a final page. Images were extracted from `/Users/charles/Downloads/BTD  UPDATE-MAY UPDATE  2026.docx` directly (unzip the docx, pull `word/media/image{1..7}.jpeg`) and optimized at q88 with skip-if-grew into `site/images/btd-update-may/`. Total image footprint ~840KB.
+
+**Memorial section styling — new `.memorial-section` block.** Distinct from the regular `<h2>` cadence:
+- Soft `--color-bg-alt` panel with a muted slate-grey top border (`#6b7a8a`) — deliberately not gold, since the gold accent reads celebratory and felt wrong for a memorial
+- Small-caps "IN LOVING MEMORY" eyebrow text
+- Name rendered in Playfair display font, "Called home · 10 May 2026" dateline beneath
+- Centered portrait of Gladys (200px desktop, 160px mobile) above three memorial paragraphs
+- PDF link inline at the bottom of the memorial block: `Read more about Gladys's life and journey →` (links to `GLADYS-NYAMBURA-NJERI.pdf` in the site root)
+- Followed by a separately-captioned `<figure>` with the burial photo ("Kids during Gladys's burial")
+
+**Child count synced 33 → 31 on `beat-the-drum.html` in five places:** stat card, intro paragraph, donate-box copy, `meta description`, `og:description`. The number change reflects the May newsletter's reported count after Gladys's passing and one other departure. Future BTD updates that change the count should sync these five locations.
+
+**Source fidelity revert pass — important workflow note.** First-pass build included ~15 silent copy edits to Mrs. Muchiri's prose (em-dash for em-dash substitutions, `got → received`, Americanizing `counselling → counseling`, dropping `also`, merging parallel "We thank God... We thank God..." sentences, etc.). Charles caught this with the direct question "are we sure this is true to the source document?" Reverted to source phrasing on a section-by-section diff, keeping only: typo fixes (`ssupport → support`, `live → lives`), grammar agreement (`mattress → mattresses` to match "worn out ones"), tense correction in the Gladys paragraph (`has been → had been` since she's passed), typography (`3 day → three-day`, hyphenated compound adjectives, commas after introductory phrases), and paragraph breaks in long source blocks for readability. The author is a Kenyan partner ministry director; her BrE spellings (`counselling`, `in and out of hospital`) and rhetorical repetition stay. Captured the rule in [feedback_preserve_third_party_voice.md](memory/feedback_preserve_third_party_voice.md) — for Ebenezer's own marketing copy this is looser, but for community-partner content it is strict.
+
+**H2 spacing tweak local to this page only.** The Feb template uses `margin-top: var(--space-2xl)` on `.btd-content h2`. Charles noticed the gap above each heading felt generous (especially the Health heading where there's no preceding image to anchor the eye). Tightened to `--space-xl` in the May page's inline `<style>` only — did not touch Feb. If we standardize this for future updates, lift to a shared rule.
+
+**Commit:** `2917ff0` on `main`. Server deploy: `cd /var/www/ebz-redesign && git pull` on the VPS.
 
 ### April 11, 2026 (Session 20) - Ministry Photos, Events Page UX, Multi-Card Coming Up
 Same calendar day as Session 19 but a separate logical batch — direct Candi requests rather than audit follow-up. Six small commits:
