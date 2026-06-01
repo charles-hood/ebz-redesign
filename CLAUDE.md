@@ -518,6 +518,26 @@ Bot probes are filtered out by cross-referencing GoAccess's `not_found` panel �
 
 ## Session History
 
+### May 31, 2026 (Session 22) - Coming Up Refresh: RISE Link + Evergreen Pavilion Graphic
+
+Two "Coming Up" featured-event cards on `index.html` refreshed (commit `7b78c23`):
+
+1. **RISE Youth card** — link bumped from a past Thursday (event 10403) to an upcoming one (event 10399). RISE is a weekly Thursday gathering; the card should always point a couple weeks ahead so it never links to a past date. Routine maintenance — when the linked occurrence passes, bump to the next.
+
+2. **Worship in the Pavilion card** — replaced the date-specific May 24 graphic (`worship-in-pavilion-may24.jpg`, still on disk, now unreferenced) with an **evergreen** version (`worship-in-pavilion.jpg`) reading "8:30 a.m. 4th Sunday of each month." Link repointed from the past May 24 occurrence (11611) to the next 4th-Sunday occurrence (11691).
+
+**The schedule is the 4th Sunday, NOT the last Sunday.** These differ in five-Sunday months (May 2026: 4th = May 24, last = May 31). First-pass graphic mistakenly said "last Sunday"; caught when Charles went to create the recurring calendar event and asked specifically for the 4th Sunday. Corrected before commit.
+
+**Graphic source — Charles made it himself in ChatGPT, not via the API.** I first generated candidates with the audiobook skill's `generate_images.py` (gpt-image-1 `images.edit` with the may24 flyer as reference). Those came out decent but had two issues: (a) gpt-image-1 reinvents the photo rather than compositing text onto the real pavilion, so the building was a realistic look-alike, not the actual Ebenezer pavilion; (b) text punctuation was a dice-roll ("8:30 a.m" dropped the trailing period on the first try). Charles's own ChatGPT version used the **real pavilion photo** with crisp correct text — strictly better. Lesson: for these flyers, Charles generating in ChatGPT (where he can iterate visually and keep the real photo) beats the API path. The API path is a fallback, not the default. See [reference_flyer_generation.md](memory/reference_flyer_generation.md).
+
+**Image processing:** source PNG was 1122×1402 (already 4:5, 0.8004) → `magick -resize 1080x1350 -strip -interlace Plane -sampling-factor 4:2:0 -quality 88` → `site/images/worship-in-pavilion.jpg` (~306KB). No crop needed. (Aside on cropping 2:3→4:5: gpt-image-1's only portrait size is 1024×1536 (2:3); converting to 4:5 crops 256px of height. A *center* crop clips the top title — use a *top-anchored* crop to drop expendable foreground instead. Moot here since Charles's source was already 4:5.)
+
+**OCS recurring events (learned this session):** the Add Event recurrence dropdown auto-derives its monthly presets from the **start Date** you pick. Set the date to a 4th Sunday (e.g., 6/28/2026) and "Monthly on the 4th Sunday" appears; set it to a last Sunday and you get "Monthly on the last Sunday." Or use "Custom…" for explicit control. Recurring series have **no stable public/series URL** — each occurrence has its own event ID, so featured-event cards link to a specific upcoming occurrence and get bumped when it passes (same pattern as RISE). See [reference_ocs_recurring_events.md](memory/reference_ocs_recurring_events.md).
+
+**Push blocked by network TLS interception.** `git push` failed with "SSL certificate problem: unable to get local issuer certificate" on both the church/office network (a **Fortinet FortiGate** firewall re-signing GitHub's cert with its own CA — confirmed via `openssl s_client`, issuer `O=Fortinet … CN=FGT40FTK24099T85`) and on Zaxby's guest wifi. Homebrew git's OpenSSL doesn't trust the injected CA; `/usr/bin/curl` works because it uses the macOS keychain via Secure Transport. Exporting keychain CAs to a bundle didn't help (the Fortinet root isn't installed in any keychain git could read). **Fix that worked: iPhone tethering** (bypasses the intercepting middlebox). See [project_church_network_tls.md](memory/project_church_network_tls.md).
+
+**Deploy:** `cd /var/www/ebz-redesign && git pull` on the VPS (pending as of session end).
+
 ### May 25, 2026 (Session 21) - BTD May 2026 Update with Gladys Memorial
 
 Replaced the Feb 2026 quarterly update on `beat-the-drum.html` with the May 2026 newsletter from Mrs. Esther Muchiri (GOA Compassion Director). The May newsletter includes news of Gladys Nyambura Njeri's passing on 10 May 2026 after a two-year journey with diabetes and dialysis. The Feb update is left on disk (`btd-update-feb-2026.html`) but no longer linked from anywhere.
