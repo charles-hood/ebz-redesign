@@ -525,10 +525,16 @@ Bot probes are filtered out by cross-referencing GoAccess's `not_found` panel �
 
 Asa Sellers (Worship Leader) and Robbie Underwood (Facilities Manager) were let go
 effective June 17, 2026 at 2pm. Removed both from the site in advance so the deploy
-can go out quickly once their Microsoft 365 accounts are offboarded. **Committed
-locally as `f1f7f5d` but deliberately NOT pushed** — push is scheduled for June 17
-2pm (after the M365 offboarding). A one-time claude.ai reminder routine
-(`trig_01KNmuzswWRFa85uUbHQi4GD`) was set to nudge the push.
+could go out quickly once their Microsoft 365 accounts were offboarded. Committed
+locally first and deliberately held — push was scheduled for June 17 2pm (after the
+M365 offboarding), nudged by a one-time claude.ai reminder routine
+(`trig_01KNmuzswWRFa85uUbHQi4GD`, since fired and disabled).
+
+**Pushed June 17, 2026** to `origin/main`. The original commit `f1f7f5d` was amended
+to fold in this CLAUDE.md Session 23 doc update (new hash **`f5930fe`**); Session 22
+(`40fe920`) rode along since it was also still local. The Fortinet TLS error did NOT
+recur on push this time. Server deploy (`cd /var/www/ebz-redesign && git pull`) is the
+final step that takes both names off the live site.
 
 Single commit `f1f7f5d` ("Remove Asa Sellers and Robbie Underwood from staff and
 contacts"):
