@@ -127,26 +127,11 @@ document.addEventListener('DOMContentLoaded', () => {
             bio: 'Glenn has served as Senior Pastor since 2010. Before answering the call to ministry, he spent 27 years at The Atlanta Journal-Constitution, including Sports Editor and Olympics coordinator. He and Candi have been married since 1987.',
             email: 'ghannigan1@yahoo.com'
         },
-        robbie: {
-            name: 'Robbie Underwood',
-            title: 'Facilities Manager',
-            image: 'images/staff/robbie-underwood.jpg',
-            imagePosition: 'center 20%',
-            bio: 'Robbie joined the team in 2023 after 23 years in the events industry, most recently as Catering & Events Director at Holbrook Life. He was ordained at Grace Baptist Church in 2024.',
-            email: 'robbie@ebzchurch.org'
-        },
-        asa: {
-            name: 'Asa Sellers',
-            title: 'Worship Leader',
-            image: 'images/staff/asa-sellers.jpg',
-            bio: 'Asa brings five years of music ministry experience and a BA in Worship Leadership from Baptist University of Florida.',
-            email: 'worship@ebzchurch.org'
-        },
         lisa: {
             name: 'Lisa Coxworth',
             title: 'Administrative Assistant',
             image: 'images/staff/lisa-coxworth.jpg',
-            bio: 'Lisa joined the Ebenezer team in 2022 with nine years of finance and administrative experience. Proud mom of twin 15-year-old daughters.',
+            bio: 'Lisa joined the Ebenezer team in 2022 with nine years of finance and administrative experience. Proud mom of twin 16-year-old daughters.',
             email: 'office@ebzchurch.org'
         }
     };

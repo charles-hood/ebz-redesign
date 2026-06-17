@@ -747,7 +747,8 @@ h4 { font-size: 1.25rem; }
 
 .staff-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(140px, max-content));
+    justify-content: center;
     gap: var(--space-lg);
 }
 
@@ -784,10 +785,6 @@ h4 { font-size: 1.25rem; }
 /* Adjust photo positioning for individual staff members */
 [data-staff="glenn"] .staff-image img {
     object-position: center 15%;
-}
-
-[data-staff="robbie"] .staff-image img {
-    object-position: center 20%;
 }
 
 [data-staff="greg"] .staff-image img {
@@ -1081,19 +1078,9 @@ h4 { font-size: 1.25rem; }
         display: none;
     }
 
-    /* Show only one contact on mobile */
+    /* Stack contact cards on mobile */
     .contact-cards {
         grid-template-columns: 1fr;
-    }
-
-    /* Event modal: show Robbie (first), hide Lisa (second) */
-    .modal-event:not(.modal-wedding) .contact-card:last-child {
-        display: none;
-    }
-
-    /* Wedding modal: show Lisa (second), hide Robbie (first) */
-    .modal-wedding .contact-card:first-child {
-        display: none;
     }
 
     /* Hide Lisa's title on mobile to save space */
@@ -1634,7 +1621,7 @@ h4 { font-size: 1.25rem; }
 
 /* Mobile: Staff */
 .staff-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(120px, max-content));
     gap: var(--space-md);
     align-items: start;
 }
@@ -1765,7 +1752,7 @@ h4 { font-size: 1.25rem; }
     }
 
     .staff-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(140px, max-content));
     }
 
     .staff-image {
@@ -1845,7 +1832,7 @@ h4 { font-size: 1.25rem; }
     }
 
     .staff-grid {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(160px, max-content));
     }
 
     .venue-content {
@@ -1904,7 +1891,7 @@ h4 { font-size: 1.25rem; }
     }
 
     .staff-grid {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(160px, max-content));
     }
 
     .staff-image {

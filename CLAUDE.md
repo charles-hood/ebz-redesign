@@ -307,9 +307,12 @@ Clicking a staff card opens a modal with their photo, title, bio, and email butt
 | Name | Title | Email |
 |------|-------|-------|
 | Glenn Hannigan | Senior Pastor | ghannigan1@yahoo.com |
-| Robbie Underwood | Facilities Manager | robbie@ebzchurch.org |
-| Asa Sellers | Worship Leader | worship@ebzchurch.org |
 | Lisa Coxworth | Administrative Assistant | office@ebzchurch.org |
+
+Robbie Underwood (Facilities Manager) and Asa Sellers (Worship Leader) were
+offboarded effective June 17, 2026 and removed from the site (Session 23). With
+Robbie gone, **Lisa is the sole contact in the Event and Wedding inquiry modals**
+— update if a new facilities/venue contact is designated.
 
 ### Beat The Drum Village Partnership
 - **Location:** Kenya
@@ -517,6 +520,42 @@ Bot probes are filtered out by cross-referencing GoAccess's `not_found` panel �
 - History starts April 18, 2026 — Caddy wasn't logging access before then (only errors). First 8 days show "— (not enough history yet)" in the week-over-week delta; meaningful comparison starts April 26.
 
 ## Session History
+
+### June 16, 2026 (Session 23) - Staff Offboarding: Remove Asa & Robbie
+
+Asa Sellers (Worship Leader) and Robbie Underwood (Facilities Manager) were let go
+effective June 17, 2026 at 2pm. Removed both from the site in advance so the deploy
+can go out quickly once their Microsoft 365 accounts are offboarded. **Committed
+locally as `f1f7f5d` but deliberately NOT pushed** — push is scheduled for June 17
+2pm (after the M365 offboarding). A one-time claude.ai reminder routine
+(`trig_01KNmuzswWRFa85uUbHQi4GD`) was set to nudge the push.
+
+Single commit `f1f7f5d` ("Remove Asa Sellers and Robbie Underwood from staff and
+contacts"):
+- **Staff cards** removed from `index.html` "Meet Our Team" (Glenn + Lisa remain);
+  **staff bio objects** removed from `main.js`
+- **Event + Wedding inquiry modals**: Robbie's contact card removed from both —
+  **Lisa Coxworth is now the sole venue/event contact** (carried his phone line
+  onto her event-modal card). Removed the now-broken mobile "show Robbie / hide
+  Lisa" CSS rules that assumed two cards, plus the dead `[data-staff="robbie"]`
+  image-position rule.
+- **RISE Youth copy** on `ministries.html`: "a relevant message from our youth
+  minister, Asa Sellers" → "from our youth ministry team" (per Candi's call to
+  genericize rather than drop the clause)
+- **Orphaned staff photos** `asa-sellers.jpg`, `robbie-underwood.jpg` `git rm`'d
+  (recoverable from history)
+
+**Staff-grid centering fix (folded into the same commit).** With only 2 cards left,
+the fixed-column grid (`repeat(4, 1fr)` etc.) pinned them to the left with dead
+space on the right. Switched all five `.staff-grid` breakpoint rules from
+fixed-count `1fr` tracks to `repeat(auto-fit, minmax(Npx, max-content))` +
+`justify-content: center` on the base rule. Now self-centers for any number of
+cards (better than decrementing the column count by hand — see the updated grid
+lesson in MEMORY.md). Also bumped Lisa's bio: twins 15 → 16 years old.
+
+**Decisions confirmed with Charles:** (1) venue/event contact → Lisa only (vs.
+generic office card or leaving a gap); (2) RISE copy → genericize the name. Both
+via AskUserQuestion before editing.
 
 ### May 31, 2026 (Session 22) - Coming Up Refresh: RISE Link + Evergreen Pavilion Graphic
 
