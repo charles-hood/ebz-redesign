@@ -541,6 +541,50 @@ Bot probes are filtered out by cross-referencing GoAccess's `not_found` panel �
 
 ## Session History
 
+### June 17, 2026 (Session 24) - Cache Policy Fix + Remove Asa from Hero Video
+
+Two pieces of follow-up after the Session 23 offboarding.
+
+**Cache-busting / Caddy policy (commits `baa62c7`, `3f3c62d`).** Discovered Caddy
+served un-versioned `style.css`/`main.js` as `immutable, max-age=31536000` (1yr) —
+returning visitors could hold stale CSS/JS (and stale media) for a year. Fixed: (1)
+every HTML ref to css/js carries `?v=20260617`; (2) webhost AI changed Caddy to
+serve HTML + un-versioned css/js as `no-cache` (ETag revalidate) and only true media
+(`jpg png webp svg mp4 woff…`) as `immutable, 1yr`. With `no-cache` live, bumping
+`?v=` is no longer strictly required for css/js but kept as belt-and-suspenders. Full
+policy + snippet documented in the Deployment section.
+
+**Remove Asa from the hero slideshow (commit `38675fe`).** Asa (offboarded Session 23)
+appeared in two of the seven hero-video frames — the worship-band frame and the
+guitar-session frame. Rebuilt BOTH hero videos with those frames replaced:
+- worship band → **Glenn onstage with the band** (`glenn-onstage-band.jpg`)
+- guitar session → **solo guitarist** (`solo-guitar.jpg`)
+The Pardue-exterior opener and the other five frames (Candi&Glenn, baptism, pavilion,
+youth) are unchanged. Both cuts: 7 frames, 4s each, 28s — desktop 1920×1080
+(`hero-slideshow.mp4`), mobile 720×1280 (`hero-slideshow-mobile.mp4`).
+
+Builders live in `~/Downloads/church-photos-to-video/` (NOT the repo):
+`create_slideshow.py` (desktop, scale+pad black) and `create_portrait_slideshow.py`
+(mobile, per-image `focal_x` crop — full height kept, width cropped). Edited both to
+point at the new images; retuned mobile `focal_x` (Glenn 0.26 front-left, guitarist
+0.47 centered). Original Asa frames backed up at `_asa_originals_backup/` there.
+Because Caddy serves `.mp4` `immutable`, added `?v=20260617` to the `<source>` tags in
+`index.html` (and the dormant `?regular` swap in `main.js`) so the new cut reaches
+returning browsers.
+
+**Process note — frame-sampling bug cost a detour.** Initially misread the desktop
+video's order using `ffmpeg -ss` BEFORE `-i` (fast input seek), which landed on the
+wrong frame and made me wrongly claim the desktop loop had no church-exterior opener.
+Charles pushed back (correctly); re-sampling with `-ss` AFTER `-i` (frame-accurate)
+showed the exterior IS the opener and both videos share the same 7-frame sequence.
+Lesson captured in MEMORY.md: use output-seek for frame-accurate sampling, and
+suspect your own measurement before concluding the user is wrong.
+
+**Sizes / deploy.** The rebuilt cuts are lighter than the pre-swap ones (desktop
+2.9MB→2.44MB, mobile 1.41MB→1.28MB — just different frames, same encode settings); the
+"index.html/main.js tweaks" reported at deploy are the `?v=` edits. Verified live:
+production videos are byte-identical to repo `38675fe`, Asa absent from both frames.
+
 ### June 16, 2026 (Session 23) - Staff Offboarding: Remove Asa & Robbie
 
 Asa Sellers (Worship Leader) and Robbie Underwood (Facilities Manager) were let go
