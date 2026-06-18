@@ -375,6 +375,26 @@ curl -sL https://ebzchurch.org/events | grep -o '<title>[^<]*</title>'
 cd /var/www/ebz-redesign && git pull
 ```
 
+**Cache policy & `?v=` busting convention (June 2026):**
+
+Caddy serves HTML and the un-versioned CSS/JS with `Cache-Control: no-cache` (revalidate before use — a cheap ETag 304 when unchanged), and only true media (`*.jpg *.jpeg *.png *.gif *.webp *.svg *.ico *.mp4 *.webm *.woff *.woff2 *.ttf`) with `public, max-age=31536000, immutable`. Server-side matchers (in `/etc/caddy/Caddyfile`, not the repo):
+
+```caddy
+@immutable path *.jpg *.jpeg *.png *.gif *.webp *.svg *.ico *.mp4 *.webm *.woff *.woff2 *.ttf
+@revalidate not path *.jpg *.jpeg *.png *.gif *.webp *.svg *.ico *.mp4 *.webm *.woff *.woff2 *.ttf
+header @immutable Cache-Control "public, max-age=31536000, immutable"
+header @revalidate Cache-Control "no-cache"
+```
+
+The `@revalidate` matcher uses `not path *.<media>` so it also covers extensionless routes (`/events`, `/sermons`) that an `*.html` matcher would miss. `no-cache` on HTML means content changes (staff removals, event swaps) go live on the next revalidate, not after an hour.
+
+**Why this exists:** before June 2026, Caddy served `style.css`/`main.js` as `immutable, max-age=31536000` despite their filenames never changing across edits — so returning visitors could hold a stale copy for up to a year. Discovered during the Asa/Robbie offboarding: the old cached CSS still had the deleted "hide one contact card on mobile" rules, which would have hidden Lisa (now the sole modal contact) on returning mobile devices.
+
+**The `?v=` convention:** every HTML reference to `css/style.css` and `js/main.js` carries a `?v=YYYYMMDD` query (currently `?v=20260617`). **Bump that date string in all HTML files whenever you edit `style.css` or `main.js`** — it changes the cache key and forces a fresh fetch even from browsers that already cached the old asset (changing server headers alone can't flush an already-`immutable` copy; only a new URL or a hard refresh can). The `no-cache` Caddy policy is the safety net if a bump is ever forgotten. One-liner to bump:
+```bash
+cd site && for f in *.html; do sed -i '' -E 's#(style\.css\?v=)[0-9]+#\1NEWDATE#g; s#(main\.js\?v=)[0-9]+#\1NEWDATE#g' "$f"; done
+```
+
 ## Featured Event Update Pattern
 
 To promote a different event on the homepage "Coming Up" section:
