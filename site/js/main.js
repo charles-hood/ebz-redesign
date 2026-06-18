@@ -25,10 +25,10 @@ document.addEventListener('DOMContentLoaded', () => {
             heroBg.classList.remove('hero-bg-seasonal');
             heroBg.innerHTML = `
                 <video class="hero-video-desktop" autoplay loop muted playsinline poster="images/church-hero.jpg">
-                    <source src="images/hero-slideshow.mp4" type="video/mp4">
+                    <source src="images/hero-slideshow.mp4?v=20260617" type="video/mp4">
                 </video>
                 <video class="hero-video-mobile" autoplay loop muted playsinline poster="images/church-hero.jpg">
-                    <source src="images/hero-slideshow-mobile.mp4" type="video/mp4">
+                    <source src="images/hero-slideshow-mobile.mp4?v=20260617" type="video/mp4">
                 </video>
             `;
         }
