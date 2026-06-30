@@ -126,13 +126,6 @@ document.addEventListener('DOMContentLoaded', () => {
             imagePosition: 'center 15%',
             bio: 'Glenn has served as Senior Pastor since 2010. Before answering the call to ministry, he spent 27 years at The Atlanta Journal-Constitution, including Sports Editor and Olympics coordinator. He and Candi have been married since 1987.',
             email: 'ghannigan1@yahoo.com'
-        },
-        lisa: {
-            name: 'Lisa Coxworth',
-            title: 'Administrative Assistant',
-            image: 'images/staff/lisa-coxworth.jpg',
-            bio: 'Lisa joined the Ebenezer team in 2022 with nine years of finance and administrative experience. Proud mom of twin 16-year-old daughters.',
-            email: 'office@ebzchurch.org'
         }
     };
 
