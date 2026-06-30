@@ -307,12 +307,15 @@ Clicking a staff card opens a modal with their photo, title, bio, and email butt
 | Name | Title | Email |
 |------|-------|-------|
 | Glenn Hannigan | Senior Pastor | ghannigan1@yahoo.com |
-| Lisa Coxworth | Administrative Assistant | office@ebzchurch.org |
 
-Robbie Underwood (Facilities Manager) and Asa Sellers (Worship Leader) were
-offboarded effective June 17, 2026 and removed from the site (Session 23). With
-Robbie gone, **Lisa is the sole contact in the Event and Wedding inquiry modals**
-— update if a new facilities/venue contact is designated.
+**Glenn is the only staff member on the site.** Robbie Underwood (Facilities
+Manager) and Asa Sellers (Worship Leader) were offboarded June 17, 2026 (Session
+23); **Lisa Coxworth (Administrative Assistant) was offboarded June 30, 2026
+(Session 25)**. The staff section heading is now "Meet the Pastor" (was "Meet Our
+Team"). The Event and Wedding inquiry modals no longer name a human contact — they
+show a generic **"Ebenezer Church Office"** card (office@ebzchurch.org /
+770-640-7287). If a new facilities/venue/admin contact is designated, name them in
+both modals (`index.html`).
 
 ### Beat The Drum Village Partnership
 - **Location:** Kenya
@@ -540,6 +543,36 @@ Bot probes are filtered out by cross-referencing GoAccess's `not_found` panel �
 - History starts April 18, 2026 — Caddy wasn't logging access before then (only errors). First 8 days show "— (not enough history yet)" in the week-over-week delta; meaningful comparison starts April 26.
 
 ## Session History
+
+### June 30, 2026 (Session 25) - Offboard Lisa; "Meet Our Team" → "Meet the Pastor"
+
+Candi: "Can you remove Lisa from the website? And maybe instead of meet our team
+say meet the pastor?" Lisa Coxworth (Administrative Assistant) offboarded — same
+pattern as the Asa/Robbie removal (Session 23). Single commit **`2400cc1`**, pushed
+to `origin/main` (no Fortinet TLS error this time). Server deploy
+(`cd /var/www/ebz-redesign && git pull`) is the final step.
+
+Lisa appeared in 4 places, all on `index.html` + `main.js`:
+- **Staff section heading** "Meet Our Team" → **"Meet the Pastor"** (subtitle
+  "People who care about your journey" → singular "Someone who cares about your
+  journey"); Lisa's staff card removed. **Glenn is now the only staff card** — the
+  `.staff-grid` auto-fit/`justify-content: center` rules (Session 23) center it
+  cleanly with no layout work.
+- **Event + Wedding inquiry modals**: Lisa was the *sole* named contact (she
+  inherited it from Robbie in Session 23). Replaced her card in both with a generic
+  **"Ebenezer Church Office"** card — same `office@ebzchurch.org` + 770-640-7287, so
+  the inquiry path is unchanged but no human is named. **Decision confirmed with
+  Charles via AskUserQuestion** (generic office card vs. drop-the-card vs.
+  name-a-new-person → generic office card). Note for next time: the site now names
+  *no* human contact for venue/event/wedding inquiries; name someone in both modals
+  if Candi designates a replacement.
+- **`main.js`** staff bio object for Lisa removed.
+- **Orphaned photo** `images/staff/lisa-coxworth.jpg` `git rm`'d (recoverable from
+  history). Bio email was the shared office mailbox, not personal — nothing personal
+  exposed.
+
+No `?v=` bump needed (no CSS/JS *content* change beyond the markup/data edits, and
+the `no-cache` policy serves fresh HTML on revalidate anyway).
 
 ### June 17, 2026 (Session 24) - Cache Policy Fix + Remove Asa from Hero Video
 
