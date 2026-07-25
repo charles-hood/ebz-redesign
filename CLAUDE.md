@@ -2,11 +2,19 @@
 
 ## Project Overview
 
-This is a modern website redesign for Ebenezer Methodist Church in Milton, GA. The church has a dual identity:
-1. **Historic Methodist Church** - established 1853, traditional worship community
-2. **The Pardue Center** - a new 23,000 sq ft event venue for weddings, concerts, and community events
+This is a modern website redesign for Ebenezer Methodist Church in Milton, GA — a
+traditional worship community established in 1853.
 
-The website needs to serve both audiences without confusion.
+> **⚠️ Pardue Center content was removed July 24, 2026 (Session 27).** The site was
+> originally built around a *dual* identity: the historic church **and** The Pardue
+> Center, a 23,000 sq ft event venue marketed for weddings, concerts, and community
+> events. At the direction of **Ralf Yopb, Finance committee chairman** (who is
+> negotiating Ebenezer's relationship with the Center), all material about **renting or
+> using the facility** has been stripped. **Ebenezer's own activities may still mention
+> it** — the 10:00 AM contemporary service, Easter and Christmas Eve service locations,
+> sermons, and the calendar all remain. Read the Session 27 entry before adding
+> anything Pardue-related back. Much of the older documentation below still describes
+> the venue-marketing era; treat it as history, not current state.
 
 ## Quick Start
 
@@ -140,6 +148,21 @@ Change `data-ocs-id` to promote a different event. Find event IDs in OCS admin.
 
 **Giving URL:** https://app.onechurchsoftware.com/ebz/egiving
 
+**Online giving is a link-out, NOT an embed.** Every Give button/footer link and
+the homepage QR code point at the egiving URL above, which redirects (in a
+browser) to `https://ebz.onechurchsoftware.com/public/give` — OCS's hosted
+"Ebenezer Little White Church" giving portal (ID 5). The whole donor form
+(amount, card, billing address, state/zip) is rendered and validated by OCS;
+nothing in this repo touches it. OCS offers an embed snippet
+(`data-ocs-embed="giving"`) but we deliberately don't use it — linking out is
+more reliable. Notes for "giving is broken" reports (July 2026 investigation,
+Session 26): `curl -I` on the egiving URL returns `302 → /Error` (non-browser
+clients only — NOT a real failure); the State field is a react-select custom
+dropdown, prime suspect on old iOS. Verified working end-to-end July 6, 2026
+(Playwright on Chromium + iPhone-emulated WebKit, and a real $25 donation from
+Charles's laptop). If a donor reports a form problem, it's an OCS support
+ticket (device model + iOS version + screenshot), not a repo change.
+
 ### YouTube
 - Channel: https://www.youtube.com/@ebenezermethodistchurchofm6983/streams
 - Livestream every Sunday at 11:15 AM
@@ -147,10 +170,10 @@ Change `data-ocs-id` to promote a different event. Find event IDs in OCS admin.
 ### Social Media
 - **Facebook:** https://www.facebook.com/EbzMethodistChurch
 - **YouTube:** https://www.youtube.com/@ebenezermethodistchurchofm6983/streams
-- **Instagram (Pardue Center):** https://www.instagram.com/parduecenterofficial
+- **Instagram (Pardue Center):** https://www.instagram.com/parduecenterofficial — **removed from the site July 2026** (Session 27); it is the venue's promotional account. Do not re-add without checking with Ralf/Candi.
 - **Instagram (Youth/RISE):** https://www.instagram.com/rise_youth__/ (not yet linked on site — add when youth section is built)
 
-Social icons (Facebook, YouTube, Instagram) are in the footer of all pages. Instagram also appears as a "See Our Space" button in the Pardue Center venue section on the homepage.
+Social icons in the footer of all pages are **Facebook and YouTube only**. Ebenezer has no Instagram account of its own; if one is created, that is the handle to add.
 
 ### Juicer (Facebook Feed)
 Aggregates Facebook posts into an embedded feed on the homepage. Using **Starter plan** (no branding).
@@ -176,16 +199,16 @@ Aggregates Facebook posts into an embedded feed on the homepage. Using **Starter
 ### Hero Messaging
 **Current:** "Growing in Grace, Perfected in Love" (updated Jan 2026 per Candi's request)
 
-The dual identity (church + venue) is reinforced in the Plan Your Visit section with "Two venues, one church — find the service that fits you."
+The Plan Your Visit section says "Two venues, one church — find the service that fits you." As of Session 27 this refers only to the church's **two worship spaces** (historic sanctuary + the 10:00 contemporary service), not to a rentable venue.
 
 ### Logo
 Using the steeple icon only (`logo-header.png`) rather than the full horizontal logo. The square steeple icon with "Est. 1853" fits better in the header and balances with the nav buttons. Background was made transparent using ImageMagick to blend with the off-white header.
 
 ### Navigation Structure
 ```
-Get Started | About | Watch | The Pardue Center | Ministries | Calendar | [Give] | [Plan a Visit]
+Get Started | About | Watch | Ministries | Calendar | [Give] | [Plan a Visit]
 ```
-Updated Feb 2026 per Candi's request. "Get Started" links to #visit (interim until dedicated page is built). "The Pardue Center" links to #venue. "Ministries" links to `ministries.html`. Other nav items link to homepage sections or existing pages. Calendar links to `events.html`.
+Set Feb 2026 per Candi's request; **"The Pardue Center" (which linked to `#venue`) was removed July 2026** in Session 27, taking the nav from 7 items to 6. "Get Started" links to #visit (interim until dedicated page is built). "Ministries" links to `ministries.html`. Other nav items link to homepage sections or existing pages. Calendar links to `events.html`.
 
 ### Color Palette
 ```css
@@ -202,15 +225,21 @@ Staff cards are clickable and open a modal with full bio and email link. Staff d
 
 ## SEO Implementation
 
-Meta tags target these keywords (from design meeting):
+Meta tags currently target:
 - "Methodist church Milton GA"
-- "event venue Milton GA"
-- "wedding venue Milton"
-- "wedding venue North Atlanta"
-- "concert venue North Metro Atlanta"
-- "Pardue Center"
+- "church Milton Georgia"
+- "church Roswell GA"
+- "Sunday worship Milton GA"
+- "contemporary worship North Atlanta"
 
 Includes Open Graph tags, geo tags, and canonical URLs.
+
+**Venue keywords were deliberately dropped July 2026 (Session 27):** `event venue Milton
+GA`, `wedding venue Milton`, `wedding venue North Atlanta`, `concert venue North Metro
+Atlanta`, and `Pardue Center`. The homepage `<title>` also changed from "Church & Event
+Venue" to "A Community of Faith Since 1853". **Losing rank on those venue terms is the
+intended outcome, not a regression** — do not "fix" it. Expect Google to keep serving the
+old title/description for days to weeks after deploy; that lag is not a deployment failure.
 
 ## Responsive Breakpoints (Mobile-First)
 
@@ -242,14 +271,13 @@ Clicking a staff card opens a modal with their photo, title, bio, and email butt
 ## Known Issues / TODO
 
 ### Future Enhancements (from meeting notes)
-1. **Ticketing integration** - Pardue Center events will need a ticketing platform (Eventbrite, TicketLeap, or Brown Paper Tickets)
-2. **Dedicated weddings page** - could rank for "wedding venue Milton GA" (currently handled via modal)
-3. **Dual-path landing page** - "What brings you to Ebenezer?" split (deferred for now)
+1. ~~**Ticketing integration** - Pardue Center events will need a ticketing platform~~ — **obsolete** as of Session 27 (Pardue Center venue content removed)
+2. ~~**Dedicated weddings page** - could rank for "wedding venue Milton GA"~~ — **obsolete** as of Session 27; the wedding modal it would have replaced is gone
+3. **Dual-path landing page** - "What brings you to Ebenezer?" split (deferred; the church/venue split it was meant to resolve no longer exists)
 
 ### SEO Targets Not Yet Addressed
 - Google Business Profile optimization
 - Structured data (Schema.org)
-- Dedicated weddings page (currently modal only)
 
 ### Completed (Previously TODO)
 - ✅ History page - created `history.html` with timeline and images
@@ -312,10 +340,11 @@ Clicking a staff card opens a modal with their photo, title, bio, and email butt
 Manager) and Asa Sellers (Worship Leader) were offboarded June 17, 2026 (Session
 23); **Lisa Coxworth (Administrative Assistant) was offboarded June 30, 2026
 (Session 25)**. The staff section heading is now "Meet the Pastor" (was "Meet Our
-Team"). The Event and Wedding inquiry modals no longer name a human contact — they
-show a generic **"Ebenezer Church Office"** card (office@ebzchurch.org /
-770-640-7287). If a new facilities/venue/admin contact is designated, name them in
-both modals (`index.html`).
+Team"). ~~The Event and Wedding inquiry modals show a generic "Ebenezer Church Office"
+card.~~ **Both modals were deleted in Session 27** with the rest of the venue-rental
+content, so there is no longer any venue/event/wedding contact surface on the site.
+General enquiries reach the church through the footer (office@ebzchurch.org /
+770-640-7287).
 
 ### Beat The Drum Village Partnership
 - **Location:** Kenya
@@ -544,6 +573,132 @@ Bot probes are filtered out by cross-referencing GoAccess's `not_found` panel �
 
 ## Session History
 
+### July 24, 2026 (Session 27) - Pardue Center Venue Content Removed
+
+**Directive.** Ralf Yopb, **Finance committee chairman**, who is negotiating Ebenezer's
+relationship with The Pardue Center: *"from Ebenezer's web site please remove everything
+related to the Pardue Center."* On clarification he narrowed it: *"We only want you to
+remove materials related to renting or using the facility. All Ebenezer related
+activities and sermons can remain on the site."*
+
+**The line drawn.** Charles confirmed three judgment calls via AskUserQuestion before any
+edits: remove the nav+footer link entirely (rather than repoint it), remove the
+`@parduecenterofficial` Instagram sitewide, and remove *both* descriptive passages about
+the building (homepage About paragraph + the history.html 2024 timeline entry).
+
+**Removed:**
+- Homepage `#venue` section in full — "Now Open" tagline, the 23,000 sq ft
+  weddings/celebrations pitch, the three feature badges (Modern Worship Space / Wedding
+  Venue / Community Events), and all three CTAs (Host an Event, Plan Your Wedding, See
+  Our Space)
+- **Both inquiry modals** — "Host Your Event at The Pardue Center" and "Plan Your Wedding
+  at Ebenezer" — with their four venue/wedding photos and contact blocks
+- `js/main.js`: both modal controllers (68 lines)
+- `css/style.css`: 325 lines of now-dead rules — `.section-venue`, `.venue-*`,
+  `.modal-wedding`, `.event-modal-*`, `.contact-card*`, `.modal-heading-*`,
+  `.modal-instagram-link`, `.ig-text-*`, and `.feature`/`.feature-icon` (the venue badge
+  icons added in Session 19). Verified all 16 orphaned class names had zero HTML usage
+  before deleting; brace count balanced after.
+- The nav item **and** footer link "The Pardue Center" on all 12 HTML pages (nav 7 → 6
+  items); the Instagram footer icon on all 12 (footer socials are now Facebook + YouTube)
+- SEO: title "Church & Event Venue" → "A Community of Faith Since 1853"; description,
+  og:description, and keywords rewritten around worship (see SEO Implementation section)
+- `history.html`: the 2024 "The Pardue Center" timeline entry, and the hero photo swapped
+  from `pardue-center.jpg` to `church-side-view-full.jpg`. **The mission statement lived
+  inside the removed paragraph** — it was preserved by folding it into the page intro so
+  the history page didn't silently lose it.
+- `events.html`: "and the Pardue Center" dropped from both meta descriptions
+
+**Kept (Ebenezer activity, per Ralf's clarification):** the 10:00 AM contemporary service
+listed at the Pardue Center (hero + Plan Your Visit), the Easter service location, the
+Christmas Eve graphic's alt text, sermons, and the calendar. Charles read Ralf's guidance
+as permitting service-location mentions.
+
+**Hero slideshow rebuilt — Pardue exterior frame dropped.** Charles: *"One image and one
+image only is just a picture of the campus, perhaps that one should go? (I think the
+pavilion shot is fine, we will continue to have use of it.)"* Confirmed visually that
+`rotated_images/0-church-exterior.jpg` — despite the filename — is the **Pardue Center**
+exterior, not the historic church. Removed from both builders. New sequence, **6 frames,
+24s**: Glenn-onstage-band → Candi&Glenn at the sanctuary → child baptism → solo guitarist
+→ pavilion → youth.
+
+**Builder timing bug found and fixed (pre-existing, shipped for months).** Both builders
+ended their ffmpeg concat filelist with a repeated final `file` entry — a "proper ending"
+trick that actually starved frame 1 and doubled the last one. Measured on the *live*
+7-frame video: **frame 1 = 0.25s, middles = 4.00s, last = 7.79s** (so the Pardue exterior
+was only ever a quarter-second flash). This was not optional polish: with the old builder,
+dropping frame 1 would have handed the 0.25s flash slot to `glenn-onstage-band`. Fix
+applied to **both** builders — drop the trailing repeat, add `-fps_mode cfr -r 25`.
+Verified: every frame now exactly 4.00s in both cuts.
+
+*Measurement note:* verify frame durations by sampling every 0.25s, downscaling to 64×36
+grayscale, and diffing with a **tolerance** (PIL `ImageChops.difference` + `ImageStat`,
+threshold ~8.0). Exact md5 hashing reports phantom boundaries because H.264 quantization
+noise changes the bytes between keyframes even on a static image — that sent me down one
+wrong path first. `select='gt(scene,0.2)'` is also unreliable here (found 2 of 6 cuts).
+
+**Cache busting.** `?v=` bumped `20260617` → `20260724` on the `<source>` tags in
+`index.html` and the dormant `?regular` swap in `main.js`. **Load-bearing** — Caddy serves
+`.mp4` as `immutable`, so a same-named replacement would never reach returning browsers.
+Confirmed against production that HTML/CSS/JS are all on `no-cache` (so they need nothing)
+and that the two mp4s were the *only* files whose content changed. `church-side-view-full.jpg`
+was already referenced elsewhere on history.html, so it is an unchanged file at an unchanged
+URL — the immutable cache is correct and returning visitors get the new hero instantly.
+
+**Consequences to remember:**
+- Venue search rankings ("wedding venue Milton GA" etc.) will decay. **That is the intended
+  outcome.** Google will also keep serving the old title/description for days to weeks after
+  deploy — not a deployment failure.
+- Nav went 7 → 6 items. **Candi specifically requested the "The Pardue Center" nav item in
+  Session 16**; this reversal came from a higher-authority stakeholder, so it is *not* a case
+  of the "don't reverse stakeholder requests" rule. She should be told directly.
+- Footer "Quick Links" went 5 → 4, breaking the deliberate 5+5 symmetry from the Session 19
+  design audit. Cosmetic; unresolved.
+- Five images left **unreferenced but on disk** (~2MB): `pardue-center.jpg`,
+  `pardue-stage.jpg`, `pavillion.jpg`, `wedding-venue.jpg`, `wedding-pavilion.jpg`. Kept
+  deliberately — if the negotiation shifts, restoring is far easier with the files present.
+- Old hero videos + pre-fix builder scripts backed up to
+  `~/Projects/ebzrefesh-archive/hero-video-2026-07-24/`.
+
+### July 6, 2026 (Session 26) - Online Giving Investigation (Lynn Avrett report)
+
+A member (Lynn Avrett) reported via Pastor Glenn that for ~3 weeks she and her
+husband couldn't complete online giving from their phones — "the system isn't
+allowing us to put the state in, or our zip code." Charles asked to confirm our
+setup against OCS's embed instructions PDF.
+
+**Verdict: our setup is correct and the form works; could not reproduce.**
+No code changes — investigation only.
+
+What was verified:
+- All Give links + the homepage QR code (decoded with OpenCV) point to
+  `https://app.onechurchsoftware.com/ebz/egiving` → browser-redirects to
+  `https://ebz.onechurchsoftware.com/public/give` (LWC giving portal ID 5, the
+  same portal in the OCS admin PDF). The embed snippet in the PDF is optional;
+  we deliberately link out instead. Full notes now live in the "Online giving"
+  callout in Third-Party Integrations above.
+- Walked the complete donor flow (amount → email → name → card step → billing
+  address with State + zip) via Playwright twice: Chromium at 390px phone
+  width, and **WebKit iPhone 14 emulation with touch taps** (`npx playwright
+  install webkit`, script pattern saved in
+  [project_online_giving_setup.md](memory/project_online_giving_setup.md)).
+  Both accepted "GA - Georgia" from the react-select dropdown and zip 30075.
+- Charles then completed a **real $25 donation from his laptop** (July 6, 2026,
+  confirmation 26070609000924102, GA/30115) — full pipeline incl. merchant
+  account confirmed working.
+
+Gotchas discovered (documented so nobody panics later):
+- `curl -I` on the egiving URL shows `302 → /Error` — that's non-browser
+  clients only; a real browser lands on the working portal.
+- OCS's giving page throws a benign `Unexpected keyword 'export'` JS error and
+  uses a react-select State dropdown — plausible failure point on outdated iOS.
+- OCS migrated giving to the new "Giving Portals" system (~June 2026, v7.1
+  admin UI) — timing matches Lynn's "three weeks," so a since-fixed OCS bug is
+  the leading theory; old-iOS/device-specific issues the runner-up.
+
+Resolution path if it recurs: get device model + iOS version + screenshot from
+the donor and open an OCS support ticket. Not fixable in this repo.
+
 ### June 30, 2026 (Session 25) - Offboard Lisa; "Meet Our Team" → "Meet the Pastor"
 
 Candi: "Can you remove Lisa from the website? And maybe instead of meet our team
@@ -593,8 +748,13 @@ guitar-session frame. Rebuilt BOTH hero videos with those frames replaced:
 - worship band → **Glenn onstage with the band** (`glenn-onstage-band.jpg`)
 - guitar session → **solo guitarist** (`solo-guitar.jpg`)
 The Pardue-exterior opener and the other five frames (Candi&Glenn, baptism, pavilion,
-youth) are unchanged. Both cuts: 7 frames, 4s each, 28s — desktop 1920×1080
+youth) are unchanged. Both cuts: 7 frames, 28s — desktop 1920×1080
 (`hero-slideshow.mp4`), mobile 720×1280 (`hero-slideshow-mobile.mp4`).
+
+> **Correction (Session 27):** the "4s each" claim above was never true. A trailing
+> repeated `file` entry in the builders' ffmpeg concat list gave **frame 1 only 0.25s
+> and the last frame ~7.79s**, with 4s for the ones in between. The bug shipped for
+> months. Fixed July 24, 2026 — see Session 27.
 
 Builders live in `~/Downloads/church-photos-to-video/` (NOT the repo):
 `create_slideshow.py` (desktop, scale+pad black) and `create_portrait_slideshow.py`

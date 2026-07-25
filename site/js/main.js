@@ -25,10 +25,10 @@ document.addEventListener('DOMContentLoaded', () => {
             heroBg.classList.remove('hero-bg-seasonal');
             heroBg.innerHTML = `
                 <video class="hero-video-desktop" autoplay loop muted playsinline poster="images/church-hero.jpg">
-                    <source src="images/hero-slideshow.mp4?v=20260617" type="video/mp4">
+                    <source src="images/hero-slideshow.mp4?v=20260724" type="video/mp4">
                 </video>
                 <video class="hero-video-mobile" autoplay loop muted playsinline poster="images/church-hero.jpg">
-                    <source src="images/hero-slideshow-mobile.mp4?v=20260617" type="video/mp4">
+                    <source src="images/hero-slideshow-mobile.mp4?v=20260724" type="video/mp4">
                 </video>
             `;
         }
@@ -180,74 +180,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && staffModal.classList.contains('active')) {
                 closeModal();
-            }
-        });
-    }
-
-    // Event Modal (Host an Event)
-    const eventModal = document.getElementById('eventModal');
-    const hostEventBtn = document.getElementById('hostEventBtn');
-
-    if (eventModal && hostEventBtn) {
-        const modalClose = eventModal.querySelector('.modal-close');
-
-        const openEventModal = () => {
-            eventModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        };
-
-        const closeEventModal = () => {
-            eventModal.classList.remove('active');
-            document.body.style.overflow = '';
-        };
-
-        hostEventBtn.addEventListener('click', openEventModal);
-
-        modalClose.addEventListener('click', closeEventModal);
-
-        eventModal.addEventListener('click', (e) => {
-            if (e.target === eventModal) {
-                closeEventModal();
-            }
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && eventModal.classList.contains('active')) {
-                closeEventModal();
-            }
-        });
-    }
-
-    // Wedding Modal (Plan Your Wedding)
-    const weddingModal = document.getElementById('weddingModal');
-    const planWeddingBtn = document.getElementById('planWeddingBtn');
-
-    if (weddingModal && planWeddingBtn) {
-        const modalClose = weddingModal.querySelector('.modal-close');
-
-        const openWeddingModal = () => {
-            weddingModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        };
-
-        const closeWeddingModal = () => {
-            weddingModal.classList.remove('active');
-            document.body.style.overflow = '';
-        };
-
-        planWeddingBtn.addEventListener('click', openWeddingModal);
-
-        modalClose.addEventListener('click', closeWeddingModal);
-
-        weddingModal.addEventListener('click', (e) => {
-            if (e.target === weddingModal) {
-                closeWeddingModal();
-            }
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && weddingModal.classList.contains('active')) {
-                closeWeddingModal();
             }
         });
     }
