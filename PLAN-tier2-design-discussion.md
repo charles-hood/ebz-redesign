@@ -6,6 +6,20 @@
 
 ---
 
+> ## ⚠️ Out of date as of July 24, 2026
+>
+> The Pardue Center's rental and venue content was removed from the website at the
+> direction of Ralf Yopb, Finance committee chairman, while Ebenezer's relationship with
+> the Center is being renegotiated. Ebenezer's own activities were not affected: the
+> 10:00 service, sermons, and the calendar are all still there.
+>
+> That makes **items 1 and 2 below moot** — item 1 proposed a "Plan Your Wedding" card
+> that would open a modal which no longer exists, and item 2 asked where to position a
+> venue section that has been deleted. Both are marked obsolete in place. **Items 3, 4,
+> and 5 are unaffected and still open for discussion.**
+
+---
+
 ## Why this exists
 
 We just finished a round of design and code audits on the website. Several outside reviewers (technical and design) looked at the site and found things worth improving. Most of those things were small, mechanical, and easy fixes — I went ahead and made those (icons, colors, spacing, accessibility, performance, broken links). That work is already live.
@@ -16,7 +30,8 @@ This document covers five items for discussion. Each one explains what we notice
 
 ---
 
-## 1. The "Get Connected" cards on the homepage
+## 1. The "Get Connected" cards on the homepage  
+> **❌ OBSOLETE (July 2026)** — Option A proposed replacing a card with "Plan Your Wedding," which opened the wedding inquiry modal. That modal was deleted with the rest of the venue content. If you still want to change what the three cards are, that is a fresh conversation.
 
 ### What we have now
 
@@ -44,7 +59,8 @@ Candi: which option (or combination) feels right? My personal lean is **Option A
 
 ---
 
-## 2. Where the Pardue Center sits on the homepage
+## 2. Where the Pardue Center sits on the homepage  
+> **❌ OBSOLETE (July 2026)** — the Pardue Center section no longer exists on the homepage, so there is nothing left to reposition.
 
 ### What we have now
 
@@ -208,12 +224,12 @@ A few audit suggestions I've already decided against (or already done) — flagg
 
 | # | Item | Decision needed from | Estimated effort if approved |
 |---|---|---|---|
-| 1 | Get Connected cards — replace Sunday Worship? | Candi | 30 minutes |
-| 2 | Pardue Center position on homepage | Candi | 30-60 minutes |
+| ~~1~~ | ~~Get Connected cards — replace Sunday Worship?~~ | — | **Obsolete (July 2026)** |
+| ~~2~~ | ~~Pardue Center position on homepage~~ | — | **Obsolete (July 2026)** |
 | 3 | Rebuild sermons.html | Glenn (preamble + Start Here pick) | 1-2 hours |
 | 4 | Restructure beliefs.html into themed groups | Glenn (blessing + groupings) | 30 minutes |
 | 5 | Coming Up featured event card rebuild | Candi (workflow change OK?) | 1-2 hours |
 
-**Total if everything is approved:** roughly half a day of work.
+**Total if the three remaining items are approved:** roughly 3-4 hours of work.
 
 **No deadline.** Take whatever time you need to think these through. Reply to any of them in any order. If something feels off or you want a different approach, say so — these are starting points, not finished plans.

@@ -75,16 +75,19 @@ ebzrefesh/
 │   └── images/
 │       ├── logo-header.png   # Steeple icon (transparent bg, also favicon)
 │       ├── logo.png          # White logo for footer
-│       ├── hero-slideshow.mp4 # Looping video for hero background
+│       ├── hero-slideshow.mp4 # Looping video for hero background (6 frames, 24s)
 │       ├── glenn-contemporary.jpg # Sunday Worship card image
 │       ├── church-hero.jpg   # Church exterior (video poster fallback)
-│       ├── church-side-view-full.jpg  # High-res church (history page hero)
-│       ├── pardue-center.jpg # Sunrise shot of Pardue Center
+│       ├── church-side-view-full.jpg  # High-res church (history page hero + 1853 section)
 │       ├── full-contemporary.jpg # Give section background
-│       ├── wedding-venue.jpg # Wedding modal image (sanctuary exterior)
-│       ├── wedding-pavilion.jpg # Real wedding ceremony in pavilion
-│       ├── pavillion.jpg     # Event modal image (empty pavilion)
-│       ├── pardue-stage.jpg  # Event modal image
+│       │   # --- The five below are UNREFERENCED since Session 27 (Pardue removal). ---
+│       │   # Kept on disk deliberately in case the negotiation shifts. Do not
+│       │   # re-link them without checking project_pardue_center_removal first.
+│       ├── pardue-center.jpg # (orphan) Sunrise shot of Pardue Center
+│       ├── wedding-venue.jpg # (orphan) was Wedding modal image (sanctuary exterior)
+│       ├── wedding-pavilion.jpg # (orphan) was real wedding ceremony in pavilion
+│       ├── pavillion.jpg     # (orphan) was Event modal image (empty pavilion)
+│       ├── pardue-stage.jpg  # (orphan) was Event modal image
 │       ├── outreach.jpg      # Drake House volunteers photo
 │       ├── beat-the-drum.jpg # BTD children in uniforms (content page)
 │       ├── beat-the-drum-video.jpg  # YouTube thumbnail (card image)
