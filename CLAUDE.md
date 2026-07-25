@@ -649,9 +649,9 @@ URL — the immutable cache is correct and returning visitors get the new hero i
 - Venue search rankings ("wedding venue Milton GA" etc.) will decay. **That is the intended
   outcome.** Google will also keep serving the old title/description for days to weeks after
   deploy — not a deployment failure.
-- Nav went 7 → 6 items. **Candi specifically requested the "The Pardue Center" nav item in
-  Session 16**; this reversal came from a higher-authority stakeholder, so it is *not* a case
-  of the "don't reverse stakeholder requests" rule. She should be told directly.
+- Nav went 7 → 6 items. Candi had requested that item back in Session 16, but the Feb 2026
+  request was overtaken by the split — it is simply stale, not a stakeholder request being
+  reversed. No hand-wringing needed.
 - Footer "Quick Links" went 5 → 4, breaking the deliberate 5+5 symmetry from the Session 19
   design audit. Cosmetic; unresolved.
 - Five images left **unreferenced but on disk** (~2MB): `pardue-center.jpg`,
