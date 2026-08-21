@@ -100,102 +100,12 @@
             margin: 0 0 1.5rem;
             line-height: 1.6;
         }
-        .waitlist-banner {
-            display: none;
-            background: #fdf6e3;
-            border: 1px solid var(--color-accent, #c9a227);
-            border-radius: 8px;
-            padding: 0.85rem 1rem;
-            margin: 0 0 1.25rem;
+        .retreat-form-wrap .btn { display: block; width: 100%; text-align: center; }
+        .register-deadline {
+            margin: 1rem 0 0;
             font-size: 0.92rem;
             color: var(--color-text, #1a1a1a);
         }
-        .waitlist-banner.show { display: block; }
-        .form-field { margin-bottom: 1.1rem; }
-        .form-field label {
-            display: block;
-            font-weight: 500;
-            font-size: 0.9rem;
-            color: var(--color-text, #1a1a1a);
-            margin-bottom: 0.35rem;
-        }
-        .form-field .optional {
-            color: var(--color-text-muted, #718096);
-            font-weight: 400;
-            font-size: 0.8rem;
-        }
-        .form-field input,
-        .form-field textarea {
-            width: 100%;
-            padding: 0.65rem 0.8rem;
-            font-family: var(--font-body);
-            font-size: 1rem;
-            color: var(--color-text, #1a1a1a);
-            background: #fff;
-            border: 1px solid var(--color-border, #e2e8f0);
-            border-radius: 8px;
-            transition: border-color 0.15s ease, box-shadow 0.15s ease;
-        }
-        .form-field input:focus,
-        .form-field textarea:focus {
-            outline: none;
-            border-color: var(--color-primary-light, #2c5282);
-            box-shadow: 0 0 0 3px rgba(44, 82, 130, 0.12);
-        }
-        .form-field textarea { resize: vertical; min-height: 4.5rem; }
-        .form-field.has-error input,
-        .form-field.has-error textarea { border-color: #b91c1c; }
-        .field-error {
-            display: none;
-            color: #b91c1c;
-            font-size: 0.82rem;
-            margin-top: 0.3rem;
-        }
-        .field-error.show { display: block; }
-        fieldset.emergency {
-            border: 1px solid var(--color-border, #e2e8f0);
-            border-radius: 8px;
-            padding: 1rem 1.1rem 0.25rem;
-            margin: 0 0 1.1rem;
-        }
-        fieldset.emergency legend {
-            font-family: 'Playfair Display', serif;
-            font-weight: 600;
-            font-size: 1rem;
-            color: var(--color-primary);
-            padding: 0 0.4rem;
-        }
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-        .hp-field { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
-        #form-status {
-            display: none;
-            margin: 0 0 1rem;
-            padding: 0.8rem 1rem;
-            border-radius: 8px;
-            font-size: 0.92rem;
-            background: #fef2f2;
-            border: 1px solid #fecaca;
-            color: #991b1b;
-        }
-        #form-status.show { display: block; }
-        .retreat-form-wrap .btn { width: 100%; }
-        .panel {
-            display: none;
-            text-align: center;
-            padding: 2rem 1rem;
-        }
-        .panel.show { display: block; }
-        .panel h2 {
-            font-family: 'Playfair Display', serif;
-            color: var(--color-primary);
-            font-size: 1.6rem;
-            margin: 0 0 0.75rem;
-        }
-        .panel p { color: var(--color-text-light, #555); line-height: 1.7; margin: 0 0 0.75rem; }
         .privacy-note {
             font-size: 0.8rem;
             color: var(--color-text-muted, #718096);
@@ -213,7 +123,6 @@
             .retreat-layout { padding: 1.5rem 1rem 2rem; }
             .retreat-info h1 { font-size: 1.8rem; }
             .retreat-form-wrap { padding: 1.5rem 1.25rem; }
-            .form-row { grid-template-columns: 1fr; gap: 0; }
         }
     </style>
 </head>
@@ -251,6 +160,7 @@
                 <ul class="retreat-facts">
                     <li><span class="fact-label">Where</span><span>Woodlands Camp, Cleveland, GA</span></li>
                     <li><span class="fact-label">When</span><span>Friday, October 30 (5:00 PM) through Sunday morning, November 1, 2026</span></li>
+                    <li><span class="fact-label">Deadline</span><span>Register by Friday, September 18, 2026</span></li>
                     <li><span class="fact-label">Cost</span><span>$50 nonrefundable registration fee. The remainder of the costs have been generously provided by a donor. If you're unable to attend, your fee will be applied to the Women's Ministry toward future events.</span></li>
                     <li><span class="fact-label">Lodging</span><span>Double rooms only. Name a preferred roommate when you register, or we'll be glad to assign one for you.</span></li>
                     <li><span class="fact-label">Questions</span><span>Contact Kim Hays: text <a href="sms:678-662-3320">678-662-3320</a> or email <a href="mailto:kimhays3@yahoo.com">kimhays3@yahoo.com</a></span></li>
@@ -258,85 +168,13 @@
                 <p class="availability" id="availability" aria-live="polite" hidden></p>
             </div>
 
-            <!-- Registration -->
+            <!-- Registration lives in One Church (system of record for signup + payment) -->
             <div class="retreat-form-wrap">
-                <div id="register-panel">
-                    <h2>Reserve Your Spot</h2>
-                    <p class="form-intro">One registration per person, please (each lady needs her own email address). We'll only use your information to plan the retreat.</p>
-                    <div class="waitlist-banner" id="waitlist-banner">
-                        <strong>The retreat is currently full.</strong> Sign up below to join the waitlist, and we'll contact you if a spot opens up.
-                    </div>
-                    <div id="form-status" role="status" aria-live="polite"></div>
-                    <form id="retreat-form" novalidate>
-                        <div class="form-field">
-                            <label for="reg-name">Full Name</label>
-                            <input type="text" id="reg-name" name="name" autocomplete="name" maxlength="100" required aria-required="true">
-                            <span class="field-error" role="alert" id="err-name"></span>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-field">
-                                <label for="reg-email">Email</label>
-                                <input type="email" id="reg-email" name="email" autocomplete="email" maxlength="200" required aria-required="true">
-                                <span class="field-error" role="alert" id="err-email"></span>
-                            </div>
-                            <div class="form-field">
-                                <label for="reg-phone">Phone</label>
-                                <input type="tel" id="reg-phone" name="phone" autocomplete="tel" maxlength="30" required aria-required="true">
-                                <span class="field-error" role="alert" id="err-phone"></span>
-                            </div>
-                        </div>
-                        <fieldset class="emergency">
-                            <legend>Emergency Contact</legend>
-                            <div class="form-row">
-                                <div class="form-field">
-                                    <label for="reg-ec-name">Contact Name</label>
-                                    <input type="text" id="reg-ec-name" name="emergency_name" maxlength="100" required aria-required="true">
-                                    <span class="field-error" role="alert" id="err-emergency_name"></span>
-                                </div>
-                                <div class="form-field">
-                                    <label for="reg-ec-phone">Contact Phone</label>
-                                    <input type="tel" id="reg-ec-phone" name="emergency_phone" maxlength="30" required aria-required="true">
-                                    <span class="field-error" role="alert" id="err-emergency_phone"></span>
-                                </div>
-                            </div>
-                        </fieldset>
-                        <div class="form-field">
-                            <label for="reg-dietary">Dietary Needs or Allergies <span class="optional">(optional)</span></label>
-                            <input type="text" id="reg-dietary" name="dietary" maxlength="500">
-                            <span class="field-error" role="alert" id="err-dietary"></span>
-                        </div>
-                        <div class="form-field">
-                            <label for="reg-roommate">Preferred Roommate <span class="optional">(optional; double rooms only, we'll assign one if left blank)</span></label>
-                            <input type="text" id="reg-roommate" name="roommate" maxlength="100">
-                            <span class="field-error" role="alert" id="err-roommate"></span>
-                        </div>
-                        <div class="form-field">
-                            <label for="reg-notes">Anything else we should know? <span class="optional">(optional)</span></label>
-                            <textarea id="reg-notes" name="notes" maxlength="1000" rows="3"></textarea>
-                            <span class="field-error" role="alert" id="err-notes"></span>
-                        </div>
-                        <div class="hp-field" aria-hidden="true">
-                            <label for="reg-hp">Leave this field empty</label>
-                            <input type="text" id="reg-hp" name="hp" tabindex="-1" autocomplete="off">
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-lg" id="reg-submit">Register</button>
-                    </form>
-                    <p class="privacy-note">Your details are shared only with the retreat organizers and are never posted publicly. Only the total count of registrations is shown on this page.</p>
-                </div>
-
-                <div class="panel" id="success-panel">
-                    <h2>You're Registered!</h2>
-                    <p id="success-message">We've saved your spot. A confirmation email is on its way.</p>
-                    <p>Questions? Contact Kim Hays: text <a href="sms:678-662-3320">678-662-3320</a> or email <a href="mailto:kimhays3@yahoo.com">kimhays3@yahoo.com</a>.</p>
-                    <a href="ministries.html" class="btn btn-secondary">Back to Ministries</a>
-                </div>
-
-                <div class="panel" id="waitlist-panel">
-                    <h2>You're on the Waitlist</h2>
-                    <p id="waitlist-message">The retreat is currently full, but you're on the waitlist. We'll reach out if a spot opens up.</p>
-                    <p>Questions? Contact Kim Hays: text <a href="sms:678-662-3320">678-662-3320</a> or email <a href="mailto:kimhays3@yahoo.com">kimhays3@yahoo.com</a>.</p>
-                    <a href="ministries.html" class="btn btn-secondary">Back to Ministries</a>
-                </div>
+                <h2>Reserve Your Spot</h2>
+                <p class="form-intro">Sign up and pay the $50 registration fee together in One Church, our church management system. The button below takes you to the signup form; you'll receive a confirmation email once your form and payment are complete.</p>
+                <a class="btn btn-primary btn-lg" href="https://ebz.onechurchsoftware.com/public/events/11071">Register in One Church</a>
+                <p class="register-deadline">Registration closes <strong>Friday, September 18, 2026</strong>.</p>
+                <p class="privacy-note">Trouble signing up? Contact Kim Hays: text <a href="sms:678-662-3320">678-662-3320</a> or email <a href="mailto:kimhays3@yahoo.com">kimhays3@yahoo.com</a>, and she'll be glad to help.</p>
             </div>
         </div>
     </section>
@@ -392,154 +230,28 @@
 
     <script src="js/main.js?v=20260617"></script>
     <script>
+    // Counter only: registration itself lives in One Church now. The strip stays
+    // hidden unless the API is serving live One Church counts (source === "ocs"),
+    // so a missing key or an OCS outage can never show a wrong number.
     (function () {
-        var API = '/api/retreat';
-        var form = document.getElementById('retreat-form');
-        var submitBtn = document.getElementById('reg-submit');
-        var statusBox = document.getElementById('form-status');
         var availEl = document.getElementById('availability');
-        var waitlistBanner = document.getElementById('waitlist-banner');
-
-        function showPanel(id) {
-            document.getElementById('register-panel').style.display = 'none';
-            document.getElementById(id).classList.add('show');
-            document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-
-        function renderAvailability(a) {
-            availEl.hidden = false;
-            if (a.remaining > 0) {
-                availEl.classList.remove('is-full');
-                availEl.innerHTML = '<strong>' + a.confirmed + ' of ' + a.capacity +
-                    ' spots filled</strong>, ' + a.remaining +
-                    (a.remaining === 1 ? ' spot' : ' spots') + ' remaining. Register below!';
-                waitlistBanner.classList.remove('show');
-                submitBtn.textContent = 'Register';
-            } else {
-                availEl.classList.add('is-full');
-                availEl.innerHTML = '<strong>The retreat is full</strong> (' + a.capacity + ' of ' + a.capacity +
-                    ' spots filled' + (a.waitlisted ? ', ' + a.waitlisted + ' on the waitlist' : '') +
-                    '). You can still join the waitlist below.';
-                waitlistBanner.classList.add('show');
-                submitBtn.textContent = 'Join the Waitlist';
-            }
-        }
-
-        // The counter is a nice-to-have: if it fails, hide it and leave the form usable.
-        function refreshAvailability() {
-            fetch(API + '/availability')
-                .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
-                .then(renderAvailability)
-                .catch(function () { availEl.hidden = true; });
-        }
-        refreshAvailability();
-
-        var FIELDS = ['name', 'email', 'phone', 'emergency_name', 'emergency_phone', 'dietary', 'roommate', 'notes'];
-        var REQUIRED = { name: 'Please enter your name.', email: 'Please enter your email address.', phone: 'Please enter your phone number.', emergency_name: 'Please enter an emergency contact name.', emergency_phone: 'Please enter an emergency contact phone.' };
-
-        function setFieldError(field, msg) {
-            var err = document.getElementById('err-' + field);
-            var input = form.elements[field];
-            if (!err) return;
-            if (msg) {
-                err.textContent = msg;
-                err.classList.add('show');
-                if (input) input.closest('.form-field').classList.add('has-error');
-            } else {
-                err.textContent = '';
-                err.classList.remove('show');
-                if (input) input.closest('.form-field').classList.remove('has-error');
-            }
-        }
-
-        function setStatus(msg) {
-            if (msg) {
-                statusBox.textContent = msg;
-                statusBox.classList.add('show');
-            } else {
-                statusBox.textContent = '';
-                statusBox.classList.remove('show');
-            }
-        }
-
-        function validate(values) {
-            var ok = true;
-            var firstBad = null;
-            FIELDS.forEach(function (f) { setFieldError(f, null); });
-            Object.keys(REQUIRED).forEach(function (f) {
-                if (!values[f]) {
-                    setFieldError(f, REQUIRED[f]);
-                    if (!firstBad) firstBad = f;
-                    ok = false;
+        fetch('/api/retreat/availability')
+            .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+            .then(function (a) {
+                if (a.source !== 'ocs' || typeof a.confirmed !== 'number') return;
+                availEl.hidden = false;
+                if (a.remaining > 0) {
+                    availEl.classList.remove('is-full');
+                    availEl.innerHTML = '<strong>' + a.confirmed + ' of ' + a.capacity +
+                        ' spots filled</strong>, ' + a.remaining +
+                        (a.remaining === 1 ? ' spot' : ' spots') + ' remaining.';
+                } else {
+                    availEl.classList.add('is-full');
+                    availEl.innerHTML = '<strong>The retreat is full</strong> (' + a.capacity + ' of ' + a.capacity +
+                        ' spots filled). Contact Kim Hays about openings.';
                 }
-            });
-            if (values.email && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(values.email)) {
-                setFieldError('email', 'Please enter a valid email address.');
-                if (!firstBad) firstBad = 'email';
-                ok = false;
-            }
-            ['phone', 'emergency_phone'].forEach(function (f) {
-                if (values[f] && !(values[f].length >= 7 && /^[\d\s()+\-.]+$/.test(values[f]))) {
-                    setFieldError(f, 'Please enter a valid phone number.');
-                    if (!firstBad) firstBad = f;
-                    ok = false;
-                }
-            });
-            if (!ok && firstBad && form.elements[firstBad]) form.elements[firstBad].focus();
-            return ok;
-        }
-
-        form.addEventListener('submit', function (e) {
-            e.preventDefault();
-            setStatus(null);
-
-            var values = { hp: form.elements.hp.value };
-            FIELDS.forEach(function (f) {
-                values[f] = (form.elements[f].value || '').trim();
-            });
-            if (!validate(values)) return;
-
-            submitBtn.disabled = true;
-            var oldLabel = submitBtn.textContent;
-            submitBtn.textContent = 'Submitting…';
-
-            fetch(API + '/register', {
-                method: 'POST',
-                headers: { 'content-type': 'application/json' },
-                body: JSON.stringify(values)
             })
-                .then(function (r) {
-                    return r.json().then(function (data) { return { code: r.status, data: data }; });
-                })
-                .then(function (out) {
-                    if (out.code === 200 && out.data.ok) {
-                        if (!out.data.email) {
-                            document.getElementById('success-message').textContent =
-                                "We've saved your spot. See you there!";
-                        }
-                        if (out.data.status === 'waitlisted') {
-                            document.getElementById('waitlist-message').textContent =
-                                'The retreat is currently full, but you are #' + out.data.position +
-                                ' on the waitlist. We\'ll reach out if a spot opens up.';
-                            showPanel('waitlist-panel');
-                        } else {
-                            showPanel('success-panel');
-                        }
-                        refreshAvailability();
-                        return;
-                    }
-                    if (out.data && out.data.field) setFieldError(out.data.field, out.data.error);
-                    setStatus((out.data && out.data.error) ||
-                        'Something went wrong. Please try again, or call the church office at 770-640-7287.');
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = oldLabel;
-                })
-                .catch(function () {
-                    setStatus('Something went wrong sending your registration. Please try again, or call the church office at 770-640-7287.');
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = oldLabel;
-                });
-        });
+            .catch(function () {});
     })();
     </script>
 </body>
