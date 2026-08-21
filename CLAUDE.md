@@ -149,22 +149,29 @@ Change `data-ocs-id` to promote a different event. Find event IDs in OCS admin.
 <script async src="https://cdn.onechurchsoftware.com/embed/v3.1.js"></script>
 ```
 
-**Giving URL:** https://app.onechurchsoftware.com/ebz/egiving
+**Giving URL:** https://ebz.onechurchsoftware.com/public/give/5
 
-**Online giving is a link-out, NOT an embed.** Every Give button/footer link and
-the homepage QR code point at the egiving URL above, which redirects (in a
-browser) to `https://ebz.onechurchsoftware.com/public/give` — OCS's hosted
+**Changed August 21, 2026 (Session 28):** the old
+`https://app.onechurchsoftware.com/ebz/egiving` redirect URL **stops working in
+September 2026** (OCS system upgrade, per the Finance chair's Aug 8 email). All
+17 Give links and the homepage QR now point directly at the portal-5 URL above.
+Do not reintroduce the egiving URL. There is also an "Ebenezer PC" giving
+portal (ID 4, `…/public/give/4`) with its own "Donate PC" QR from the Finance
+chair — deliberately NOT on the website (no Pardue giving surface; see the
+Session 27 removal directive).
+
+**Online giving is a link-out, NOT an embed.** The portal URL is OCS's hosted
 "Ebenezer Little White Church" giving portal (ID 5). The whole donor form
 (amount, card, billing address, state/zip) is rendered and validated by OCS;
 nothing in this repo touches it. OCS offers an embed snippet
 (`data-ocs-embed="giving"`) but we deliberately don't use it — linking out is
 more reliable. Notes for "giving is broken" reports (July 2026 investigation,
-Session 26): `curl -I` on the egiving URL returns `302 → /Error` (non-browser
-clients only — NOT a real failure); the State field is a react-select custom
-dropdown, prime suspect on old iOS. Verified working end-to-end July 6, 2026
-(Playwright on Chromium + iPhone-emulated WebKit, and a real $25 donation from
-Charles's laptop). If a donor reports a form problem, it's an OCS support
-ticket (device model + iOS version + screenshot), not a repo change.
+Session 26): the State field is a react-select custom dropdown, prime suspect
+on old iOS. Verified working end-to-end July 6, 2026 (Playwright on Chromium +
+iPhone-emulated WebKit, and a real $25 donation from Charles's laptop), and
+again Aug 21, 2026 on the direct portal URL. If a donor reports a form problem,
+it's an OCS support ticket (device model + iOS version + screenshot), not a
+repo change.
 
 ### YouTube
 - Channel: https://www.youtube.com/@ebenezermethodistchurchofm6983/streams
