@@ -515,6 +515,10 @@
                 })
                 .then(function (out) {
                     if (out.code === 200 && out.data.ok) {
+                        if (!out.data.email) {
+                            document.getElementById('success-message').textContent =
+                                "We've saved your spot. See you there!";
+                        }
                         if (out.data.status === 'waitlisted') {
                             document.getElementById('waitlist-message').textContent =
                                 'The retreat is currently full, but you are #' + out.data.position +
