@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEST PAGE (unlisted) | Women's Retreat signup path B</title>
+    <meta name="description" content="Register for the Ebenezer Church Women's Retreat: a weekend of rest, fellowship, and growing in faith. Sign up online and reserve your spot.">
+    <meta name="robots" content="noindex, nofollow, noarchive">
+    <meta property="og:title" content="Women's Retreat at Ebenezer Church">
+    <meta property="og:description" content="A weekend of rest, fellowship, and growing in faith. Register online and reserve your spot.">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/png" href="images/logo-header.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@400;500;600;700&display=optional" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?v=20260617">
+    <style>
+        .retreat-main {
+            padding: 7rem 0 0;
+        }
+        .retreat-layout {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 3rem;
+            display: grid;
+            grid-template-columns: 1fr 1.15fr;
+            gap: 3rem;
+            align-items: start;
+        }
+        .retreat-info h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--color-primary);
+            margin: 0 0 0.5rem;
+        }
+        .retreat-info .retreat-dates {
+            font-size: 1.05rem;
+            color: var(--color-accent);
+            font-weight: 500;
+            margin: 0 0 1.25rem;
+        }
+        .retreat-art {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin: 0 0 1.25rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+        }
+        .retreat-info p {
+            color: var(--color-text-light, #555);
+            line-height: 1.7;
+            margin: 0 0 1rem;
+        }
+        .retreat-facts {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0 0;
+            border-top: 1px solid var(--color-border, #e2e8f0);
+        }
+        .retreat-facts li {
+            display: flex;
+            gap: 1rem;
+            padding: 0.85rem 0;
+            border-bottom: 1px solid var(--color-border, #e2e8f0);
+            font-size: 0.95rem;
+        }
+        .retreat-facts .fact-label {
+            flex-shrink: 0;
+            width: 90px;
+            font-weight: 700;
+            color: var(--color-primary);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            padding-top: 0.1rem;
+        }
+        .availability {
+            margin: 1.5rem 0 0;
+            padding: 0.9rem 1.1rem;
+            background: var(--color-bg-alt, #f7f8fa);
+            border-left: 3px solid var(--color-accent, #c9a227);
+            border-radius: 0 8px 8px 0;
+            font-size: 0.98rem;
+            color: var(--color-text, #1a1a1a);
+        }
+        .availability strong { color: var(--color-primary); }
+        .availability.is-full { border-left-color: var(--color-primary); }
+
+        /* Registration form (first form on the site; styled from the design tokens) */
+        .retreat-form-wrap {
+            background: #fff;
+            border: 1px solid var(--color-border, #e2e8f0);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+        }
+        .retreat-form-wrap h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--color-primary);
+            margin: 0 0 0.35rem;
+        }
+        .retreat-form-wrap .form-intro {
+            color: var(--color-text-light, #555);
+            font-size: 0.92rem;
+            margin: 0 0 1.5rem;
+            line-height: 1.6;
+        }
+        .retreat-form-wrap .btn { display: block; width: 100%; text-align: center; }
+        .register-deadline {
+            margin: 1rem 0 0;
+            font-size: 0.92rem;
+            color: var(--color-text, #1a1a1a);
+        }
+        .privacy-note {
+            font-size: 0.8rem;
+            color: var(--color-text-muted, #718096);
+            margin-top: 1.25rem;
+            line-height: 1.5;
+        }
+        @media (max-width: 900px) {
+            .retreat-layout {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+        @media (max-width: 768px) {
+            .retreat-main { padding: 6rem 0 0; }
+            .retreat-layout { padding: 1.5rem 1rem 2rem; }
+            .retreat-info h1 { font-size: 1.8rem; }
+            .retreat-form-wrap { padding: 1.5rem 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+    <div style="background:#7a1f1f; color:#fff; padding:10px 16px; font:600 14px/1.5 system-ui, sans-serif; text-align:center; position:relative; z-index:9999">
+        TEST PAGE, NOT FOR PUBLIC USE. The live page is <a href="https://ebzchurch.org/womens-retreat" style="color:#ffd98a">ebzchurch.org/womens-retreat</a>.
+        Submitting the form here creates a REAL registration and a REAL $50 charge.
+    </div>
+    
+    <!-- Navigation -->
+    <header class="header">
+        <nav class="nav">
+            <a href="/" class="logo">
+                <img src="images/logo-header.png" alt="Ebenezer Church">
+            </a>
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="primary-nav">
+                <li><a href="index.html#visit">Get Started</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#watch">Watch</a></li>
+                <li><a href="ministries.html">Ministries</a></li>
+                <li><a href="events.html">Calendar</a></li>
+                <li><a href="index.html#give" class="btn btn-outline">Give</a></li>
+                <li><a href="index.html#visit" class="btn btn-primary">Plan a Visit</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="retreat-main">
+        <div class="retreat-layout">
+            <!-- Info -->
+            <div class="retreat-info">
+                <h1>Women's Retreat</h1>
+                <p class="retreat-dates">October 30 - November 1, 2026 &middot; Woodlands Camp</p>
+                <img class="retreat-art" src="images/womens-retreat-2026.webp" width="1400" height="933"
+                     alt="Painting of two empty chairs and two steaming mugs on a dock, overlooking a misty mountain lake at sunrise in autumn">
+                <p>Ladies, join us for a weekend away: a time to rest, laugh, connect with one another, and grow deeper in your walk with God. The retreat is open to all Ebenezer women. Whether you've been part of Ebenezer for decades or just walked in the door, there's a place for you.</p>
+                <ul class="retreat-facts">
+                    <li><span class="fact-label">Where</span><span>Woodlands Camp, <a href="https://maps.google.com/?q=1242+Old+Blue+Creek+Road,+Cleveland,+GA+30528">1242 Old Blue Creek Road, Cleveland, GA 30528</a></span></li>
+                    <li><span class="fact-label">When</span><span>Friday, October 30 (5:00 PM) through Sunday morning, November 1, 2026</span></li>
+                    <li><span class="fact-label">Deadline</span><span>Register by Friday, September 18, 2026</span></li>
+                    <li><span class="fact-label">Cost</span><span>$50 nonrefundable registration fee. The remainder of the costs have been generously provided by a donor. If you're unable to attend, your fee will be applied to the Women's Ministry toward future events.</span></li>
+                    <li><span class="fact-label">Lodging</span><span>Double rooms only. Name a preferred roommate when you register, or we'll be glad to assign one for you.</span></li>
+                    <li><span class="fact-label">Questions</span><span>Contact Kim Hays: text <a href="sms:678-662-3320">678-662-3320</a> or email <a href="mailto:kimhays3@yahoo.com">kimhays3@yahoo.com</a></span></li>
+                </ul>
+                <p class="availability" id="availability" aria-live="polite" hidden></p>
+            </div>
+
+            <!-- Registration lives in One Church (system of record for signup + payment) -->
+            <div class="retreat-form-wrap">
+                <h2>Reserve Your Spot</h2>
+                <p class="form-intro">Sign up and pay the $50 registration fee together in One Church, our church management system. The button below takes you straight to the registration form. You'll receive a confirmation email once your form and payment are complete.</p>
+                <a class="btn btn-primary btn-lg" href="https://ebz.onechurchsoftware.com/embed/form?ocs.id=9&amp;ocs.event=11071">Register in One Church</a>
+                <p class="register-deadline">Registration closes <strong>Friday, September 18, 2026</strong>.</p>
+                <p class="privacy-note">Trouble signing up? Contact the church office: <a href="tel:770-640-7287">770-640-7287</a> or <a href="mailto:office@ebzchurch.org">office@ebzchurch.org</a>.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="images/logo.png" alt="Ebenezer Church" class="footer-logo" loading="lazy" decoding="async">
+                    <p>A community of faith since 1853</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/EbzMethodistChurch" target="_blank" rel="noopener" aria-label="Facebook">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="https://www.youtube.com/@ebenezermethodistchurchofm6983/streams" target="_blank" rel="noopener" aria-label="YouTube">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#watch">Watch</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="ministries.html">Ministries</a></li>
+                        <li><a href="https://ebz.onechurchsoftware.com/public/give/5" target="_blank" rel="noopener">Give</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="history.html">Our History</a></li>
+                        <li><a href="beliefs.html">What We Believe</a></li>
+                        <li><a href="index.html#staff">Staff</a></li>
+                        <li><a href="outreach.html">Outreach</a></li>
+                        <li><a href="events.html">Events</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p>12900 Arnold Mill Road<br>Roswell, GA 30075</p>
+                    <p><a href="tel:770-640-7287">770-640-7287</a></p>
+                    <p><a href="mailto:office@ebzchurch.org">office@ebzchurch.org</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> Ebenezer Church. All rights reserved.</p>
+                <script>document.getElementById('currentYear').textContent = new Date().getFullYear();</script>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js?v=20260617"></script>
+    <script>
+    // Counter only: registration itself lives in One Church now. The strip stays
+    // hidden unless the API is serving live One Church counts (source === "ocs"),
+    // so a missing key or an OCS outage can never show a wrong number.
+    (function () {
+        var availEl = document.getElementById('availability');
+        fetch('/api/retreat/availability')
+            .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+            .then(function (a) {
+                if (a.source !== 'ocs' || typeof a.confirmed !== 'number') return;
+                availEl.hidden = false;
+                if (a.remaining > 0) {
+                    availEl.classList.remove('is-full');
+                    availEl.innerHTML = '<strong>' + a.confirmed + ' of ' + a.capacity +
+                        ' spots filled</strong>, ' + a.remaining +
+                        (a.remaining === 1 ? ' spot' : ' spots') + ' remaining.';
+                } else {
+                    availEl.classList.add('is-full');
+                    availEl.innerHTML = '<strong>The retreat is full</strong> (' + a.capacity + ' of ' + a.capacity +
+                        ' spots filled). Contact Kim Hays about openings.';
+                }
+            })
+            .catch(function () {});
+    })();
+    </script>
+</body>
+</html>
