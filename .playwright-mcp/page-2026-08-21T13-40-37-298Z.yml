@@ -1,0 +1,28 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - strong [ref=e3]: Not part of the email.
+    - text: "To send: select everything inside the white box below (click at the start, shift-click at the end, or drag), copy, and paste into a Gmail reply to finance@ebzchurch.org. The QR images paste in with the text. Then attach the two full-size files from your Downloads folder:"
+    - emphasis [ref=e4]: LWC Donation QR Code v8.png
+    - text: and
+    - emphasis [ref=e5]: Pardue Center Donation QR Code v8.png
+    - text: . Reply on the existing "Ebenezer donation QR codes" thread so everyone copied on the original sees it.
+  - generic [ref=e6]:
+    - paragraph [ref=e7]: Hi Ralf,
+    - paragraph [ref=e8]: The website is all set. A few notes on what we found and did.
+    - paragraph [ref=e9]:
+      - strong [ref=e10]: The change was bigger than the QR codes.
+      - text: The old codes pointed at a One Church link (app.onechurchsoftware.com/ebz/egiving) that stops working in September, and it turned out every Give button and footer link on the website used that same link. So along with the QR code on the homepage, we updated all 17 giving links across the site to point directly at the new giving page. That's live on ebzchurch.org now.
+    - paragraph [ref=e11]:
+      - strong [ref=e12]: Testing, as you asked.
+      - text: "Both new codes resolve to the right places: the LWC code goes to the \"Ebenezer Little White Church\" giving page and the PC code to the \"Ebenezer PC\" page. We walked both pages in a browser and confirmed the fund dropdowns are correct, including that the Beat the Drum fund still appears on the LWC page (our missions pages tell donors to select it there)."
+    - paragraph [ref=e13]:
+      - strong [ref=e14]: One concern with the new images, and a fix.
+      - text: "Taking you up on your offer to adjust the design: the labels printed across the middle of the codes cover part of the pattern, and the yellow one is low contrast, so scanners have less margin than usual, especially in print or dim light. When we ran the images through three different QR scanner programs, the yellow LWC code passed only one of the three and the PC code passed none, though phone cameras will often still manage. Attached are cleaned-up versions of both (previews below): same links, same labels, but with the text moved below the code and the pattern in high-contrast dark on white. These pass all three scanners. Feel free to use them for print if you like them, or we can adjust colors and wording however you want."
+    - img "Donations LWC QR code, updated version" [ref=e15]
+    - img "Donate PC QR code, updated version" [ref=e16]
+    - paragraph [ref=e17]:
+      - strong [ref=e18]: On the website itself,
+      - text: we kept a single giving path pointing at the LWC page, same as before, and did not add the PC donation code anywhere, consistent with the direction from July to keep Pardue material off the site. If you'd like the PC giving link on the website somewhere, that's a quick change; just say the word.
+    - paragraph [ref=e19]: It would still be worth a couple of people scanning the codes with their actual phones (the ones in this email or the attachments work for that), since a phone camera is the real test. Ours scanned fine here.
+    - paragraph [ref=e20]: Thanks,
+    - paragraph [ref=e21]: Charles

@@ -1,0 +1,142 @@
+- generic [active] [ref=f3e1]:
+  - banner [ref=f3e2]:
+    - navigation [ref=f3e3]:
+      - link [ref=f3e4] [cursor=pointer]:
+        - /url: /
+        - img "Ebenezer Church" [ref=f3e5]
+      - list [ref=f3e6]:
+        - listitem [ref=f3e7]:
+          - link "Get Started" [ref=f3e8] [cursor=pointer]:
+            - /url: index.html#visit
+        - listitem [ref=f3e9]:
+          - link "About" [ref=f3e10] [cursor=pointer]:
+            - /url: index.html#about
+        - listitem [ref=f3e11]:
+          - link "Watch" [ref=f3e12] [cursor=pointer]:
+            - /url: index.html#watch
+        - listitem [ref=f3e13]:
+          - link "Ministries" [ref=f3e14] [cursor=pointer]:
+            - /url: ministries.html
+        - listitem [ref=f3e15]:
+          - link "Calendar" [ref=f3e16] [cursor=pointer]:
+            - /url: events.html
+        - listitem [ref=f3e17]:
+          - link "Give" [ref=f3e18] [cursor=pointer]:
+            - /url: index.html#give
+        - listitem [ref=f3e19]:
+          - link "Plan a Visit" [ref=f3e20] [cursor=pointer]:
+            - /url: index.html#visit
+  - generic [ref=f3e22]:
+    - heading "Our History" [level=1] [ref=f3e23]
+    - paragraph [ref=f3e24]: 170+ years of faith, community, and resilience
+  - generic [ref=f3e27]:
+    - link "← Back to Home" [ref=f3e28] [cursor=pointer]:
+      - /url: index.html
+    - figure [ref=f3e29]:
+      - img "The historic Ebenezer sanctuary" [ref=f3e30]
+    - generic [ref=f3e31]:
+      - paragraph [ref=f3e32]: After more than 170 years of faithful service to the community, Ebenezer Church continues to grow and evolve. From a one-acre parcel purchased for $1 in 1853 to a thriving 6.5-acre campus, our story is one of faith, resilience, and community.
+      - paragraph [ref=f3e33]:
+        - text: "Our historic \"little white church\" remains the heart of our traditional worship, and through every season of change our mission has stayed the same:"
+        - emphasis [ref=f3e34]: "\"To know the love of God, to share it with others, and make disciples of Jesus Christ.\""
+    - generic [ref=f3e35]: 2010-Present
+    - heading "Pastor Glenn Hannigan" [level=2] [ref=f3e36]
+    - figure [ref=f3e37]:
+      - img "Pastor Glenn Hannigan" [ref=f3e38]
+    - paragraph [ref=f3e39]: In June 2010, Pastor Glenn Hannigan became Ebenezer's pastor. Before answering the call to ministry, he had a 27-year career at the Atlanta Journal-Constitution in various editing and management roles, including Sports Editor, Sunday Editor, and Senior News Editor for the 1996 Summer Olympics.
+    - paragraph [ref=f3e40]: From his first meeting with the lay leadership, Pastor Glenn made it clear that he believed the more people are involved in the work of the church, the stronger it will be. His emphasis is to make disciples of Christ by first being disciples, and to equip God's people for service through study of the Word.
+    - paragraph [ref=f3e41]: In 2013, the previous fellowship hall was replaced with a modern, spacious building that added new offices, a full basement, a large nursery and much needed space. The entire project was paid for in cash, through the faithful generosity of Ebenezer's membership and many years of fundraising efforts, most specifically the church's popular barbecue.
+    - generic [ref=f3e42]: "2003"
+    - heading "Ebenezer Flourishes" [level=2] [ref=f3e43]
+    - paragraph [ref=f3e44]: By 2003, the church had grown to 159 members and offered two Sunday morning services (8:30 and 11) as well as Sunday and Wednesday evening gatherings. A proud accomplishment of Jack Pilger was leading Ebenezer's men's ministry to partner with JobSeekers, a nonprofit helping victims of corporate downsizing find work while strengthening their relationship with Christ.
+    - generic [ref=f3e45]: "1999"
+    - heading "The Stained Glass Windows" [level=2] [ref=f3e46]
+    - paragraph [ref=f3e47]: "Two 36-inch by 60-inch stained glass windows were installed in the back wall behind the pulpit on Sept. 15, 1999. The windows feature medallions depicting \"Life of Christ: Garden Praying\" and \"The Good Shepherd.\""
+    - paragraph [ref=f3e48]: "Pastor Jack's sermon on Sept. 19, 1999 was entitled \"The Message in the Window.\" He explained the symbolism:"
+    - list [ref=f3e49]:
+      - listitem [ref=f3e50]: The outer borders of the windows are divided into 12 spaces, representing the 12 Apostles.
+      - listitem [ref=f3e51]: "The colors represent the five colors used in the Christian year: white, red, purple, green and black."
+      - listitem [ref=f3e52]: The colors in the glass are put there by the intense heat. We also live in the heat and fire of life.
+      - listitem [ref=f3e53]: Each piece of glass is different, just as the Body of Christ is different. Like the glass that is held together by lead, we too are held together by Christ.
+      - listitem [ref=f3e54]: A new creation is formed for us to enjoy, because of the color, heat, lead, inspiration and creative work.
+    - paragraph [ref=f3e55]: The medallion to the congregation's left is Jesus praying in Gethsemane, seeking his Father's will and way. The medallion to the right is that of the Good Shepherd—a powerful picture reminding us of the love, care and concern of God as we know it in Jesus Christ.
+    - generic [ref=f3e56]: 1987-2008
+    - heading "Pastor Jack Pilger" [level=2] [ref=f3e57]
+    - paragraph [ref=f3e58]: In 1987, Ebenezer welcomed the Rev. Jack Pilger, who would serve the church for 21 years. Pastor Jack was energetic and creative in thinking of inspirational ways to boost attendance and raise funds for church improvements. A testament to this was the many Ebenezer barbecues and birthday celebrations.
+    - paragraph [ref=f3e59]: The 12-foot by 24-foot narthex was built in 1995, featuring double doors and shuttered windows. November 1995 brought a flurry of activity as Pastor Jack urged members to complete the last few tasks to finalize the Narthex so that it could be dedicated on Dec. 17, the date of the Christmas meal.
+    - generic [ref=f3e60]: 1970s
+    - heading "Decline and Revival" [level=2] [ref=f3e61]
+    - paragraph [ref=f3e62]: By 1973, church membership had dwindled to 24 members, and 14 of those were in nursing homes. Mrs. Jackson said many of the remaining members had family in Ebenezer Cemetery. With the small crowd, the church no longer had weekly services. They held monthly services when they could arrange for lay preachers Marvin Dunn or "Red" Chapman to speak.
+    - paragraph [ref=f3e63]: The church's first female minister, 44-year-old Rev. Carolyn Morris, arrived in 1972 to find a sea of mud in the front yard and outhouses in the back. Rev. Morris led the way for renovations, including painting, a new church school annex, a pastor's office, and, for the first time, indoor plumbing. Dedication services for the new building were held on March 7, 1976. At that point, membership had increased to 53, with an average Sunday attendance of 45-50.
+    - generic [ref=f3e64]: "1931"
+    - heading "A Fire Will Not Stop Us" [level=2] [ref=f3e65]
+    - paragraph [ref=f3e66]: Hazel Chamblee Jackson, who grew up down the road from the church, remembered the March 1931 fire that destroyed Ebenezer. The present church structure was built immediately after the fire. Ebenezer has had regular pastors and services since then.
+    - blockquote [ref=f3e67]:
+      - text: "\"The building was of unpainted weather-board. Access to the double front doors was provided by steps fashioned from wide, thick boards. A small platform that extended outward from the main wall comprised the pulpit. By the side of this, a side door opened to the back. In front of the pulpit sat a small bench called the Moaner's Bench. A Bible stand stood in the pulpit. Seating was provided by benches, handmade of wide board, three on the right and three on the left of the pulpit, also by benches in the nave of the church and separated by a wide aisle. Lighting was provided by hanging kerosene lamps with two wall kerosene lamps on either side of the pulpit. Three windows lined either side of the building. An organ sat out to the right of the Bible stand and a wood burning stove was in the center of the church. The present building was built the same year the original was destroyed.\""
+      - generic [ref=f3e68]: — Mrs. Hazel Jackson and Mrs. Miona Rickerson
+    - paragraph [ref=f3e69]: When Ebenezer burned, Hazel Jackson's brother, Emmett Chamblee, drew plans for the new building and supervised the construction. The community was excited about the rebuilding. Mrs. Jackson said, "Everyone who could drive a nail helped out and they soon had a new white frame building. When they were finished, Sam Tate from the Tate Marble Mines in northern Georgia donated a beautiful, pink marble speaker's stand." The stand currently can be found just outside the fellowship hall.
+    - paragraph [ref=f3e70]: A deed dated Oct. 14, 1931, corroborates Mrs. Jackson's story. Amy Goodwin, for the fee of one dollar, sold property to the trustees of Ebenezer M.E. Church. The property is described in detail, with references to Milton County, Canton Road, Sweet Apple Road fork, and noted that it was "part of the original Lot of Land No. 1092."
+    - generic [ref=f3e71]: Est. 1853
+    - heading "Where It All Began" [level=2] [ref=f3e72]
+    - figure "The historic \"little white church,\" rebuilt in 1931" [ref=f3e73]:
+      - img "Ebenezer Methodist Church - the historic white church building" [ref=f3e74]
+    - paragraph [ref=f3e76]: Historical records show that, in 1853, Joseph R. Lamb deeded an acre to the establishment of Ebenezer M.E. Church, requesting that the land be used for the "promotion of Religion and the doctrines as taught by the Methodist Church." The property was purchased for $1 by Ebenezer trustees. An additional acre was deeded to be used as a burial ground.
+    - paragraph [ref=f3e77]: Population was sparse in the early days, so circuit preachers brought the sermons. The first regular preacher came from Roswell and his mode of transportation was a big white steer.
+    - paragraph [ref=f3e78]: While an account written by church member Herschel Fowler Cowart in 1951 states that early Ebenezer members worshiped in a log church, an 1893 conference report describes the building as a frame church in good condition with a seating capacity of 250, valued at $600.
+    - paragraph [ref=f3e79]: "Based on all historical records, the thought is that our current building is actually the third one: the first being a log structure, replaced by the \"unpainted weather-board\" building, and then the current structure, which was built after the fire of 1930."
+    - link "Plan Your Visit" [ref=f3e81] [cursor=pointer]:
+      - /url: index.html#visit
+  - contentinfo [ref=f3e82]:
+    - generic [ref=f3e83]:
+      - generic [ref=f3e84]:
+        - generic [ref=f3e85]:
+          - img "Ebenezer Church"
+          - paragraph [ref=f3e86]: A community of faith since 1853
+          - generic [ref=f3e87]:
+            - link "Facebook" [ref=f3e88] [cursor=pointer]:
+              - /url: https://www.facebook.com/EbzMethodistChurch
+            - link "YouTube" [ref=f3e91] [cursor=pointer]:
+              - /url: https://www.youtube.com/@ebenezermethodistchurchofm6983/streams
+        - generic [ref=f3e94]:
+          - heading "Quick Links" [level=4] [ref=f3e95]
+          - list [ref=f3e96]:
+            - listitem [ref=f3e97]:
+              - link "Watch" [ref=f3e98] [cursor=pointer]:
+                - /url: index.html#watch
+            - listitem [ref=f3e99]:
+              - link "About" [ref=f3e100] [cursor=pointer]:
+                - /url: index.html#about
+            - listitem [ref=f3e101]:
+              - link "Ministries" [ref=f3e102] [cursor=pointer]:
+                - /url: ministries.html
+            - listitem [ref=f3e103]:
+              - link "Give" [ref=f3e104] [cursor=pointer]:
+                - /url: https://app.onechurchsoftware.com/ebz/egiving
+        - generic [ref=f3e105]:
+          - heading "Resources" [level=4] [ref=f3e106]
+          - list [ref=f3e107]:
+            - listitem [ref=f3e108]:
+              - link "Our History" [ref=f3e109] [cursor=pointer]:
+                - /url: history.html
+            - listitem [ref=f3e110]:
+              - link "What We Believe" [ref=f3e111] [cursor=pointer]:
+                - /url: beliefs.html
+            - listitem [ref=f3e112]:
+              - link "Staff" [ref=f3e113] [cursor=pointer]:
+                - /url: index.html#staff
+            - listitem [ref=f3e114]:
+              - link "Outreach" [ref=f3e115] [cursor=pointer]:
+                - /url: outreach.html
+            - listitem [ref=f3e116]:
+              - link "Events" [ref=f3e117] [cursor=pointer]:
+                - /url: events.html
+        - generic [ref=f3e118]:
+          - heading "Contact" [level=4] [ref=f3e119]
+          - paragraph [ref=f3e120]: 12900 Arnold Mill RoadRoswell, GA 30075
+          - paragraph [ref=f3e121]:
+            - link "770-640-7287" [ref=f3e122] [cursor=pointer]:
+              - /url: tel:770-640-7287
+          - paragraph [ref=f3e123]:
+            - link "office@ebzchurch.org" [ref=f3e124] [cursor=pointer]:
+              - /url: mailto:office@ebzchurch.org
+      - paragraph [ref=f3e126]: © 2026 Ebenezer Church. All rights reserved.

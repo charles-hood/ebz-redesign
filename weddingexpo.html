@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Expo & Open House</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #8b4a4a; /* Dusty Rose/Burgundy */
+            --bg-color: #fdfaf7;
+            --text-color: #5a5a5a;
+        }
+
+        body {
+            background-color: #f4efea;
+            font-family: 'Lato', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .flier-card {
+            background-color: var(--bg-color);
+            max-width: 600px;
+            width: 100%;
+            padding: 40px;
+            border: 1px solid #e0d5c8;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            text-align: center;
+            position: relative;
+            border-radius: 4px;
+        }
+
+        /* Decorative Border Effect */
+        .flier-card::before {
+            content: '';
+            position: absolute;
+            top: 15px; left: 15px; right: 15px; bottom: 15px;
+            border: 1px solid #d4af37; /* Gold accent */
+            pointer-events: none;
+            opacity: 0.4;
+        }
+
+        .date-header {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            border-top: 1px solid var(--primary-color);
+            border-bottom: 1px solid var(--primary-color);
+            display: inline-block;
+            padding: 10px 40px;
+            margin-bottom: 20px;
+        }
+
+        .date-number {
+            font-size: 3rem;
+            display: block;
+            margin: 5px 0;
+            font-weight: 700;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--primary-color);
+            font-size: 2.8rem;
+            margin: 20px 0;
+            line-height: 1.1;
+        }
+
+        .description {
+            color: var(--text-color);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            line-height: 1.6;
+            font-size: 0.9rem;
+            margin: 30px 0;
+        }
+
+        .venue-image {
+            width: 100%;
+            height: auto;
+            border-radius: 2px;
+            margin-bottom: 30px;
+        }
+
+        .footer-info {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        .footer-info a {
+            color: var(--primary-color);
+            text-decoration: none;
+            display: block;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 2rem; }
+            .flier-card { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="flier-card">
+        <div class="date-header">
+            March
+            <span class="date-number">7</span>
+            Saturday &bull; 1-4 PM
+        </div>
+
+        <h1>Wedding Expo <br> & Open House</h1>
+
+        <p class="description">
+            Each building on the Ebenezer campus will be dressed up for a wedding! 
+            Stop in to see how the Sanctuary, Pavilion and Pardue Center would 
+            look for your special celebration. Also meet the best local vendors.
+        </p>
+
+        <img src="https://via.placeholder.com/600x400" alt="Ebenezer Church Venue" class="venue-image">
+
+        <div class="footer-info">
+            Ebenezer Church <br>
+            12900 Arnold Mill Rd., Roswell <br>
+            <a href="https://ebzchurch.org">ebzchurch.org</a>
+        </div>
+    </div>
+
+</body>
+</html>

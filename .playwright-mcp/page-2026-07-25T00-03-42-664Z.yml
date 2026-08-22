@@ -1,0 +1,221 @@
+- generic [ref=f4e2]:
+  - banner [ref=f4e3]:
+    - navigation [ref=f4e4]:
+      - link [ref=f4e5] [cursor=pointer]:
+        - /url: /
+        - img "Ebenezer Church" [ref=f4e6]
+      - list [ref=f4e7]:
+        - listitem [ref=f4e8]:
+          - link "Get Started" [ref=f4e9] [cursor=pointer]:
+            - /url: "#visit"
+        - listitem [ref=f4e10]:
+          - link "About" [ref=f4e11] [cursor=pointer]:
+            - /url: "#about"
+        - listitem [ref=f4e12]:
+          - link "Watch" [ref=f4e13] [cursor=pointer]:
+            - /url: "#watch"
+        - listitem [ref=f4e14]:
+          - link "Ministries" [ref=f4e15] [cursor=pointer]:
+            - /url: ministries.html
+        - listitem [ref=f4e16]:
+          - link "Calendar" [ref=f4e17] [cursor=pointer]:
+            - /url: events.html
+        - listitem [ref=f4e18]:
+          - link "Give" [ref=f4e19] [cursor=pointer]:
+            - /url: "#give"
+        - listitem [ref=f4e20]:
+          - link "Plan a Visit" [ref=f4e21] [cursor=pointer]:
+            - /url: "#visit"
+  - generic [ref=f4e22]:
+    - generic [ref=f4e26]:
+      - paragraph [ref=f4e27]: Welcome to Ebenezer
+      - heading "Growing in Grace, Perfected in Love" [level=1] [ref=f4e28]
+      - generic [ref=f4e29]:
+        - paragraph [ref=f4e30]: Sundays
+        - paragraph [ref=f4e31]:
+          - strong [ref=f4e32]: 8:30 & 11:15 AM
+          - text: Traditional
+        - paragraph [ref=f4e33]:
+          - strong [ref=f4e34]: 10:00 AM
+          - text: Contemporary
+      - link "12900 Arnold Mill Road, Roswell, GA 30075" [ref=f4e35] [cursor=pointer]:
+        - /url: https://www.google.com/maps/dir/?api=1&destination=34.0954361,-84.367749&destination_place_id=ChIJC2xzL4cE9YgRLmObbdehmAQ
+      - generic [ref=f4e36]:
+        - link "Plan Your Visit" [ref=f4e37] [cursor=pointer]:
+          - /url: "#visit"
+        - link "Watch Online" [ref=f4e38] [cursor=pointer]:
+          - /url: "#watch"
+    - generic [ref=f4e39]: Scroll
+  - generic [ref=f4e43]:
+    - heading "Coming Up" [level=2] [ref=f4e44]
+    - generic [ref=f4e45]:
+      - link [ref=f4e46] [cursor=pointer]:
+        - /url: https://ebz.onechurchsoftware.com/public/events/10399
+        - img "RISE Youth event at Ebenezer Church" [ref=f4e47]
+      - link [ref=f4e48] [cursor=pointer]:
+        - /url: https://ebz.onechurchsoftware.com/public/events/11691
+        - img "Worship in the Pavilion, 8:30 AM the 4th Sunday of each month at Ebenezer Church" [ref=f4e49]
+    - link "View More Events" [ref=f4e51] [cursor=pointer]:
+      - /url: events.html
+  - generic [ref=f4e54]:
+    - heading "Our Heart" [level=2] [ref=f4e55]
+    - paragraph [ref=f4e56]:
+      - text: To
+      - emphasis [ref=f4e57]: know
+      - text: the love of God, to
+      - emphasis [ref=f4e58]: share
+      - text: it with others, and
+      - emphasis [ref=f4e59]: make disciples
+      - text: of Jesus Christ.
+  - generic [ref=f4e61]:
+    - generic [ref=f4e62]:
+      - heading "Watch" [level=2] [ref=f4e63]
+      - paragraph [ref=f4e64]: Catch up on our latest messages
+    - iframe [ref=f4e199]:
+      
+    - link "View All Sermons" [ref=f4e66] [cursor=pointer]:
+      - /url: sermons.html
+  - generic [ref=f4e71]:
+    - img "Ebenezer Church Community" [ref=f4e73]
+    - generic [ref=f4e74]:
+      - heading "170 Years & Growing" [level=2] [ref=f4e75]
+      - paragraph [ref=f4e76]: For over 170 years, Ebenezer has been a place where people find faith, community, and purpose.
+      - paragraph [ref=f4e77]: "What started as a small Methodist church on one acre of donated land has grown into a vibrant community serving Milton and the surrounding areas. Through fires, rebuilding, and decades of change, one thing has remained constant: our commitment to sharing God's love."
+      - link "Our Story" [ref=f4e78] [cursor=pointer]:
+        - /url: history.html
+  - generic [ref=f4e80]:
+    - generic [ref=f4e81]:
+      - heading "Get Connected" [level=2] [ref=f4e82]
+      - paragraph [ref=f4e83]: There's a place for you here
+    - generic [ref=f4e84]:
+      - link [ref=f4e85] [cursor=pointer]:
+        - /url: "#visit"
+        - img "Sunday Worship" [ref=f4e87]
+        - generic [ref=f4e88]:
+          - heading "Sunday Worship" [level=3] [ref=f4e89]
+          - paragraph [ref=f4e90]: "Three services every Sunday: 8:30 AM, 10:00 AM, and 11:15 AM."
+          - text: Plan Your Visit →
+      - link [ref=f4e91] [cursor=pointer]:
+        - /url: outreach.html
+        - img "Outreach" [ref=f4e93]
+        - generic [ref=f4e94]:
+          - heading "Outreach" [level=3] [ref=f4e95]
+          - paragraph [ref=f4e96]: From food drives to veteran support, we're committed to serving our neighbors.
+          - text: Get Involved →
+      - link [ref=f4e97] [cursor=pointer]:
+        - /url: beat-the-drum.html
+        - img "Beat The Drum Village children in Kenya" [ref=f4e99]
+        - generic [ref=f4e100]:
+          - heading "Beat The Drum" [level=3] [ref=f4e101]
+          - paragraph [ref=f4e102]: We support this Kenya village giving HIV/AIDS orphans a home, education, and a bright future.
+          - text: Learn More →
+  - generic [ref=f4e104]:
+    - generic [ref=f4e105]:
+      - heading "Meet the Pastor" [level=2] [ref=f4e106]
+      - paragraph [ref=f4e107]: Someone who cares about your journey
+    - button [active] [ref=f4e109] [cursor=pointer]:
+      - img "Glenn Hannigan" [ref=f4e111]
+      - generic [ref=f4e112]:
+        - heading "Glenn Hannigan" [level=3] [ref=f4e113]
+        - paragraph [ref=f4e114]: Senior Pastor
+  - generic [ref=f4e201]:
+    - button "Close" [ref=f4e202] [cursor=pointer]: ×
+    - generic [ref=f4e203]:
+      - img "Glenn Hannigan" [ref=f4e205]
+      - generic [ref=f4e206]:
+        - heading "Glenn Hannigan" [level=2] [ref=f4e207]
+        - paragraph [ref=f4e208]: Senior Pastor
+        - paragraph [ref=f4e209]: Glenn has served as Senior Pastor since 2010. Before answering the call to ministry, he spent 27 years at The Atlanta Journal-Constitution, including Sports Editor and Olympics coordinator. He and Candi have been married since 1987.
+        - link "Send Email" [ref=f4e210] [cursor=pointer]:
+          - /url: mailto:ghannigan1@yahoo.com
+  - generic [ref=f4e117]:
+    - generic [ref=f4e118]:
+      - heading "Plan Your Visit" [level=2] [ref=f4e119]
+      - paragraph [ref=f4e120]: We'd love to meet you this Sunday.Two venues, one church — find the service that fits you.
+      - generic [ref=f4e121]:
+        - generic [ref=f4e122]:
+          - heading "Service Times" [level=4] [ref=f4e123]
+          - paragraph [ref=f4e124]:
+            - strong [ref=f4e125]: 8:30 & 11:15 AM
+            - text: — Historic Sanctuary
+            - strong [ref=f4e126]: 10:00 AM
+            - text: — Pardue Center, Contemporary
+        - generic [ref=f4e127]:
+          - heading "Location" [level=4] [ref=f4e128]
+          - paragraph [ref=f4e129]: 12900 Arnold Mill RoadRoswell, GA 30075
+        - generic [ref=f4e130]:
+          - heading "What to Expect" [level=4] [ref=f4e131]
+          - paragraph [ref=f4e132]: Warm welcome, meaningful worship, and a message that connects faith to everyday life.
+      - link "Get Directions" [ref=f4e133] [cursor=pointer]:
+        - /url: https://www.google.com/maps/dir/?api=1&destination=Ebenezer+Methodist+Church,+12900+Arnold+Mill+Rd,+Roswell,+GA+30075
+    - iframe [ref=f4e135]:
+      - link "Maps (opens in new tab)" [ref=f5e5] [cursor=pointer]:
+        - /url: about:invalid#zClosurez
+        - text: Maps
+  - generic [ref=f4e140]:
+    - heading "Give" [level=2] [ref=f4e141]
+    - paragraph [ref=f4e142]: Your generosity helps us serve our community and share God's love.
+    - generic [ref=f4e143]:
+      - link "Give Online" [ref=f4e144] [cursor=pointer]:
+        - /url: https://app.onechurchsoftware.com/ebz/egiving
+      - generic [ref=f4e145]:
+        - img "Scan to give" [ref=f4e146]
+        - generic [ref=f4e147]: Scan to give
+  - generic [ref=f4e149]:
+    - heading "From Our Feed" [level=2] [ref=f4e150]
+    - list [ref=f4e151]:
+      - generic [ref=f4e152]: Loading...
+  - contentinfo [ref=f4e154]:
+    - generic [ref=f4e155]:
+      - generic [ref=f4e156]:
+        - generic [ref=f4e157]:
+          - img "Ebenezer Church"
+          - paragraph [ref=f4e158]: A community of faith since 1853
+          - generic [ref=f4e159]:
+            - link "Facebook" [ref=f4e160] [cursor=pointer]:
+              - /url: https://www.facebook.com/EbzMethodistChurch
+            - link "YouTube" [ref=f4e163] [cursor=pointer]:
+              - /url: https://www.youtube.com/@ebenezermethodistchurchofm6983/streams
+        - generic [ref=f4e166]:
+          - heading "Quick Links" [level=4] [ref=f4e167]
+          - list [ref=f4e168]:
+            - listitem [ref=f4e169]:
+              - link "Watch" [ref=f4e170] [cursor=pointer]:
+                - /url: "#watch"
+            - listitem [ref=f4e171]:
+              - link "About" [ref=f4e172] [cursor=pointer]:
+                - /url: "#about"
+            - listitem [ref=f4e173]:
+              - link "Ministries" [ref=f4e174] [cursor=pointer]:
+                - /url: ministries.html
+            - listitem [ref=f4e175]:
+              - link "Give" [ref=f4e176] [cursor=pointer]:
+                - /url: https://app.onechurchsoftware.com/ebz/egiving
+        - generic [ref=f4e177]:
+          - heading "Resources" [level=4] [ref=f4e178]
+          - list [ref=f4e179]:
+            - listitem [ref=f4e180]:
+              - link "Our History" [ref=f4e181] [cursor=pointer]:
+                - /url: history.html
+            - listitem [ref=f4e182]:
+              - link "What We Believe" [ref=f4e183] [cursor=pointer]:
+                - /url: beliefs.html
+            - listitem [ref=f4e184]:
+              - link "Staff" [ref=f4e185] [cursor=pointer]:
+                - /url: "#staff"
+            - listitem [ref=f4e186]:
+              - link "Outreach" [ref=f4e187] [cursor=pointer]:
+                - /url: outreach.html
+            - listitem [ref=f4e188]:
+              - link "Events" [ref=f4e189] [cursor=pointer]:
+                - /url: events.html
+        - generic [ref=f4e190]:
+          - heading "Contact" [level=4] [ref=f4e191]
+          - paragraph [ref=f4e192]: 12900 Arnold Mill RoadRoswell, GA 30075
+          - paragraph [ref=f4e193]:
+            - link "770-640-7287" [ref=f4e194] [cursor=pointer]:
+              - /url: tel:770-640-7287
+          - paragraph [ref=f4e195]:
+            - link "office@ebzchurch.org" [ref=f4e196] [cursor=pointer]:
+              - /url: mailto:office@ebzchurch.org
+      - paragraph [ref=f4e198]: © 2026 Ebenezer Church. All rights reserved.

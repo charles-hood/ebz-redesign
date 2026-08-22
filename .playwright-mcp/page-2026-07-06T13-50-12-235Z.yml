@@ -1,0 +1,78 @@
+- generic [ref=e4]:
+  - generic [ref=e5]:
+    - banner [ref=e6]:
+      - navigation [ref=e7]:
+        - generic [ref=e8]:
+          - generic [ref=e10]:
+            - img [ref=e11]
+            - text: Ebenezer Church
+          - list [ref=e13]:
+            - listitem [ref=e14]:
+              - button [ref=e15] [cursor=pointer]
+    - generic [ref=e20]:
+      - generic:
+        - heading [level=1]
+    - generic [ref=e26]:
+      - figure:
+        - img
+      - article [ref=e29]:
+        - generic [ref=e33]:
+          - img [ref=e35]
+          - generic [ref=e36]:
+            - generic [ref=e37]: Thank you for your donation! Please know that your donation will be used to glorify God based on your designation.
+            - generic [ref=e39]: Please use Special Offerings to make donations in honor or in memory of loved family and friends.
+          - button "Login" [ref=e41] [cursor=pointer]
+          - generic [ref=e42]: Enter an amount to set up a new one-time or recurring gift.
+          - list [ref=e46]:
+            - listitem [ref=e47]:
+              - generic [ref=e51]:
+                - textbox "$0.00" [ref=e52]: $1.00
+                - generic [ref=e57]:
+                  - log [ref=e59]
+                  - generic [ref=e60] [cursor=pointer]:
+                    - generic [ref=e61]:
+                      - generic [ref=e62]: Ebenezer LWC Donations - General Fund
+                      - combobox [ref=e64]
+                    - img [ref=e68]
+                - button [ref=e71] [cursor=pointer]:
+                  - img [ref=e72]
+          - generic [ref=e81]:
+            - generic [ref=e82]:
+              - generic [ref=e84]: How Often?
+              - generic [ref=e86]:
+                - generic [ref=e87]:
+                  - radio "One time" [checked] [ref=e88] [cursor=pointer]
+                  - generic [ref=e89] [cursor=pointer]: One time
+                - generic [ref=e90]:
+                  - radio "Recurring" [ref=e91] [cursor=pointer]
+                  - generic [ref=e92] [cursor=pointer]: Recurring
+                - generic [ref=e93]:
+                  - radio "Once at a future date" [ref=e94] [cursor=pointer]
+                  - generic [ref=e95] [cursor=pointer]: Once at a future date
+            - generic [ref=e99]: Donor Details
+            - generic [ref=e101]:
+              - generic [ref=e102]:
+                - generic [ref=e104]: Email*
+                - textbox [ref=e108]: test@example.com
+              - generic [ref=e126]:
+                - generic [ref=e128]: Name*
+                - generic [ref=e130]:
+                  - textbox "First" [active] [ref=e135]
+                  - textbox "Last" [ref=e140]
+              - generic [ref=e109]:
+                - button "Continue" [ref=e110] [cursor=pointer]:
+                  - generic [ref=e111]:
+                    - img [ref=e113]
+                    - text: Continue
+                  - img [ref=e125]
+                - generic [ref=e116]: OR
+                - button "Login" [ref=e117] [cursor=pointer]:
+                  - generic [ref=e119]:
+                    - img [ref=e121]
+                    - text: Login
+  - contentinfo [ref=e74]:
+    - generic [ref=e77]:
+      - link "image" [ref=e78] [cursor=pointer]:
+        - /url: https://www.onechurchsoftware.com
+        - img "image" [ref=e79]
+      - paragraph [ref=e80]: © 2026 Modern software for the modern church

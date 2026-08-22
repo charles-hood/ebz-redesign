@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ebenezer Church Website — Change Log</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a365d;
+    --navy-light: #2c5282;
+    --gold: #c9a227;
+    --text: #1a1a1a;
+    --text-muted: #64748b;
+    --bg: #f8f9fb;
+    --card: #ffffff;
+    --border: #e2e8f0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.6;
+  }
+
+  header {
+    background: var(--navy);
+    color: white;
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+  }
+
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  header p {
+    opacity: 0.8;
+    font-size: 1rem;
+  }
+
+  header .date-range {
+    display: inline-block;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 100px;
+    padding: 0.35rem 1.2rem;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+  }
+
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+  }
+
+  .summary {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 2.5rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--navy);
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .phase {
+    margin-bottom: 2.5rem;
+  }
+
+  .phase-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .phase-date {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+  }
+
+  .phase-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .phase h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    color: var(--navy);
+    margin-bottom: 0.75rem;
+  }
+
+  .changes {
+    list-style: none;
+  }
+
+  .changes li {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    transition: border-color 0.15s;
+  }
+
+  .changes li:hover {
+    border-color: var(--navy-light);
+  }
+
+  .tag {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.2rem 0.55rem;
+    border-radius: 4px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+  }
+
+  .tag-feature   { background: #dbeafe; color: #1e40af; }
+  .tag-content   { background: #fef3c7; color: #92400e; }
+  .tag-design    { background: #ede9fe; color: #5b21b6; }
+  .tag-seo       { background: #d1fae5; color: #065f46; }
+  .tag-perf      { background: #ffe4e6; color: #9f1239; }
+  .tag-infra     { background: #e0e7ff; color: #3730a3; }
+  .tag-seasonal  { background: #fce7f3; color: #9d174d; }
+
+  .change-text {
+    font-size: 0.92rem;
+  }
+
+  .change-text strong {
+    font-weight: 600;
+  }
+
+  .change-detail {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+  }
+
+  footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    border-top: 1px solid var(--border);
+  }
+
+  @media (max-width: 600px) {
+    header h1 { font-size: 1.6rem; }
+    .summary { grid-template-columns: repeat(3, 1fr); gap: 0.75rem; padding: 1.25rem; }
+    .stat-number { font-size: 1.5rem; }
+    .container { padding: 1.5rem 1rem 3rem; }
+    .changes li { flex-direction: column; gap: 0.4rem; }
+    .tag { align-self: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Ebenezer Church Website Redesign</h1>
+  <p>Summary of changes for the team</p>
+  <div class="date-range">December 6, 2025 — February 16, 2026</div>
+</header>
+
+<div class="container">
+
+  <div class="summary">
+    <div>
+      <div class="stat-number">7</div>
+      <div class="stat-label">Pages Built</div>
+    </div>
+    <div>
+      <div class="stat-number">5</div>
+      <div class="stat-label">Integrations</div>
+    </div>
+    <div>
+      <div class="stat-number">4</div>
+      <div class="stat-label">Seasonal Takeovers</div>
+    </div>
+  </div>
+
+  <!-- PHASE: Launch -->
+  <div class="phase">
+    <h2>Site Launch</h2>
+    <div class="phase-header">
+      <span class="phase-date">December 6, 2025</span>
+      <div class="phase-line"></div>
+    </div>
+    <ul class="changes">
+      <li>
+        <span class="tag tag-feature">Feature</span>
+        <div>
+          <div class="change-text"><strong>Full website redesign launched</strong> — modern single-page design inspired by megachurch sites (Austin Stone, Elevation, Woodstock City)</div>
+          <div class="change-detail">Static HTML/CSS/JS, mobile-first responsive, Playfair Display + DM Sans typography, navy/gold palette</div>
+        </div>
+      </li>
+      <li>
+        <span class="tag tag-feature">Feature</span>
+        <div>
+          <div class="change-text"><strong>Staff section with bio modals</strong> — clickable cards open a modal with photo, title, bio, and email</div>
+          <div class="change-detail">Email addresses injected via JS to reduce scraper harvesting</div>
+        </div>
+      </li>
+      <li>
+        <span class="tag tag-feature">Feature</span>
+        <div>
+          <div class="change-text"><strong>Pardue Center venue section</strong> with inquiry modals for weddings and events</div>
+          <div class="change-detail">Contact info for Robbie Underwood and Lisa Coxworth, photo galleries</div>
+        </div>
+      </li>
+      <li>
+        <span class="tag tag-feature">Feature</span>
+        <div>
+          <div class="change-text"><strong>One Church Software integrations</strong> — sermon embed, sermon archive, and online giving</div>
+        </div>
+      </li>
+      <li>
+        <span class="tag tag-feature">Feature</span>
+        <div>
+          <div class="change-text"><strong>Juicer.io Facebook feed</strong> — live feed of church Facebook posts on the homepage</div>
+          <div class="change-detail">Upgraded to Starter plan (no branding), shows 9 recent posts</div>
+        </div>
+      </li>
+      <li>
+        <span class="tag tag-feature">Feature</span>
+        <div>
+          <div class="change-text"><strong>Google Maps embed</strong> with exact church coordinates and place ID</div>
+        </div>
+      </li>
+      <li>
+        <span class="tag tag-feature">Feature</span>
+        <div>
+          <div class="change-text"><strong>QR code for giving</strong> in the Give section</div>
+        </div>
+      </li>
+      <li>
+        <span class="tag tag-seo">SEO</span>
+        <div>
+          <div class="change-text"><strong>SEO meta tags</strong> targeting local search: Methodist church Milton GA, event venue Milton GA, wedding venue</div>
+          <div class="change-detail">Open Graph tags, geo tags, canonical URLs set to ebenezermilton.org</div>
+        </div>
+      </li>
+      <li>
+        <span class="tag tag-infra">Infra</span>
+        <div>
+          <div class="change-text"><strong>Deployed to Digital Ocean VPS</strong> with Caddy — live at ebenezermilton.org</div>
+          <div class="change-detail">GitHub repo at github.com/charles-hood/ebz-redesign, deploy via git pull</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- PHASE: Content Pages -->
+  <div class="phase">
+    <h2>Content Pages</h2>
+    <div class="phase-header">
+      <span class="phase-date">December 6–7, 2025</span>
+      <div class="phase-line"></div>
+    </div>
+    <ul class="changes">
+      <li>
+        <span class="tag tag-content">Content</span>
+        <div>
+          <div class="change-text"><strong>Church History page</strong> — timeline from 1853 to present</div>
+          <div class="change-detail">Later reordered newest-first (2024 → 1853) per Pastor Glenn's suggestion</div>
+        </div>
+      </li>
+      <li>
+        <span class="tag tag-content">Content</span>
+        <div>
+          <div class="change-text"><strong>Outreach page</strong> — Drake House, NFCC, veterans support, food drives</div>
+        </div>
+      </li>
+      <li>
+        <span class="tag tag-content">Content</span>
+        <div>
+          <div class="change-text"><strong>Beat The Drum page</strong> — Kenya orphanage with embedded YouTube video and giving link</div>
+          <div class="change-detail">33 children supported, Bishop David Thagana, connection through David McBrayer</div>
+        </div>
+      </li>
+      <li>
+        <span class="tag tag-content">Content</span>
+        <div>
+          <div class="change-text"><strong>Beliefs page</strong> — statement of faith with accent-highlighted "We believe" phrases</div>
+        </div>
+      </li>
+      <li>
+        <span class="tag tag-content">Content</span>
+        <div>
+          <div class="change-text"><strong>Events/Calendar page</strong> — embedded littlewhite.church calendar with list/month toggle</div>
+        </div>
+      </li>
+      <li>
+        <span class="tag tag-content">Content</span>
+        <div>
+          <div class="change-text"><strong>Sermons archive page</strong> — full sermon library via One Church Software embed</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- PHASE: Design & Performance -->
+  <div class="phase">
+    <h2>Design &amp; Performance Improvements</h2>
+    <div class="phase-header">
+      <span class="phase-date">December 7–8, 2025</span>
+      <div class="phase-line"></div>
+    </div>
+    <ul class="changes">
+      <li>
+        <span class="tag tag-design">Design</span>
+        <div>
+          <div class="change-text"><strong>Portrait hero video for mobile</strong> — custom 720×1280 video with tuned focal points for each image</div>
+          <div class="change-detail">Desktop gets landscape, mobile gets portrait — responsive swap at 768px</div>
+        </div>
+      </li>
+      <li>
+        <span class="tag tag-design">Design</span>
+        <div>
+          <div class="change-text"><strong>Darkened mobile hero overlay</strong> for better text readability (10% darker than desktop)</div>
+        </div>
+      </li>
+      <li>
+        <span class="tag tag-design">Design</span>
+        <div>
+          <div class="change-text"><strong>Tightened section spacing</strong> — reduced from 8rem to 5rem desktop, 3rem mobile to cut scroll fatigue</div>
+        </div>
+      </li>
+      <li>
+        <span class="tag tag-design">Design</span>
+        <div>
+          <div class="change-text"><strong>Redesigned mobile hamburger menu</strong> — compact dropdown replaces full-screen overlay</div>
+        </div>
+      </li>
+      <li>
+        <span class="tag tag-design">Design</span>
+        <div>
+          <div class="change-text"><strong>Mobile-optimized modals</strong> — wedding, event, and staff modals resized for small screens</div>
+        </div>
+      </li>
+      <li>
+        <span class="tag tag-seo">SEO</span>
+        <div>
+          <div class="change-text"><strong>Open Graph image</strong> for link previews — uses Glenn preaching with worship band</div>
+        </div>
+      </li>
+      <li>
+        <span class="tag tag-seo">SEO</span>
+        <div>
+          <div class="change-text"><strong>De-emphasized "Methodist"</strong> in public-facing titles — church is no longer UMC-affiliated</div>
+          <div class="change-detail">Kept in meta keywords for SEO; removed from page title and OG tags</div>
+        </div>
+      </li>
+      <li>
+        <span class="tag tag-perf">Perf</span>
+        <div>
+          <div class="change-text"><strong>Fixed font flash</strong> — changed Google Fonts display from swap to optional</div>
+        </div>
+      </li>
+      <li>
+        <span class="tag tag-perf">Perf</span>
+        <div>
+          <div class="change-text"><strong>Fixed slow page render</strong> — removed sections from IntersectionObserver fade-in (was hiding content until scroll)</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- PHASE: Seasonal -->
+  <div class="phase">
+    <h2>Seasonal Hero Takeovers</h2>
+    <div class="phase-header">
+      <span class="phase-date">December 2025 — February 2026</span>
+      <div class="phase-line"></div>
+    </div>
+    <ul class="changes">
+      <li>
+        <span class="tag tag-seasonal">Seasonal</span>
+        <div>
+          <div class="change-text"><strong>Christmas Eve</strong> — snow video background, candlelight services modal with church graphic</div>
+          <div class="change-detail">Dec 15: Hero takeover with holly accent, "See Service Times" CTA opens modal with 3 service times and directions</div>
+        </div>
+      </li>
+      <li>
+        <span class="tag tag-seasonal">Seasonal</span>
+        <div>
+          <div class="change-text"><strong>Christmas Day</strong> — "Merry Christmas from Ebenezer Church" video overlay on snow background</div>
+          <div class="change-detail">Dec 25: Looping 6-second animated greeting, audio removed, mobile responsive</div>
+        </div>
+      </li>
+      <li>
+        <span class="tag tag-seasonal">Seasonal</span>
+        <div>
+          <div class="change-text"><strong>New Year 2026</strong> — static "Happy New Year" graphic replaced Christmas video</div>
+          <div class="change-detail">Dec 28: Clickable graphic links to Plan Your Visit, renamed CSS classes from *-christmas to *-seasonal for reuse</div>
+        </div>
+      </li>
+      <li>
+        <span class="tag tag-seasonal">Seasonal</span>
+        <div>
+          <div class="change-text"><strong>Valentine Breakfast</strong> — flyer takeover promoting church breakfast event</div>
+          <div class="change-detail">Jan 29: Established the reusable seasonal takeover pattern (documented in CLAUDE.md)</div>
+        </div>
+      </li>
+      <li>
+        <span class="tag tag-seasonal">Seasonal</span>
+        <div>
+          <div class="change-text"><strong>Wedding Expo &amp; Open House</strong> — SVG flyer promoting March 7 Pardue Center event</div>
+          <div class="change-detail">Feb 14: Current active takeover</div>
+        </div>
+      </li>
+      <li>
+        <span class="tag tag-seasonal">Seasonal</span>
+        <div>
+          <div class="change-text"><strong>Ash Wednesday</strong> — hero takeover for Feb 18 service</div>
+          <div class="change-detail">Feb 16: Reverts to Wedding Expo after the 18th</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- PHASE: Content Updates -->
+  <div class="phase">
+    <h2>Ongoing Content Updates</h2>
+    <div class="phase-header">
+      <span class="phase-date">January — February 2026</span>
+      <div class="phase-line"></div>
+    </div>
+    <ul class="changes">
+      <li>
+        <span class="tag tag-content">Content</span>
+        <div>
+          <div class="change-text"><strong>Weekly sermon updates</strong> — featured sermon embed refreshed each week with title and scripture reference</div>
+          <div class="change-detail">Sermons updated: Dec 7, Dec 21, Jan 4, Jan 11, Jan 29, Feb 1, Feb 8, Feb 15</div>
+        </div>
+      </li>
+      <li>
+        <span class="tag tag-content">Content</span>
+        <div>
+          <div class="change-text"><strong>Hero tagline updated</strong> — changed to "Growing in Grace, Perfected in Love" per Candi's request</div>
+        </div>
+      </li>
+      <li>
+        <span class="tag tag-content">Content</span>
+        <div>
+          <div class="change-text"><strong>About section refreshed</strong> — heading changed to "170 Years & Growing," Pardue Center paragraph moved first</div>
+        </div>
+      </li>
+      <li>
+        <span class="tag tag-content">Content</span>
+        <div>
+          <div class="change-text"><strong>Robbie Underwood's title updated</strong> to Executive Minister, email updated to robbie@ebzchurch.org</div>
+        </div>
+      </li>
+      <li>
+        <span class="tag tag-content">Content</span>
+        <div>
+          <div class="change-text"><strong>Greg Millette removed from staff</strong> — grid updated from 5 to 4 columns across all breakpoints</div>
+        </div>
+      </li>
+      <li>
+        <span class="tag tag-content">Content</span>
+        <div>
+          <div class="change-text"><strong>Juicer feed expanded</strong> from 6 to 9 Facebook posts on homepage</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- PHASE: Mobile -->
+  <div class="phase">
+    <h2>Mobile Optimization</h2>
+    <div class="phase-header">
+      <span class="phase-date">Throughout</span>
+      <div class="phase-line"></div>
+    </div>
+    <ul class="changes">
+      <li>
+        <span class="tag tag-design">Design</span>
+        <div>
+          <div class="change-text"><strong>Staff grid responsive images</strong> — fixed-width photos replaced with responsive sizing to prevent overflow</div>
+          <div class="change-detail">Pattern: max-width + width: 90% + aspect-ratio instead of fixed px values</div>
+        </div>
+      </li>
+      <li>
+        <span class="tag tag-design">Design</span>
+        <div>
+          <div class="change-text"><strong>Staff bio modals tightened</strong> for mobile — bios trimmed to 2–3 sentences, padding/sizing optimized</div>
+        </div>
+      </li>
+      <li>
+        <span class="tag tag-design">Design</span>
+        <div>
+          <div class="change-text"><strong>iOS Safari overflow fix</strong> — added page-wrap container to prevent horizontal scroll</div>
+          <div class="change-detail">overflow-x: hidden on html/body is unreliable in iOS Safari; wrapper div is the fix</div>
+        </div>
+      </li>
+      <li>
+        <span class="tag tag-design">Design</span>
+        <div>
+          <div class="change-text"><strong>Touch device optimizations</strong> — hover states adjusted for touch, reduced-motion support added</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  Generated February 17, 2026 &middot; Ebenezer Church &middot; ebenezermilton.org
+</footer>
+
+</body>
+</html>
