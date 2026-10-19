@@ -126,6 +126,13 @@ document.addEventListener('DOMContentLoaded', () => {
             imagePosition: 'center 15%',
             bio: 'Glenn has served as Senior Pastor since 2010. Before answering the call to ministry, he spent 27 years at The Atlanta Journal-Constitution, including Sports Editor and Olympics coordinator. He and Candi have been married since 1987.',
             email: 'ghannigan1@yahoo.com'
+        },
+        brad: {
+            name: 'Brad Anderson',
+            title: 'Associate Pastor',
+            image: 'images/staff/brad-anderson.jpg',
+            bio: 'Rev. Brad Anderson joined Ebenezer\'s leadership team in 2026 as Associate Pastor, supporting the ministry led by Pastor Glenn. A former member of Ebenezer, Brad is well known and loved by many in our church family. He and his wife, Christine, joined us in late August 2026.',
+            email: 'office@ebzchurch.org'
         }
     };
 
