@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
             heroContent.innerHTML = `
                 <p class="hero-tagline">Welcome to Ebenezer</p>
                 <h1>Growing in Grace, Perfected in Love</h1>
-                <p class="hero-subtitle">Sundays at 8:30, 10:00 & 11:15 AM</p>
+                <p class="hero-subtitle">Sundays at 8:30 & 11:15 AM and 5:00 PM</p>
                 <div class="hero-ctas">
                     <a href="#visit" class="btn btn-primary btn-lg">Plan Your Visit</a>
                     <a href="#watch" class="btn btn-outline-light btn-lg">Watch Online</a>
