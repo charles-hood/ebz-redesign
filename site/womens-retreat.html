@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Women's Retreat | Ebenezer Church | Milton, GA</title>
-    <meta name="description" content="Register for the Ebenezer Church Women's Retreat: a weekend of rest, fellowship, and growing in faith. Sign up online and reserve your spot.">
-    <meta name="robots" content="index, follow">
+    <meta name="description" content="The Ebenezer Church Women's Retreat, October 30 to November 1, 2026 at Woodlands Camp: a weekend of rest, fellowship, and growing in faith.">
+    <meta name="robots" content="noindex, follow">
     <meta property="og:title" content="Women's Retreat at Ebenezer Church">
-    <meta property="og:description" content="A weekend of rest, fellowship, and growing in faith. Register online and reserve your spot.">
+    <meta property="og:description" content="A weekend of rest, fellowship, and growing in faith at Woodlands Camp, October 30 to November 1, 2026.">
     <meta property="og:type" content="website">
     <link rel="canonical" href="https://ebzchurch.org/womens-retreat">
     <link rel="icon" type="image/png" href="images/logo-header.png">
@@ -75,18 +75,6 @@
             letter-spacing: 0.03em;
             padding-top: 0.1rem;
         }
-        .availability {
-            margin: 1.5rem 0 0;
-            padding: 0.9rem 1.1rem;
-            background: var(--color-bg-alt, #f7f8fa);
-            border-left: 3px solid var(--color-accent, #c9a227);
-            border-radius: 0 8px 8px 0;
-            font-size: 0.98rem;
-            color: var(--color-text, #1a1a1a);
-        }
-        .availability strong { color: var(--color-primary); }
-        .availability.is-full { border-left-color: var(--color-primary); }
-
         /* Registration form (first form on the site; styled from the design tokens) */
         .retreat-form-wrap {
             background: #fff;
@@ -165,25 +153,24 @@
                 <p class="retreat-dates">October 30 - November 1, 2026 &middot; Woodlands Camp</p>
                 <img class="retreat-art" src="images/womens-retreat-2026.webp" width="1400" height="933"
                      alt="Painting of two empty chairs and two steaming mugs on a dock, overlooking a misty mountain lake at sunrise in autumn">
-                <p>Ladies, join us for a weekend away: a time to rest, laugh, connect with one another, and grow deeper in your walk with God. The retreat is open to all Ebenezer women. Whether you've been part of Ebenezer for decades or just walked in the door, there's a place for you.</p>
+                <p>Ebenezer women spent the weekend of October 30 to November 1, 2026 away at Woodlands Camp: a time to rest, laugh, connect with one another, and grow deeper in their walk with God. Thank you to everyone who came, and to the donor whose generosity covered most of the cost.</p>
                 <ul class="retreat-facts">
                     <li><span class="fact-label">Where</span><span>Woodlands Camp, <a href="https://maps.google.com/?q=1242+Old+Blue+Creek+Road,+Cleveland,+GA+30528">1242 Old Blue Creek Road, Cleveland, GA 30528</a></span></li>
                     <li><span class="fact-label">When</span><span>Friday, October 30 (5:00 PM) through Sunday morning, November 1, 2026</span></li>
-                    <li><span class="fact-label">Deadline</span><span>Register by Friday, September 18, 2026</span></li>
-                    <li><span class="fact-label">Cost</span><span>$50 nonrefundable registration fee. The remainder of the costs have been generously provided by a donor. If you're unable to attend, your fee will be applied to the Women's Ministry toward future events.</span></li>
-                    <li><span class="fact-label">Lodging</span><span>Double rooms only. Name a preferred roommate when you register, or we'll be glad to assign one for you.</span></li>
+                    <li><span class="fact-label">Cost</span><span>$50 registration fee; the remainder was generously provided by a donor.</span></li>
                     <li><span class="fact-label">Questions</span><span>Contact Kim Hays: text <a href="sms:+16786623320">678-662-3320</a> or email <a href="mailto:kimhays3@yahoo.com">kimhays3@yahoo.com</a></span></li>
                 </ul>
-                <p class="availability" id="availability" aria-live="polite" hidden></p>
             </div>
 
-            <!-- Registration lives in One Church (system of record for signup + payment) -->
+            <!-- The 2026 retreat has concluded. Registration used to live here (One Church
+                 event 11071, with a live availability counter fed by /api/retreat/availability
+                 on the VPS). See git history before Nov 1, 2026 to restore the signup block
+                 for a future retreat. -->
             <div class="retreat-form-wrap">
-                <h2>Reserve Your Spot</h2>
-                <p class="form-intro">Sign up and pay the $50 registration fee together in One Church, our church management system. The button below opens the retreat's event page in One Church. Click the blue <strong>Sign Up</strong> button there to open the registration form. You'll receive a confirmation email once your form and payment are complete.</p>
-                <a class="btn btn-primary btn-lg" href="https://ebz.onechurchsoftware.com/public/events/11071">Register in One Church</a>
-                <p class="register-deadline">Registration closes <strong>Friday, September 18, 2026</strong>.</p>
-                <p class="privacy-note">Trouble signing up? Contact the church office: <a href="tel:770-640-7287">770-640-7287</a> or <a href="mailto:office@ebzchurch.org">office@ebzchurch.org</a>.</p>
+                <h2>This Retreat Has Concluded</h2>
+                <p class="form-intro">The 2026 Women's Retreat is over. Watch the <a href="events.html">church calendar</a> and the Sunday announcements for the next Women's Ministry gathering.</p>
+                <a class="btn btn-primary btn-lg" href="ministries.html">Explore Women's Ministry</a>
+                <p class="privacy-note">Questions? Contact the church office: <a href="tel:770-640-7287">770-640-7287</a> or <a href="mailto:office@ebzchurch.org">office@ebzchurch.org</a>.</p>
             </div>
         </div>
     </section>
@@ -238,30 +225,5 @@
     </footer>
 
     <script src="js/main.js?v=20260617"></script>
-    <script>
-    // Counter only: registration itself lives in One Church now. The strip stays
-    // hidden unless the API is serving live One Church counts (source === "ocs"),
-    // so a missing key or an OCS outage can never show a wrong number.
-    (function () {
-        var availEl = document.getElementById('availability');
-        fetch('/api/retreat/availability')
-            .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
-            .then(function (a) {
-                if (a.source !== 'ocs' || typeof a.confirmed !== 'number') return;
-                availEl.hidden = false;
-                if (a.remaining > 0) {
-                    availEl.classList.remove('is-full');
-                    availEl.innerHTML = '<strong>' + a.confirmed + ' of ' + a.capacity +
-                        ' spots filled</strong>, ' + a.remaining +
-                        (a.remaining === 1 ? ' spot' : ' spots') + ' remaining.';
-                } else {
-                    availEl.classList.add('is-full');
-                    availEl.innerHTML = '<strong>The retreat is full</strong> (' + a.capacity + ' of ' + a.capacity +
-                        ' spots filled). Contact Kim Hays about openings.';
-                }
-            })
-            .catch(function () {});
-    })();
-    </script>
 </body>
 </html>

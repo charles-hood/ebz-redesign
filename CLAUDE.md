@@ -1,13 +1,13 @@
 # Ebenezer Church Website Redesign
 
-## Current state (as of 2026-10-19)
+## Current state (as of 2026-11-01)
 
 1. Live at ebzchurch.org (alias ebenezermilton.org): static HTML in `site/`, served by Caddy on a Digital Ocean droplet; deploy is `git pull` on the server (see Deployment).
 2. Pardue Center venue and rental content was removed July 24, 2026 at the Finance chair's direction; nav is 6 items; five venue-era images stay on disk unreferenced. Do not add venue material back (see the directive below).
 3. Staff section is "Meet Our Pastors": Glenn Hannigan (Senior Pastor) and Brad Anderson (Associate Pastor, added Oct 19, 2026; his modal emails office@ebzchurch.org until he has an address to publish). Asa Sellers, Robbie Underwood, and Lisa Coxworth were offboarded in June 2026.
 4. All Give links and the homepage QR point directly at `https://ebz.onechurchsoftware.com/public/give/5` (changed Aug 21, 2026); the old `app.onechurchsoftware.com/ebz/egiving` redirect dies in September 2026.
-5. Women's Retreat (Oct 30 to Nov 1, 2026, Woodlands Camp, Cleveland GA): `womens-retreat.html` added Aug 21 to 22. Registration and payment live in One Church event 11071; the Register button lands on the OCS event page, where the visitor clicks Sign Up (no deep link to the form exists). The page's aggregate counter fetches `/api/retreat/availability` (a `retreat.service` on the VPS, Caddy-proxied) and renders only when the API answers. `retreat-signup-test-9f3a2c.html` is an unlisted noindex test page linking straight to the OCS signup form.
-6. Homepage "Coming Up" has one card, the Women's Retreat (comes down after Nov 1, 2026). The Worship in the Pavilion card was pulled Oct 19, 2026 (no Pavilion service on Oct 25, and it still linked to the Aug 23 occurrence 11693); `images/worship-in-pavilion.jpg` stays on disk for when it returns.
+5. Women's Retreat (Oct 30 to Nov 1, 2026, Woodlands Camp, Cleveland GA) is over. `womens-retreat.html` stays live as a noindex past-event record (like `easter.html`); on Nov 1, 2026 its signup block, availability counter, and sitemap entry came out and the unlisted `retreat-signup-test-9f3a2c.html` test page was deleted. Registration lived in One Church event 11071 with a counter from `/api/retreat/availability` (`retreat.service` on the VPS, Caddy-proxied; the service is still running but nothing calls it). `EVENT-SIGNUP-PLAYBOOK.md` records the whole signup pattern (OCS event, site page, homepage card, optional counter, takedown) for the next event that needs registration. `images/womens-retreat-card.webp` is unreferenced and kept on disk.
+6. Homepage "Coming Up" is **hidden** (HTML-commented, with a template card and restore notes in the comment) since Nov 1, 2026: the Women's Retreat card came down and nothing is scheduled. Uncomment it and fill in the card when a worthy event is planned (see Featured Event Update Pattern). The Worship in the Pavilion card was pulled Oct 19, 2026 (no Pavilion service on Oct 25, and it still linked to the Aug 23 occurrence 11693); `images/worship-in-pavilion.jpg` stays on disk for when it returns.
 7. Hero slideshow is 5 frames, 20 s, rebuilt Oct 19, 2026 (Pavilion event frame removed at Candi's request; 6 frames and 24 s from July 24 to Oct 19); the mp4 `<source>` tags carry `?v=20261019`. CSS/JS carry `?v=20260617` and no longer need bumping.
 8. Caddy serves HTML/CSS/JS as `no-cache` and media as `immutable` (since June 2026); a replaced media file under the same name needs a new `?v=`.
 9. Sermons (`sermons/latest`) and the events page are OCS v3.1 embeds with no weekly maintenance.
@@ -45,7 +45,7 @@ Modeled on modern "megachurch" sites (austinstone.org, elevationchurch.org, wood
 
 ## Repository Layout
 
-- `site/` is the deployable root: `index.html` plus one page per section (`sermons`, `history`, `outreach`, `beat-the-drum`, `btd-update-feb-2026`, `btd-update-may-2026`, `beliefs`, `events`, `ministries`, `easter`, `womens-retreat`, `404`), `robots.txt`, `sitemap.xml`, `GLADYS-NYAMBURA-NJERI.pdf`, the unlisted `retreat-signup-test-9f3a2c.html`, and `.well-known/apple-developer-merchantid-domain-association` (Apple Pay domain verification, see One Church Software below; keep it).
+- `site/` is the deployable root: `index.html` plus one page per section (`sermons`, `history`, `outreach`, `beat-the-drum`, `btd-update-feb-2026`, `btd-update-may-2026`, `beliefs`, `events`, `ministries`, `easter`, `womens-retreat`, `404`), `robots.txt`, `sitemap.xml`, `GLADYS-NYAMBURA-NJERI.pdf`, and `.well-known/apple-developer-merchantid-domain-association` (Apple Pay domain verification, see One Church Software below; keep it).
 - `site/css/style.css` and `site/js/main.js` are the only stylesheet and script; staff bios live in `main.js` as a JS object.
 - `site/images/` holds all media: the two hero videos, `church-hero.jpg` (video poster), `logo-header.png` (steeple icon, also the favicon), `give-qr.png`, and the `staff/` and `ministries/` subfolders. `pardue-center.jpg`, `pardue-stage.jpg`, `pavillion.jpg`, `wedding-venue.jpg`, and `wedding-pavilion.jpg` are unreferenced since the Pardue removal and kept on disk deliberately; do not re-link them.
 - `assets/` is the scrape of the legacy WordPress site (`images/`, `content/site-content.md`, `ASSET-MANIFEST.md`).
@@ -275,6 +275,7 @@ contact surface on the site; general enquiries reach the church through the foot
 - `assets/content/site-content.md`: all text content scraped from the production site
 - `assets/ASSET-MANIFEST.md`: inventory of all downloaded assets
 - `HISTORY.md`: Sessions 1 to 27 (Dec 2025 to Jul 2026), the completed-TODO list, and the hero-video measurement method
+- `EVENT-SIGNUP-PLAYBOOK.md`: how to run event registration on the site (OCS event as system of record, dedicated page, Coming Up card, live counter via `retreat.service`); the backend lives in `~/Projects/retreat`
 
 ## Deployment
 
@@ -316,7 +317,7 @@ curl -sL https://ebzchurch.org/events | grep -o '<title>[^<]*</title>'
 **404 handling:**
 `site/404.html` is the branded not-found page (full nav, footer, and a few suggested destinations). Caddy's `handle_errors` block rewrites any error to `/404.html` and serves it, so 404s get proper status codes instead of the old soft-404 pattern (which returned 200 serving the homepage for any unknown path). The old pattern broke GoAccess's bot-probe filtering and was an SEO/security smell. Removing the `/index.html` fallback is safe because `{path}.html` still catches extensionless URLs before the fallback ever runs.
 
-**Retreat API:** `/api/retreat/*` on the same host is reverse-proxied by Caddy to `retreat.service` on the VPS (added Aug 2026; not in the repo). `womens-retreat.html` reads `/api/retreat/availability` for its counter and degrades to no counter if the call fails.
+**Retreat API:** `/api/retreat/*` on the same host is reverse-proxied by Caddy to `retreat.service` on the VPS (added Aug 2026; not in the repo). `womens-retreat.html` read `/api/retreat/availability` for its counter until Nov 1, 2026; nothing on the site calls it now, but the service and proxy are left in place for the next retreat.
 
 **To deploy updates** (from the Mac, after `git push`; key and host details in `~/projects/reverse-proxy/vps-details.md`):
 ```bash
@@ -345,7 +346,7 @@ cd site && for f in *.html; do sed -i '' -E 's#(style\.css\?v=)[0-9]+#\1NEWDATE#
 
 ## Featured Event Update Pattern
 
-The homepage "Coming Up" section is a `.featured-events-grid` of image cards (2-card responsive layout). Each card is an `<a>` wrapping an image; OCS-backed cards link to `https://ebz.onechurchsoftware.com/public/events/{EVENT_ID}`, site pages link directly (the retreat card goes to `womens-retreat.html`). To promote a different OCS event:
+The homepage "Coming Up" section is a `.featured-events-grid` of image cards (2-card responsive layout). **Since Nov 1, 2026 the whole section is HTML-commented out in `index.html` with a placeholder card inside the comment; uncomment it and fill in the placeholders to bring it back.** Each card is an `<a>` wrapping an image; OCS-backed cards link to `https://ebz.onechurchsoftware.com/public/events/{EVENT_ID}`, site pages link directly (the 2026 retreat card went to `womens-retreat.html`). To promote a different OCS event:
 
 1. Find the event ID in One Church Software admin
 2. Edit `site/index.html`: swap the card image and its href. If using the OCS embed instead of an image, change **both** the `data-ocs-id` and the overlay `<a>` href:

@@ -85,22 +85,30 @@
         </div>
     </section>
 
-    <!-- Featured Events Section -->
+    <!-- Featured Events Section ("Coming Up")
+         HIDDEN since Nov 1, 2026: the Women's Retreat was the last card and nothing is
+         scheduled yet. To bring the section back, uncomment it and point the card at
+         the next event. Cards are <a> tags wrapping an image: OCS events link to
+         https://ebz.onechurchsoftware.com/public/events/{EVENT_ID}, site pages link
+         directly. The CSS (.coming-up, .featured-events-grid, .featured-event-card) is
+         still in style.css. Full pattern: CLAUDE.md, "Featured Event Update Pattern".
+
     <section class="coming-up">
         <div class="container">
             <h2 class="section-title" style="text-align: center; margin-bottom: 1.5rem;">Coming Up</h2>
             <div class="featured-events-grid">
-                <a href="womens-retreat.html" class="featured-event-card" style="position: relative;">
-                    <img src="images/womens-retreat-card.webp" alt="Women's Retreat, October 30 - November 1, 2026 at Woodlands Camp: painting of two chairs by a misty mountain lake at sunrise" loading="lazy" decoding="async">
-                    <span style="position: absolute; left: 0; right: 0; bottom: 0; padding: 2.5rem 1rem 1rem; background: linear-gradient(transparent, rgba(16, 32, 54, 0.88)); color: #fff; font-family: 'Playfair Display', serif; font-size: 1.4rem; text-align: center;">Women's Retreat<span style="display: block; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; letter-spacing: 0.05em; margin-top: 0.3rem; color: #e8d59a;">October 30 - November 1 &middot; Sign Up Today</span></span>
+                <a href="EVENT-PAGE-OR-OCS-URL" class="featured-event-card" style="position: relative;">
+                    <img src="images/EVENT-CARD.webp" alt="EVENT NAME, DATE and PLACE" loading="lazy" decoding="async">
+                    <span style="position: absolute; left: 0; right: 0; bottom: 0; padding: 2.5rem 1rem 1rem; background: linear-gradient(transparent, rgba(16, 32, 54, 0.88)); color: #fff; font-family: 'Playfair Display', serif; font-size: 1.4rem; text-align: center;">EVENT NAME<span style="display: block; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; letter-spacing: 0.05em; margin-top: 0.3rem; color: #e8d59a;">DATE &middot; Sign Up Today</span></span>
                 </a>
             </div>
             <div style="text-align: center; margin-top: 1.5rem;">
-                <a href="womens-retreat.html" class="btn btn-primary" style="margin-right: 0.5rem;">Women's Retreat Sign-Up</a>
+                <a href="EVENT-PAGE-OR-OCS-URL" class="btn btn-primary" style="margin-right: 0.5rem;">EVENT NAME Sign-Up</a>
                 <a href="events.html" class="btn btn-secondary">View More Events</a>
             </div>
         </div>
     </section>
+    -->
 
     <!-- Mission Statement -->
     <section class="section section-mission">
